@@ -20,7 +20,6 @@ const Header = ({ location }) => {
 
   return (
     <StyledHeader>
-      <Logo isFull={location.pathname !== '/'} />
       <Menu id="menu">
         <Link id="home" activeClassName="active" to="/">
           Home
@@ -36,6 +35,24 @@ const Header = ({ location }) => {
         </Link>
         {hovered.length > 0 && <Target pos={hovered} />}
       </Menu>
+      <Logo isFull={location.pathname !== '/'} />
+      {/* {location.pathname !== '/' && (
+        <span
+          style={{
+            position: 'absolute',
+            fontFamily: 'Montserrat',
+            fontWeight: 800,
+            textTransform: 'uppercase',
+            fontSize: '90px',
+            zIndex: -1,
+            opacity: 0.05,
+            top: '-10px',
+            right: '-25px',
+          }}
+        >
+          Peter Szabo
+        </span>
+      )} */}
     </StyledHeader>
   )
 }

@@ -12,7 +12,8 @@ const StyledLogo = styled.img`
 
 const Logo = ({ isFull }) => (
   <Link to="/">
-    <StyledLogo src={isFull ? fullLogo : logo} alt="Peter Szabo" />
+    {/* <StyledLogo src={isFull ? fullLogo : logo} alt="Peter Szabo" /> */}
+    <StyledLogo src={logo} alt="Peter Szabo" />
   </Link>
 )
 

@@ -12,7 +12,7 @@ const BackgroundSection = ({ className, children }) => (
   <StaticQuery
     query={graphql`
       query {
-        desktop: file(relativePath: { eq: "home-test.png" }) {
+        desktop: file(relativePath: { eq: "bg.jpg" }) {
           childImageSharp {
             fluid(quality: 100, maxWidth: 1920) {
               ...GatsbyImageSharpFluid_withWebp
@@ -46,7 +46,7 @@ const StyledBackgroundSection = styled(BackgroundSection)`
   background-size: cover;
 
   :before {
-    filter: blur(2px);
+    /* filter: blur(2px); */
   }
 `
 
