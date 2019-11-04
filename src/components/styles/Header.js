@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 const Header = styled.header`
-  margin: 30px;
+  padding: 30px;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
 `
 
