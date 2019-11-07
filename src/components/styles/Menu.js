@@ -7,6 +7,7 @@ const Menu = styled.nav`
   display: grid;
   grid-template-columns: auto auto auto auto;
   position: relative;
+  padding: 0 30px;
 
   a {
     position: relative;
