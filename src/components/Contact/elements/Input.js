@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useFloat } from 'components/hooks/useFloat'
 import InputWrapper from '../styles/InputWrapper'
+import Error from '../styles/Error'
 
 const Input = ({ field, form: { touched, errors }, placeholder, ...props }) => {
   const [isActive, setIsActive] = useState(field.value.length > 0)
@@ -15,13 +16,13 @@ const Input = ({ field, form: { touched, errors }, placeholder, ...props }) => {
     }
   }
 
+  const isError = touched[field.name] && errors[field.name]
+
   return (
-    <InputWrapper isActive={isActive}>
+    <InputWrapper isActive={isActive} isError={isError}>
       <label htmlFor={field.name}>{placeholder}</label>
       <input id={field.name} {...field} {...props} onBlur={customBlur} />
-      {touched[field.name] && errors[field.name] && (
-        <div className="error">{errors[field.name]}</div>
-      )}
+      {isError && <Error>{errors[field.name]}</Error>}
     </InputWrapper>
   )
 }
