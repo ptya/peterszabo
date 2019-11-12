@@ -11,7 +11,6 @@ function useTarget(base, handler) {
     const contact = document.getElementById('contact')
 
     const hoverListener = event => {
-      // console.log(event.target)
       const left = event.target.offsetLeft
       const width = event.target.offsetWidth
       handler([

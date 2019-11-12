@@ -3,9 +3,8 @@ import styled from 'styled-components'
 import { colors } from './variables'
 
 const Menu = styled.nav`
-  /* display: flex; */
-  display: grid;
-  grid-template-columns: auto auto auto auto;
+  display: flex;
+  justify-content: flex-end;
   position: relative;
   padding: 0 30px;
 
