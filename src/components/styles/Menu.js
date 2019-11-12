@@ -16,8 +16,8 @@ const Menu = styled.nav`
     padding: 0 10px;
     color: ${colors.grey};
     font-size: 28px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 200;
+    /* font-family: 'Montserrat', sans-serif; */
+    /* font-weight: 200; */
     transition: all 0.3s ease-in-out;
     text-shadow: 1px 1px 1px ${colors.bg};
   }

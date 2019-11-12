@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
     /* background by SVGBackgrounds.com */
   }
 
-  h1{
+  h1, nav {
     font-family: "Montserrat",  sans-serif;
     font-weight: 200;
     font-size: 4.8rem;
