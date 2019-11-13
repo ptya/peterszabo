@@ -2,7 +2,6 @@ import { createGlobalStyle } from 'styled-components'
 import { normalize } from 'styled-normalize'
 
 import background from 'assets/images/Large-Triangles.svg'
-import imgBg from 'assets/images/home-bg_1920_b.jpg'
 import { colors } from './variables'
 
 const GlobalStyle = createGlobalStyle`

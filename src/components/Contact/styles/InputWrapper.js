@@ -28,8 +28,7 @@ const InputWrapper = styled.div`
     font-size: 1.6rem;
     padding: 20px 10px 10px;
     background-color: ${colors.darkBlue};
-    border: ${props =>
-      props.isError ? '1px solid red' : `1px solid ${colors.grey2}`};
+    border: ${props => (props.isError ? '1px solid red' : `0`)};
     border-radius: 5px;
     color: ${colors.lightBlue};
   }
