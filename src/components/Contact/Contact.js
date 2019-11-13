@@ -2,6 +2,7 @@ import React, { useState, useLayoutEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
+import Title from 'components/elements/Title'
 import Form from './Form'
 
 const Main = styled.main`
@@ -17,7 +18,7 @@ const About = () => {
 
   return (
     <Main>
-      <h1>Get in touch</h1>
+      <Title>Get in touch</Title>
       <p>Have a question? Want to work together or just say hi?</p>
       <Form />
     </Main>
