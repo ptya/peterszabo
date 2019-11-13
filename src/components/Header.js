@@ -6,10 +6,10 @@ import { useTarget } from 'components/hooks/useTarget'
 import { useActive } from 'components/hooks/useActive'
 
 import Logo from './elements/Logo'
+import Target from './elements/Target'
 
-import StyledHeader from './styles/Header'
+import StyledHeader from './styles/StyledHeader'
 import Menu from './styles/Menu'
-import Target from './styles/Target'
 
 const Header = ({ location }) => {
   const [active, setActive] = useState([])
