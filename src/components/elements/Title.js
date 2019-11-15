@@ -6,9 +6,10 @@ import { AnimBgLeft, AnimBgRight } from '../styles/AnimBg'
 
 const Title = ({ children }) => {
   const textRef = useRef()
-  const bgRef = useRef()
+  const bgLeftRef = useRef()
+  const bgRightRef = useRef()
 
-  const { width } = useSpring({
+  const { width: lWidth } = useSpring({
     from: {
       width: 0,
     },
@@ -18,7 +19,20 @@ const Title = ({ children }) => {
       tension: 280,
       friction: 30,
     },
-    ref: bgRef,
+    ref: bgLeftRef,
+  })
+
+  const { width: rWidth } = useSpring({
+    from: {
+      width: 0,
+    },
+    width: 115,
+    config: {
+      mass: 1,
+      tension: 280,
+      friction: 30,
+    },
+    ref: bgRightRef,
   })
 
   const animation = useSpring({
@@ -29,13 +43,13 @@ const Title = ({ children }) => {
     ref: textRef,
   })
 
-  useChain([bgRef, textRef], [0, 0.4])
+  useChain([bgLeftRef, bgRightRef, textRef], [0, 0.15, 0.3])
 
   return (
     <StyledTitle>
       <animated.span style={animation}>{children}</animated.span>
-      <AnimBgLeft style={{ width: width.interpolate(w => `${w}%`) }} />
-      <AnimBgRight style={{ width: width.interpolate(w => `${w}%`) }} />
+      <AnimBgLeft style={{ width: lWidth.interpolate(w => `${w}%`) }} />
+      <AnimBgRight style={{ width: rWidth.interpolate(w => `${w}%`) }} />
     </StyledTitle>
   )
 }
