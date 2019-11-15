@@ -6,10 +6,20 @@ import Title from 'components/elements/Title'
 import Form from './Form'
 
 const Main = styled.main`
-  display: flex;
-  flex-direction: column;
+  display: grid;
   justify-content: center;
   align-items: center;
+
+  h1 {
+    justify-self: baseline;
+    left: -50px;
+  }
+
+  p {
+    margin: 10px 25px;
+    font-size: 1.8rem;
+    font-weight: 200;
+  }
 `
 
 const About = () => {
