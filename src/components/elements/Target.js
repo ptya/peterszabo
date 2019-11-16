@@ -16,10 +16,7 @@ const Target = ({ pos }) => {
 }
 
 Target.propTypes = {
-  pos: PropTypes.shape({
-    left: PropTypes.number,
-    width: PropTypes.number,
-  }).isRequired,
+  pos: PropTypes.arrayOf(PropTypes.number).isRequired,
 }
 
 export default Target
