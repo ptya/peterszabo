@@ -7,3 +7,9 @@ export const colors = {
   lightBlue: '#A4BBD7',
   darkBlue: '#2E3F57',
 }
+
+export const z = {
+  top: 200,
+  middle: 100,
+  back: -100,
+}

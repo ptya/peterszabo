@@ -85,11 +85,7 @@
       }
     },
     "rules": {
-      "react/jsx-props-no-spreading": [
-        {
-          "custom": 0
-        }
-      ],
+      "react/jsx-props-no-spreading": "off",
       "jsx-a11y/label-has-associated-control": [
         2,
         {

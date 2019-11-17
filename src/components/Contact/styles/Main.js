@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 const Main = styled.main`
   display: grid;
+  grid-template-rows: auto auto auto auto;
   justify-content: center;
   align-items: center;
 
