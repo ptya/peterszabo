@@ -10,6 +10,14 @@ const MapWrapper = styled.aside`
   left: 0;
   border-top: 2px solid ${colors.blue};
   z-index: ${z.middle};
+
+  .mapboxgl-popup-content {
+    p {
+      color: #000;
+      font-size: 1.2rem;
+      margin: 0;
+    }
+  }
 `
 
 export default MapWrapper
