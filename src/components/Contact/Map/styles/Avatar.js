@@ -18,7 +18,7 @@ const Avatar = styled.img`
   border: 2px solid ${colors.blue};
   border-radius: 25px;
   cursor: pointer;
-  animation: ${fadeIn} 3s linear;
+  /* animation: ${fadeIn} 3s linear; */
   transition: all 0.3s ease-in-out;
 
   :hover {

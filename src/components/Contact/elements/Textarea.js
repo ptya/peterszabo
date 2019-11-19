@@ -42,6 +42,4 @@ Textarea.propTypes = {
   placeholder: PropTypes.string.isRequired,
 }
 
-// TODO floating label
-
 export default Textarea

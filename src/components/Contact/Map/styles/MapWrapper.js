@@ -3,7 +3,7 @@ import { colors, z } from 'components/styles/variables'
 
 const MapWrapper = styled.aside`
   width: 100%;
-  transition: height ease-in-out 0.3s;
+  /* transition: height ease-in-out 0.3s; */
   height: ${props => (props.isExtended ? '100vh' : '200px')};
   position: fixed;
   bottom: 0;

@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import ReactMapGL, { Marker, Popup } from 'react-map-gl'
-import { useSpring, animated } from 'react-spring'
+import { useSpring, useChain, animated } from 'react-spring'
 
 import Pic from 'assets/images/avatar.jpg'
 import Arrow from './elements/Arrow'
@@ -9,6 +9,7 @@ import MapBtn from './styles/MapBtn'
 import Avatar from './styles/Avatar'
 
 const AnimWrapper = animated(MapWrapper)
+const AnimAvatar = animated(Avatar)
 
 const Map = () => {
   const [isExtended, setExtended] = useState(false)
@@ -19,12 +20,32 @@ const Map = () => {
     zoom: 12,
   })
 
-  const { x } = useSpring({ from: { x: 200 }, x: 0, delay: 700 })
+  const enterRef = useRef()
+  const resizeRef = useRef()
+  const fadeRef = useRef()
+
+  const { x } = useSpring({
+    from: { x: 200 },
+    x: 0,
+    delay: 1500,
+    ref: enterRef,
+  })
+  const fade = useSpring({
+    from: { opacity: 0 },
+    opacity: 1,
+    ref: fadeRef,
+    delay: 1000,
+  })
+  const resize = useSpring({
+    height: isExtended ? '100vh' : '20vh',
+    ref: resizeRef,
+  })
+
+  useChain([enterRef, fadeRef, resizeRef])
 
   return (
     <AnimWrapper
-      isExtended={isExtended}
-      style={{ transform: x.interpolate(x => `translateY(${x}px)`) }}
+      style={{ transform: x.interpolate(x => `translateY(${x}px)`), ...resize }}
     >
       <MapBtn onClick={() => setExtended(!isExtended)} isExtended={isExtended}>
         <Arrow />
@@ -45,7 +66,12 @@ const Map = () => {
           offsetLeft={-25}
           offsetTop={-25}
         >
-          <Avatar src={Pic} alt="my marker" onClick={() => setOn(!on)} />
+          <AnimAvatar
+            style={fade}
+            src={Pic}
+            alt="my marker"
+            onClick={() => setOn(!on)}
+          />
         </Marker>
         {on && (
           <Popup
@@ -64,5 +90,7 @@ const Map = () => {
     </AnimWrapper>
   )
 }
+
+// TODO popup styling
 
 export default Map
