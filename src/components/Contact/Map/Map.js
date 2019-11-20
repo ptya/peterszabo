@@ -1,6 +1,7 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import ReactMapGL, { Marker, Popup } from 'react-map-gl'
 import { useSpring, useChain, animated } from 'react-spring'
+import PropTypes from 'prop-types'
 
 import Pic from 'assets/images/avatar.jpg'
 import Arrow from './elements/Arrow'
@@ -11,7 +12,8 @@ import Avatar from './styles/Avatar'
 const AnimWrapper = animated(MapWrapper)
 const AnimAvatar = animated(Avatar)
 
-const Map = () => {
+const Map = ({ delay }) => {
+  const [ready, setReady] = useState(false)
   const [isExtended, setExtended] = useState(false)
   const [on, setOn] = useState(false)
   const [viewport, setViewport] = useState({
@@ -20,6 +22,10 @@ const Map = () => {
     zoom: 12,
   })
 
+  useEffect(() => {
+    setTimeout(() => setReady(true), delay)
+  }, [delay])
+
   const enterRef = useRef()
   const resizeRef = useRef()
   const fadeRef = useRef()
@@ -27,14 +33,14 @@ const Map = () => {
   const { x } = useSpring({
     from: { x: 200 },
     x: 0,
-    delay: 1500,
     ref: enterRef,
+    delay: 700,
   })
   const fade = useSpring({
     from: { opacity: 0 },
     opacity: 1,
     ref: fadeRef,
-    delay: 1000,
+    delay: 300,
   })
   const resize = useSpring({
     height: isExtended ? '100vh' : '20vh',
@@ -44,51 +50,69 @@ const Map = () => {
   useChain([enterRef, fadeRef, resizeRef])
 
   return (
-    <AnimWrapper
-      style={{ transform: x.interpolate(x => `translateY(${x}px)`), ...resize }}
-    >
-      <MapBtn onClick={() => setExtended(!isExtended)} isExtended={isExtended}>
-        <Arrow />
-      </MapBtn>
-      <ReactMapGL
-        {...viewport}
-        width="100%"
-        height="100%"
-        mapboxApiAccessToken={process.env.GATSBY_MAPBOX_API_TOKEN}
-        mapStyle="mapbox://styles/ptrszb/ck31d7k641qsn1co8k393vc5l"
-        onViewportChange={vp => {
-          setViewport({ ...vp })
-        }}
-      >
-        <Marker
-          latitude={47.51}
-          longitude={19.02}
-          offsetLeft={-25}
-          offsetTop={-25}
+    <>
+      {ready && (
+        <AnimWrapper
+          style={{
+            transform: x.interpolate(x => `translateY(${x}px)`),
+            ...resize,
+          }}
         >
-          <AnimAvatar
-            style={fade}
-            src={Pic}
-            alt="my marker"
-            onClick={() => setOn(!on)}
-          />
-        </Marker>
-        {on && (
-          <Popup
-            latitude={47.51}
-            longitude={19.02}
-            closeButton={false}
-            closeOnClick
-            onClose={() => setOn(false)}
-            offsetLeft={15}
-            anchor="left"
+          <MapBtn
+            onClick={() => setExtended(!isExtended)}
+            isExtended={isExtended}
           >
-            <p>Heyho!</p>
-          </Popup>
-        )}
-      </ReactMapGL>
-    </AnimWrapper>
+            <Arrow />
+          </MapBtn>
+          <ReactMapGL
+            {...viewport}
+            width="100%"
+            height="100%"
+            mapboxApiAccessToken={process.env.GATSBY_MAPBOX_API_TOKEN}
+            mapStyle="mapbox://styles/ptrszb/ck31d7k641qsn1co8k393vc5l"
+            onViewportChange={vp => {
+              setViewport({ ...vp })
+            }}
+          >
+            <Marker
+              latitude={47.51}
+              longitude={19.02}
+              offsetLeft={-25}
+              offsetTop={-25}
+            >
+              <AnimAvatar
+                style={fade}
+                src={Pic}
+                alt="my marker"
+                onClick={() => setOn(!on)}
+              />
+            </Marker>
+            {on && (
+              <Popup
+                latitude={47.51}
+                longitude={19.02}
+                closeButton={false}
+                closeOnClick
+                onClose={() => setOn(false)}
+                offsetLeft={15}
+                anchor="left"
+              >
+                <p>Heyho!</p>
+              </Popup>
+            )}
+          </ReactMapGL>
+        </AnimWrapper>
+      )}
+    </>
   )
+}
+
+Map.propTypes = {
+  delay: PropTypes.number,
+}
+
+Map.defaultPropTypes = {
+  delay: 0,
 }
 
 // TODO popup styling
