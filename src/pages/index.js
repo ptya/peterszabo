@@ -20,7 +20,7 @@ export default props => (
     </Hero>
     <Footer>
       <h3>Where to find me</h3>
-      <Social />
+      <Social type="row" />
     </Footer>
   </Layout>
 )
