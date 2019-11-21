@@ -4,9 +4,11 @@ import Layout from 'components/Layout'
 import SEO from 'components/SEO'
 import Contact from 'components/Contact'
 
-export default props => (
+const Page = props => (
   <Layout {...props}>
     <SEO title="Contact me" />
     <Contact />
   </Layout>
 )
+
+export default Page

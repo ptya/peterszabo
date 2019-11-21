@@ -1,11 +1,13 @@
 import React from 'react'
-
 import Layout from 'components/Layout'
 import SEO from 'components/SEO'
+import Work from 'components/Work'
 
-export default props => (
+const Page = props => (
   <Layout {...props}>
     <SEO title="My works" />
-    <div>work</div>
+    <Work />
   </Layout>
 )
+
+export default Page

@@ -7,7 +7,7 @@ import Social from 'components/Social'
 import Hero from 'components/styles/Hero'
 import Footer from 'components/styles/Footer'
 
-export default props => (
+const Page = props => (
   <Layout bgEnabled {...props}>
     <SEO />
     <Hero>
@@ -24,3 +24,5 @@ export default props => (
     </Footer>
   </Layout>
 )
+
+export default Page
