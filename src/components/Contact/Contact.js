@@ -13,7 +13,7 @@ const About = () => (
       <Form />
     </Main>
     <Social type="col" />
-    <Map delay={750} />
+    <Map delay={1000} />
   </>
 )
 

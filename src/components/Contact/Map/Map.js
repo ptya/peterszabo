@@ -19,7 +19,7 @@ const Map = ({ delay }) => {
   const [viewport, setViewport] = useState({
     latitude: 47.51414,
     longitude: 19.02196,
-    zoom: 12,
+    zoom: 11,
   })
 
   useEffect(() => {
@@ -28,33 +28,26 @@ const Map = ({ delay }) => {
 
   const enterRef = useRef()
   const resizeRef = useRef()
-  const fadeRef = useRef()
 
   const { x } = useSpring({
-    from: { x: 200 },
+    from: { x: 250 },
     x: 0,
     ref: enterRef,
-    delay: 700,
-  })
-  const fade = useSpring({
-    from: { opacity: 0 },
-    opacity: 1,
-    ref: fadeRef,
-    delay: 300,
+    delay: 950,
   })
   const resize = useSpring({
     height: isExtended ? '100vh' : '20vh',
     ref: resizeRef,
   })
 
-  useChain([enterRef, fadeRef, resizeRef])
+  useChain([enterRef, resizeRef])
 
   return (
     <>
       {ready && (
         <AnimWrapper
           style={{
-            transform: x.interpolate(x => `translateY(${x}px)`),
+            transform: x.interpolate(n => `translateY(${n}px)`),
             ...resize,
           }}
         >
@@ -81,7 +74,6 @@ const Map = ({ delay }) => {
               offsetTop={-25}
             >
               <AnimAvatar
-                style={fade}
                 src={Pic}
                 alt="my marker"
                 onClick={() => setOn(!on)}
