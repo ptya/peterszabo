@@ -10,6 +10,7 @@ const Footer = styled.footer`
   align-items: center;
   bottom: 0;
   width: 100%;
+  overflow: hidden;
 
   h3 {
     margin: 10px;
