@@ -15,6 +15,8 @@ const Main = styled.main`
     margin: 10px 25px;
     font-size: 1.8rem;
     font-weight: 200;
+    display: flex;
+    align-items: center;
   }
 `
 

@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { animated, useSpring } from 'react-spring'
 
-import SocialBtn from './styles/SocialBtn.js'
-import SocialWrapper from './styles/SocialWrapper.js'
+import SocialBtn from './styles/SocialBtn'
+import SocialWrapper from './styles/SocialWrapper'
 
 const AnimWrapper = animated(SocialWrapper)
 

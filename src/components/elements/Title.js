@@ -17,7 +17,7 @@ const Title = ({ children }) => {
     config: {
       mass: 1,
       tension: 280,
-      friction: 30,
+      friction: 40,
     },
     ref: bgLeftRef,
   })
@@ -30,7 +30,7 @@ const Title = ({ children }) => {
     config: {
       mass: 1,
       tension: 280,
-      friction: 30,
+      friction: 40,
     },
     ref: bgRightRef,
   })
@@ -43,7 +43,7 @@ const Title = ({ children }) => {
     ref: textRef,
   })
 
-  useChain([bgLeftRef, bgRightRef, textRef], [0, 0.15, 0.3])
+  useChain([bgLeftRef, bgRightRef, textRef], [0, 0.15, 0.4])
 
   return (
     <StyledTitle>

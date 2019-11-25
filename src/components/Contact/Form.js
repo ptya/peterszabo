@@ -82,8 +82,6 @@ const ContactForm = () => {
   )
 }
 
-//! https://jaredpalmer.com/formik/docs/api/field
-
 ContactForm.propTypes = {}
 
 export default ContactForm
