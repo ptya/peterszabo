@@ -28,6 +28,19 @@ module.exports = {
         path: path.join(__dirname, `src`, `assets`, `images`),
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `markdown-files`,
+        path: `${__dirname}/src/works`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        excerpt_separator: `<!-- end -->`,
+      },
+    },
   ],
   siteMetadata: {
     title: 'Peter Szabo',
