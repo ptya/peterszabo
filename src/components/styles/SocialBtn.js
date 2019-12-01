@@ -34,7 +34,7 @@ const SocialBtn = styled.a.attrs(props => ({
     height: 55px;
     /* background-size: cover; */
     text-indent: -9999em;
-    background: url(${props => props.img}) no-repeat 0 1px;
+    background: url(${props => props.img}) no-repeat 0;
     background-size: cover;
   }
 `

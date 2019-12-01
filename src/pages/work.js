@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
 import Layout from 'components/Layout'
@@ -11,6 +12,10 @@ const Page = ({ data, ...props }) => (
     <Work data={data} />
   </Layout>
 )
+
+Page.propTypes = {
+  data: PropTypes.object.isRequired,
+}
 
 export default Page
 
