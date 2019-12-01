@@ -6,8 +6,7 @@ const Main = styled.main`
   justify-content: center;
   align-items: center;
 
-  h1 {
-    justify-self: baseline;
+  .title {
     left: -50px;
   }
 

@@ -1,10 +1,13 @@
 import React, { useRef } from 'react'
 import { useSpring, useChain, animated } from 'react-spring'
 import PropTypes from 'prop-types'
+import StyledTitleWrapper from '../styles/StyledTitleWrapper'
 import StyledTitle from '../styles/StyledTitle'
 import { AnimBgLeft, AnimBgRight } from '../styles/AnimBg'
 
-const Title = ({ children }) => {
+const AnimatedTitle = animated(StyledTitle)
+
+const Title = ({ children, type, className }) => {
   const textRef = useRef()
   const bgLeftRef = useRef()
   const bgRightRef = useRef()
@@ -46,16 +49,25 @@ const Title = ({ children }) => {
   useChain([bgLeftRef, bgRightRef, textRef], [0, 0.15, 0.4])
 
   return (
-    <StyledTitle>
-      <animated.span style={animation}>{children}</animated.span>
+    <StyledTitleWrapper className={className}>
       <AnimBgLeft style={{ width: lWidth.interpolate(w => `${w}%`) }} />
       <AnimBgRight style={{ width: rWidth.interpolate(w => `${w}%`) }} />
-    </StyledTitle>
+      <AnimatedTitle as={type} style={animation}>
+        {children}
+      </AnimatedTitle>
+    </StyledTitleWrapper>
   )
 }
 
 Title.propTypes = {
   children: PropTypes.string.isRequired,
+  type: PropTypes.string,
+  className: PropTypes.string,
+}
+
+Title.defaultPropTypes = {
+  type: 'h1',
+  className: '',
 }
 
 export default Title
