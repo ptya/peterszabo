@@ -8,8 +8,9 @@ import StyledItem from './styles/StyledItem'
 import WorkTag from './WorkTag'
 
 const AnimatedWrapper = animated(DetailsWrapper)
+const AnimatedItem = animated(StyledItem)
 
-const WorkItem = ({ work, style }) => {
+const WorkItem = ({ work, style, onSelect }) => {
   const {
     frontmatter: { tags, title },
     id,
@@ -27,12 +28,13 @@ const WorkItem = ({ work, style }) => {
   })
 
   return (
-    <StyledItem
+    <AnimatedItem
       style={style}
       onMouseOver={() => setHovered(true)}
       onFocus={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onBlur={() => setHovered(false)}
+      onClick={e => onSelect(e)}
     >
       <animated.img
         style={fade}
@@ -52,7 +54,7 @@ const WorkItem = ({ work, style }) => {
             </AnimatedWrapper>
           )
       )}
-    </StyledItem>
+    </AnimatedItem>
   )
 }
 
@@ -65,6 +67,7 @@ WorkItem.propTypes = {
     id: PropTypes.string.isRequired,
   }).isRequired,
   style: PropTypes.object,
+  onSelect: PropTypes.func.isRequired,
 }
 
 WorkItem.defaultProps = {

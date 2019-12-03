@@ -1,10 +1,12 @@
-import React from 'react'
-import { useTransition, animated } from 'react-spring'
+import React, { useState } from 'react'
+import { useTransition, animated, useSpring, config } from 'react-spring'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
 import Social from 'components/Social'
 import Title from 'components/elements/Title'
 import WorkItem from './WorkItem'
+import WorkModal from './WorkModal'
 
 import GitHub from './elements/GitHub'
 
@@ -16,13 +18,16 @@ const AnimatedWorkItem = animated(WorkItem)
 const Work = ({ data }) => {
   const items = data.allMarkdownRemark.edges.map(({ node }) => node)
   // TODO: modal for individual works
-
+  const [selected, setSelected] = useState(null)
   const transitions = useTransition(items, item => item.id, {
     from: { x: -50, opacity: 0 },
     enter: { x: 0, opacity: 1 },
     leave: { x: 50, opacity: 0 },
     trail: 100,
   })
+  const onSelect = (e, item) => {
+    setSelected({ top: e.clientY, left: e.clientX, item })
+  }
 
   return (
     <>
@@ -44,11 +49,13 @@ const Work = ({ data }) => {
                 }}
                 key={key}
                 work={item}
+                onSelect={e => onSelect(e, item)}
               />
             )
         )}
       </WorkWrapper>
       <Social type="col" />
+      {selected && <WorkModal data={selected} />}
     </>
   )
 }
