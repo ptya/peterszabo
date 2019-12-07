@@ -1,5 +1,5 @@
 ---
-path: "/gscript"
+path: "/work/gscript"
 order: 2
 title: "Google Scripts"
 tags: ["Apps Script","Jira API","Sheets API", "GitLab API"]

@@ -2,6 +2,7 @@ import React from 'react'
 import { useSpring, animated, config } from 'react-spring'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { fn } from 'moment'
 
 const StyledDiv = styled.div`
   background: red;
@@ -18,20 +19,26 @@ const Wrapper = styled.div`
 
 const AnimDiv = animated(StyledDiv)
 
-const WorkModal = ({ data }) => {
-  const { top, left, item } = data
+const WorkModal = ({ data, fromWork, callback }) => {
+  const { top, left } = data
   const modalSpring = useSpring({
     from: {
-      top,
-      left,
-      width: '0%',
-      height: '0%',
+      top: fromWork ? 0 : top,
+      left: fromWork ? 0 : left,
+      width: fromWork ? '100%' : '0%',
+      height: fromWork ? '100%' : '0%',
     },
-    width: '100%',
-    height: '100%',
-    top: 0,
-    left: 0,
-    config: config.normal,
+    width: fromWork ? '0%' : '100%',
+    height: fromWork ? '0%' : '100%',
+    top: fromWork ? top : 0,
+    left: fromWork ? left : 0,
+    config: {
+      mass: 1,
+      tension: 500,
+      friction: 50,
+    },
+    delay: fromWork ? 500 : 0,
+    onRest: callback,
   })
 
   return (
@@ -45,8 +52,14 @@ WorkModal.propTypes = {
   data: PropTypes.shape({
     top: PropTypes.number.isRequired,
     left: PropTypes.number.isRequired,
-    item: PropTypes.object.isRequired,
+    // item: PropTypes.object.isRequired,
   }).isRequired,
+  fromWork: PropTypes.bool,
+  callback: PropTypes.func.isRequired,
+}
+
+WorkModal.defaultProps = {
+  fromWork: false,
 }
 
 export default WorkModal

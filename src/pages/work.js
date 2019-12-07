@@ -9,7 +9,7 @@ import Work from 'components/Work'
 const Page = ({ data, ...props }) => (
   <Layout {...props}>
     <SEO title="My works" />
-    <Work data={data} />
+    <Work data={data} {...props} />
   </Layout>
 )
 

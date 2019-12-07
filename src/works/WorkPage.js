@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import PropTypes from 'prop-types'
 
 const WorkPage = ({
@@ -11,6 +11,9 @@ const WorkPage = ({
     <div className="blog-post-container">
       <div className="blog-post">
         <h1>{frontmatter.title}</h1>
+        <Link to="/work" state={{ fromWork: true }}>
+          Back
+        </Link>
         <div
           className="blog-post-content"
           dangerouslySetInnerHTML={{ __html: html }}

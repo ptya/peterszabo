@@ -1,5 +1,5 @@
 ---
-path: "/mito-airline"
+path: "/work/mito-airline"
 order: 1
 title: "Mito Airline"
 tags: ["WebApp", "HTML5","React","Jest","Animation", "Styled Components"]

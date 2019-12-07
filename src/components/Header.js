@@ -24,13 +24,18 @@ const Header = ({ location }) => {
         <Link id="home" activeClassName="active" to="/">
           Home
         </Link>
-        <Link id="about" activeClassName="active" to="/about/">
+        <Link id="about" activeClassName="active" partiallyActive to="/about">
           About
         </Link>
-        <Link id="work" activeClassName="active" to="/work/">
+        <Link id="work" activeClassName="active" partiallyActive to="/work">
           Work
         </Link>
-        <Link id="contact" activeClassName="active" to="/contact/">
+        <Link
+          id="contact"
+          activeClassName="active"
+          partiallyActive
+          to="/contact"
+        >
           Contact
         </Link>
         {hovered.length > 0 && <Target pos={hovered} />}

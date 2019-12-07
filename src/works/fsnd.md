@@ -1,5 +1,5 @@
 ---
-path: "/fsnd"
+path: "/work/fsnd"
 order: 3
 title: "Udacity Nanodegree"
 tags: ["HTML5","CSS3","Python", "JavaScript", "SQL", "SysAdmin"]

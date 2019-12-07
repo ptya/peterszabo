@@ -15,7 +15,11 @@ import WorkWrapper from './styles/WorksWrapper'
 
 const AnimatedWorkItem = animated(WorkItem)
 
-const Work = ({ data }) => {
+const Work = ({ data, location }) => {
+  const { state } = location
+  const fromWork = state && Object.keys(state).includes('fromWork')
+  const [on, set] = useState(true)
+
   const items = data.allMarkdownRemark.edges.map(({ node }) => node)
   // TODO: modal for individual works
   const [selected, setSelected] = useState(null)
@@ -55,7 +59,16 @@ const Work = ({ data }) => {
         )}
       </WorkWrapper>
       <Social type="col" />
-      {selected && <WorkModal data={selected} />}
+      {selected && (
+        <WorkModal data={selected} callback={() => console.log('done')} />
+      )}
+      {fromWork && on && (
+        <WorkModal
+          data={{ top: 500, left: 500 }}
+          fromWork
+          callback={() => set(false)}
+        />
+      )}
     </>
   )
 }
@@ -66,6 +79,7 @@ Work.propTypes = {
       edges: PropTypes.array.isRequired,
     }).isRequired,
   }).isRequired,
+  location: PropTypes.object.isRequired,
 }
 
 export default Work
