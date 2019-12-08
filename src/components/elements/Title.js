@@ -7,14 +7,14 @@ import { AnimBgLeft, AnimBgRight } from '../styles/AnimBg'
 
 const AnimatedTitle = animated(StyledTitle)
 
-const Title = ({ children, type, className }) => {
+const Title = ({ children, type, className, animate }) => {
   const textRef = useRef()
   const bgLeftRef = useRef()
   const bgRightRef = useRef()
 
   const { width: lWidth } = useSpring({
     from: {
-      width: 0,
+      width: animate ? 0 : 115,
     },
     width: 115,
     config: {
@@ -27,10 +27,11 @@ const Title = ({ children, type, className }) => {
 
   const { width: rWidth } = useSpring({
     from: {
-      width: 0,
+      width: animate ? 0 : 115,
     },
     width: 115,
     config: {
+      // a bit more solid than normal
       mass: 1,
       tension: 280,
       friction: 40,
@@ -40,7 +41,7 @@ const Title = ({ children, type, className }) => {
 
   const animation = useSpring({
     from: {
-      opacity: 0,
+      opacity: animate ? 0 : 1,
     },
     opacity: 1,
     ref: textRef,
@@ -63,11 +64,13 @@ Title.propTypes = {
   children: PropTypes.string.isRequired,
   type: PropTypes.string,
   className: PropTypes.string,
+  animate: PropTypes.bool,
 }
 
-Title.defaultPropTypes = {
+Title.defaultProps = {
   type: 'h1',
   className: '',
+  animate: true,
 }
 
 export default Title

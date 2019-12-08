@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import { useTransition, animated, useSpring, config } from 'react-spring'
 import PropTypes from 'prop-types'
+import { navigate } from '@reach/router'
 import styled from 'styled-components'
 
 import Social from 'components/Social'
 import Title from 'components/elements/Title'
 import WorkItem from './WorkItem'
-import WorkModal from './WorkModal'
 
+import TransitionDiv from './elements/TransitionDiv'
 import GitHub from './elements/GitHub'
 
 import Main from '../Contact/styles/Main'
@@ -21,12 +22,14 @@ const Work = ({ data, location }) => {
   const [on, set] = useState(true)
 
   const items = data.allMarkdownRemark.edges.map(({ node }) => node)
-  // TODO: modal for individual works
+
   const [selected, setSelected] = useState(null)
   const transitions = useTransition(items, item => item.id, {
-    from: { x: -50, opacity: 0 },
+    from: {
+      x: fromWork ? 0 : -50,
+      opacity: fromWork ? 1 : 0,
+    },
     enter: { x: 0, opacity: 1 },
-    leave: { x: 50, opacity: 0 },
     trail: 100,
   })
   const onSelect = (e, item) => {
@@ -36,7 +39,9 @@ const Work = ({ data, location }) => {
   return (
     <>
       <Main as="section">
-        <Title className="title">My Work</Title>
+        <Title className="title" animate={!fromWork}>
+          My Work
+        </Title>
         <p>
           Check out some of my recent projects or browse my repositories on{' '}
           <GitHub />
@@ -58,13 +63,18 @@ const Work = ({ data, location }) => {
             )
         )}
       </WorkWrapper>
-      <Social type="col" />
+      <Social type="col" animate={!fromWork} />
       {selected && (
-        <WorkModal data={selected} callback={() => console.log('done')} />
+        <TransitionDiv
+          data={selected}
+          callback={() => {
+            navigate(selected.item.frontmatter.path)
+          }}
+        />
       )}
       {fromWork && on && (
-        <WorkModal
-          data={{ top: 500, left: 500 }}
+        <TransitionDiv
+          data={{ top: window.innerHeight / 2, left: window.innerWidth / 2 }}
           fromWork
           callback={() => set(false)}
         />

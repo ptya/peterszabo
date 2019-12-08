@@ -7,11 +7,11 @@ import SocialWrapper from './styles/SocialWrapper'
 
 const AnimWrapper = animated(SocialWrapper)
 
-const Social = ({ type }) => {
+const Social = ({ type, animate }) => {
   const { x } = useSpring({
-    from: { x: 55 },
+    from: { x: animate ? 55 : 0 },
     x: 0,
-    delay: 300,
+    delay: animate ? 300 : 0,
   })
 
   return (
@@ -60,8 +60,14 @@ const Social = ({ type }) => {
     </AnimWrapper>
   )
 }
+
 Social.propTypes = {
   type: PropTypes.string.isRequired,
+  animate: PropTypes.bool,
+}
+
+Social.defaultProps = {
+  animate: true,
 }
 
 export default Social
