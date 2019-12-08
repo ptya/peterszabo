@@ -55,7 +55,10 @@ const Map = ({ delay }) => {
             onClick={() => setExtended(!isExtended)}
             isExtended={isExtended}
           >
-            <Arrow />
+            <Arrow>
+              {isExtended && 'Close map'}
+              {!isExtended && 'Open map'}
+            </Arrow>
           </MapBtn>
           <ReactMapGL
             {...viewport}
