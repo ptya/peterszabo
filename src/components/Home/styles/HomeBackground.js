@@ -1,16 +1,15 @@
 import React from 'react'
-import { graphql, StaticQuery, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import BackgroundImage from 'gatsby-background-image'
 
 import { colors } from 'components/styles/variables'
 
-import background from 'assets/images/Large-Triangles.svg'
-
-const BackgroundSection = ({ className, children }) => (
-  <StaticQuery
-    query={graphql`
+const BackgroundSection = ({ className, children }) => {
+  const { desktop } = useStaticQuery(
+    graphql`
       query {
         desktop: file(relativePath: { eq: "bg.jpg" }) {
           childImageSharp {
@@ -20,23 +19,27 @@ const BackgroundSection = ({ className, children }) => (
           }
         }
       }
-    `}
-    render={data => {
-      // Set ImageData.
-      const imageData = data.desktop.childImageSharp.fluid
-      return (
-        <BackgroundImage
-          Tag="div"
-          className={className}
-          fluid={imageData}
-          backgroundColor={colors.bg}
-        >
-          {children}
-        </BackgroundImage>
-      )
-    }}
-  />
-)
+    `
+  )
+
+  const imageData = desktop.childImageSharp.fluid
+
+  return (
+    <BackgroundImage
+      Tag="div"
+      className={className}
+      fluid={imageData}
+      backgroundColor={colors.darkBg}
+    >
+      {children}
+    </BackgroundImage>
+  )
+}
+
+BackgroundSection.propTypes = {
+  className: PropTypes.string.isRequired,
+  children: PropTypes.any.isRequired,
+}
 
 const StyledBackgroundSection = styled(BackgroundSection)`
   width: 100%;
@@ -44,10 +47,6 @@ const StyledBackgroundSection = styled(BackgroundSection)`
   background-position: bottom center;
   background-repeat: repeat-y;
   background-size: cover;
-
-  :before {
-    /* filter: blur(2px); */
-  }
 `
 
 export default StyledBackgroundSection

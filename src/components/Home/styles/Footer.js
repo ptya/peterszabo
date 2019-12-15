@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { colors } from './variables'
+import { colors } from 'components/styles/variables'
 
 const Footer = styled.footer`
   position: absolute;

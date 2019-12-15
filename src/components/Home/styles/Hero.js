@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { colors } from './variables'
+import { colors } from 'components/styles/variables'
 
 const Hero = styled.main`
-  margin: 150px 225px;
+  padding: 300px 225px 0;
   h1,
   h2 {
     text-shadow: 1px 1px 1px ${colors.bg};
