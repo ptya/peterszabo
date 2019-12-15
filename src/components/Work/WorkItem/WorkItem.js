@@ -1,9 +1,8 @@
 /* eslint-disable react/no-danger */
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { graphql, Link } from 'gatsby'
+import { Link } from 'gatsby'
 import { useTransition, useSpring, animated } from 'react-spring'
-import styled from 'styled-components'
 
 import Title from 'components/elements/Title'
 
@@ -33,10 +32,6 @@ WorkItem.propTypes = {
       }).isRequired,
     }).isRequired,
   }).isRequired,
-}
-
-WorkItem.defaultProps = {
-  style: {},
 }
 
 export default WorkItem
