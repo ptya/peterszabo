@@ -11,6 +11,7 @@ import WorkThumbnail from './WorkThumbnail'
 import TransitionDiv from './elements/TransitionDiv'
 import GitHub from './elements/GitHub'
 
+// TODO: can it have border somehow?
 import WorkWrapper from './styles/WorksWrapper'
 
 const AnimatedWorkItem = animated(WorkThumbnail)
