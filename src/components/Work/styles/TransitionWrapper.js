@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { colors } from 'components/styles/variables'
+import { colors, z } from 'components/styles/variables'
 
 const TransitionWrapper = styled.div`
   position: absolute;
@@ -9,7 +9,7 @@ const TransitionWrapper = styled.div`
   overflow: hidden;
   top: 0;
   left: 0;
-
+  z-index: ${z.top};
   div {
     position: absolute;
     background: ${colors.darkBg};

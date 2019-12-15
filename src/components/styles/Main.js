@@ -5,7 +5,7 @@ const Main = styled.main`
   grid-template-rows: auto auto auto;
   justify-content: center;
   align-items: center;
-  margin: 15rem auto 2rem;
+  margin: 17rem auto 2rem;
   width: 700px;
 
   .title {

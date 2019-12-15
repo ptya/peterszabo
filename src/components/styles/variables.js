@@ -7,6 +7,7 @@ export const colors = {
   lightBlue: '#A4BBD7',
   darkBlue: '#2E3F57',
   darkBg: '#0e1724',
+  bgGrey: '#24334a',
 }
 
 export const z = {
