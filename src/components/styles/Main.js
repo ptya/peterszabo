@@ -5,13 +5,15 @@ const Main = styled.main`
   grid-template-rows: auto auto auto;
   justify-content: center;
   align-items: center;
+  margin: 15rem auto 2rem;
+  width: 700px;
 
   .title {
     left: -50px;
   }
 
   p {
-    margin: 2rem 2.5rem;
+    margin: 2rem 0;
     font-size: 1.8rem;
     font-weight: 200;
     display: flex;

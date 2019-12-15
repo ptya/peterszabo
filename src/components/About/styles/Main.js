@@ -5,7 +5,7 @@ const Main = styled.main`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  margin: 15rem auto 2rem;
   width: 700px;
 
   .title {
