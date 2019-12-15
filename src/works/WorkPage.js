@@ -1,27 +1,19 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
+
+import WorkItem from 'components/Work/WorkItem'
+
+import GlobalStyle from 'components/styles/GlobalStyle'
 
 const WorkPage = ({
   data, // this prop will be injected by the GraphQL query below.
-}) => {
-  const { markdownRemark } = data // data.markdownRemark holds your post data
-  const { frontmatter, html } = markdownRemark
-  return (
-    <div className="blog-post-container">
-      <div className="blog-post">
-        <h1>{frontmatter.title}</h1>
-        <Link to="/work" state={{ fromWork: true }}>
-          Back
-        </Link>
-        <div
-          className="blog-post-content"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
-      </div>
-    </div>
-  )
-}
+}) => (
+  <>
+    <GlobalStyle />
+    <WorkItem data={data} />
+  </>
+)
 
 WorkPage.propTypes = {
   data: PropTypes.shape({

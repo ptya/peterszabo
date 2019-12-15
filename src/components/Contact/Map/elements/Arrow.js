@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import AccessibleText from 'components/styles/AccessibleText'
 import StyledArrow from '../styles/StyledArrow'
 
 const Arrow = ({ children }) => (
@@ -13,7 +14,7 @@ const Arrow = ({ children }) => (
         strokeWidth="5"
       />
     </StyledArrow>
-    <span style={{ position: 'absolute', left: '-9999em' }}>{children}</span>
+    <AccessibleText>{children}</AccessibleText>
   </>
 )
 

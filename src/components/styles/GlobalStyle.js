@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: ${colors.bg};
+    background-color: ${colors.darkBg};
     background-image: url(${background});
     /* background by SVGBackgrounds.com */
   }

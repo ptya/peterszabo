@@ -1,9 +1,9 @@
 import React from 'react'
 import Title from 'components/elements/Title'
 import Social from 'components/Social'
+import Main from 'components/styles/Main'
 import Form from './Form'
 import Map from './Map'
-import Main from './styles/Main'
 
 const About = () => (
   <>

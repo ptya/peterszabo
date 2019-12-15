@@ -1,8 +1,7 @@
 import styled from 'styled-components'
+import Wrapper from './Wrapper'
 
-const StyledTitleWrapper = styled.div`
-  position: relative;
-  justify-self: baseline;
+const StyledTitleWrapper = styled(Wrapper)`
   margin-bottom: 3rem;
 `
 

@@ -1,20 +1,19 @@
 import React, { useState } from 'react'
-import { useTransition, animated, useSpring, config } from 'react-spring'
+import { useTransition, animated } from 'react-spring'
 import PropTypes from 'prop-types'
-import { navigate } from '@reach/router'
-import styled from 'styled-components'
+import { navigate } from '@reach/router' // eslint-disable-line
 
 import Social from 'components/Social'
 import Title from 'components/elements/Title'
-import WorkItem from './WorkItem'
+import Main from 'components/styles/Main'
+import WorkThumbnail from './WorkThumbnail'
 
 import TransitionDiv from './elements/TransitionDiv'
 import GitHub from './elements/GitHub'
 
-import Main from '../Contact/styles/Main'
 import WorkWrapper from './styles/WorksWrapper'
 
-const AnimatedWorkItem = animated(WorkItem)
+const AnimatedWorkItem = animated(WorkThumbnail)
 
 const Work = ({ data, location }) => {
   const { state } = location
