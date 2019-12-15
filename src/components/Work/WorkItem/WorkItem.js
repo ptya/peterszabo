@@ -4,6 +4,10 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { useTransition, useSpring, animated } from 'react-spring'
 
+// TODO: enter animation for whole page
+// TODO: close animation?
+// TODO: correct content
+
 import Title from 'components/elements/Title'
 
 import WorkMain from './styles/WorkMain'
