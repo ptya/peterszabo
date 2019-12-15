@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-import Social from 'components/Social'
+import Social from 'components/elements/Social'
 import Title from 'components/elements/Title'
 
 import Main from './styles/Main'

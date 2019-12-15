@@ -1,5 +1,5 @@
 import React from 'react'
-import Social from 'components/Social'
+import Social from 'components/elements/Social'
 
 import Hero from 'components/styles/Hero'
 import Footer from 'components/styles/Footer'

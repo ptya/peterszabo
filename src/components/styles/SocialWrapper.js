@@ -12,7 +12,7 @@ const SocialWrapper = styled.aside`
   ${props =>
     props.type === 'col' &&
     css`
-      position: absolute;
+      position: fixed;
       top: 0;
       bottom: 0;
       left: 0;

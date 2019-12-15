@@ -3,7 +3,7 @@ import { useTransition, animated } from 'react-spring'
 import PropTypes from 'prop-types'
 import { navigate } from '@reach/router' // eslint-disable-line
 
-import Social from 'components/Social'
+import Social from 'components/elements/Social'
 import Title from 'components/elements/Title'
 import Main from 'components/styles/Main'
 import WorkThumbnail from './WorkThumbnail'
