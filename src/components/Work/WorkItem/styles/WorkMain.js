@@ -15,7 +15,6 @@ const WorkMain = styled(Main)`
 
   .back {
     grid-area: back;
-    width: 80px;
     text-align: center;
     margin-bottom: 3rem;
     position: absolute;

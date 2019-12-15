@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import AccessibleText from 'components/styles/AccessibleText'
 import { animated, useSpring, useChain } from 'react-spring'
 
-import Wrapper from 'components/styles/Wrapper'
+import BtnWrapper from '../styles/BtnWrapper'
 import StyledButton from '../styles/StyledButton'
 import AnimBtnBg from '../styles/AnimBtnBg'
 
@@ -38,7 +38,7 @@ const CloseBtn = ({ children }) => {
   useChain([bgRef, svgRef], [0.4, 0.6])
   return (
     <>
-      <Wrapper>
+      <BtnWrapper>
         <AnimBtnBg style={{ width: width.interpolate(w => `${w}%`) }} />
         <AnimSvg style={animation} viewBox="0 0 60 60">
           <line
@@ -58,7 +58,7 @@ const CloseBtn = ({ children }) => {
             transform="rotate(-45 30 30)"
           />
         </AnimSvg>
-      </Wrapper>
+      </BtnWrapper>
       <AccessibleText>{children}</AccessibleText>
     </>
   )

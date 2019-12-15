@@ -23,13 +23,6 @@ const StyledButton = styled.svg`
     transform-origin: center;
   }
 
-  :hover {
-    .line {
-      transform: rotate(0);
-      transform-origin: center;
-    }
-  }
-
   :active {
     .edges {
       transform: translateY(-15px);
