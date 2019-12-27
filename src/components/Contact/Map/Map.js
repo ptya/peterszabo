@@ -23,7 +23,8 @@ const Map = ({ delay }) => {
   })
 
   useEffect(() => {
-    setTimeout(() => setReady(true), delay)
+    const timeout = setTimeout(() => setReady(true), delay)
+    return () => clearTimeout(timeout)
   }, [delay])
 
   const enterRef = useRef()
@@ -69,6 +70,7 @@ const Map = ({ delay }) => {
             onViewportChange={vp => {
               setViewport({ ...vp })
             }}
+            reuseMaps
           >
             <Marker
               latitude={47.51}
