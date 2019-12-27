@@ -1,6 +1,4 @@
-import React from 'react'
 import styled, { keyframes } from 'styled-components'
-import PropTypes from 'prop-types'
 
 import { colors } from 'components/styles/variables'
 
@@ -40,11 +38,6 @@ const afterMoving = keyframes`
   }
 `
 
-const Perspective = styled.div`
-  perspective: 1000px;
-  position: relative;
-`
-
 const Background = styled.div`
   background-color: ${colors.textBgHighOpacity};
   position: absolute;
@@ -75,16 +68,5 @@ const Background = styled.div`
     animation: ${afterMoving} 6s ease-in-out infinite;
   }
 `
-
-const WithBackground = ({ children }) => (
-  <Perspective>
-    <Background />
-    {children}
-  </Perspective>
-)
-
-WithBackground.propTypes = {
-  children: PropTypes.any.isRequired,
-}
 
 export default Background
