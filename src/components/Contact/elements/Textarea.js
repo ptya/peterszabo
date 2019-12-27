@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useFloat } from 'components/hooks/useFloat'
 import InputWrapper from '../styles/InputWrapper'
-import StyledTextArea from '../styles/StyledTextArea'
 import Error from '../styles/Error'
 
 const Textarea = ({

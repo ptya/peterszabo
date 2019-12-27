@@ -1,12 +1,13 @@
-import React, { useState, useLayoutEffect } from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
+import React from 'react'
 import { Formik, Field } from 'formik'
 import Input from './elements/Input'
 import Textarea from './elements/Textarea'
 import StyledForm from './styles/StyledForm'
-import StyledField from './styles/StyledField'
 import SubmitBtn from './styles/SubmitBtn'
+
+// TODO: netlfiy form for messages
+// TODO after submitting a message just show a thank you note without the form
+// TODO transition animation after submit
 
 const ContactForm = () => {
   const initialValues = {
@@ -35,21 +36,25 @@ const ContactForm = () => {
     // message validations
     if (!values.message) {
       errors.message = 'Required'
+    } else if (values.message.length < 20) {
+      errors.message = 'A few more words please'
     }
 
     return errors
   }
 
-  const onSubmit = (values, { setSubmitting }) => {
+  const onSubmit = (values, { setSubmitting, resetForm }) => {
     setTimeout(() => {
       alert(JSON.stringify(values, null, 2))
       setSubmitting(false)
+      resetForm()
     }, 400)
   }
 
   return (
     <Formik
       initialValues={initialValues}
+      initialErrors={{ state: 'empty' }}
       validate={validate}
       onSubmit={onSubmit}
     >

@@ -8,6 +8,7 @@ const StyledForm = styled(Form)`
   justify-content: flex-end;
   margin: 10px;
   width: 630px;
+  position: relative;
 
   textarea {
     width: 100%;
