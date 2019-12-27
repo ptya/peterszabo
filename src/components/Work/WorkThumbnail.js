@@ -10,6 +10,8 @@ import WorkTag from './WorkTag'
 const AnimatedWrapper = animated(DetailsWrapper)
 const AnimatedItem = animated(StyledItem)
 
+// TODO correct images for the thumbnails
+
 const WorkItem = ({ work, style, onSelect }) => {
   const {
     frontmatter: { tags, title },

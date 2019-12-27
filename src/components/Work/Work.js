@@ -7,6 +7,7 @@ import Social from 'components/elements/Social'
 import AbsoluteTitle from 'components/styles/AbsoluteTitle'
 import WorkThumbnail from './WorkThumbnail'
 
+// TODO remove the rounding
 import TransitionDiv from './elements/TransitionDiv'
 import GitHub from './elements/GitHub'
 

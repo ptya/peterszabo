@@ -43,6 +43,7 @@ module.exports = {
     },
   ],
   siteMetadata: {
+    // TODO compare with wedding site for a working example
     title: 'Peter Szabo',
     titleTemplate: '%s · Web Development',
     description: 'Peter Szabo, Web Developer',

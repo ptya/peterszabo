@@ -7,6 +7,7 @@ import { useTransition, useSpring, animated } from 'react-spring'
 // TODO: enter animation for whole page
 // TODO: close animation?
 // TODO: correct content
+// TODO screenshots for work
 
 import Title from 'components/elements/Title'
 
