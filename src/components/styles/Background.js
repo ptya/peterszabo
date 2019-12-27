@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components'
 
-import { colors } from 'components/styles/variables'
+import { colors } from './variables'
 
 const baseMoving = keyframes`
   0% {

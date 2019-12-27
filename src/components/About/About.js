@@ -3,14 +3,14 @@ import PropTypes from 'prop-types'
 
 import Social from 'components/elements/Social'
 
-import MainWiWithBackground from './styles/MainWithBackground'
+import AbsoluteTitle from 'components/styles/AbsoluteTitle'
+import AboutMain from './styles/AboutMain'
 import ProfilePic from './styles/ProfilePic'
-import AboutTitle from './styles/AboutTitle'
 
 const About = ({ data }) => (
   <>
-    <MainWiWithBackground>
-      <AboutTitle className="title">About Me</AboutTitle>
+    <AboutMain>
+      <AbsoluteTitle className="title">About Me</AbsoluteTitle>
       <div className="text">
         <p>
           I am Péter from Budapest, Hungary. I am interested in the entire
@@ -33,7 +33,7 @@ const About = ({ data }) => (
         <p>You can also find me:</p>
         <Social type="row" animate={false} />
       </section>
-    </MainWiWithBackground>
+    </AboutMain>
   </>
 )
 

@@ -1,14 +1,15 @@
 import React from 'react'
-import Title from 'components/elements/Title'
 import Social from 'components/elements/Social'
-import Main from 'components/styles/Main'
+import AbsoluteTitle from 'components/styles/AbsoluteTitle'
 import Form from './Form'
 import Map from './Map'
 
-const About = () => (
+import Main from './styles/ContactMain'
+
+const Contact = () => (
   <>
     <Main>
-      <Title>Get in touch</Title>
+      <AbsoluteTitle>Get in touch</AbsoluteTitle>
       <p>Have a question? Want to work together or just say hi?</p>
       <Form />
     </Main>
@@ -17,6 +18,6 @@ const About = () => (
   </>
 )
 
-About.propTypes = {}
+Contact.propTypes = {}
 
-export default About
+export default Contact

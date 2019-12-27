@@ -4,13 +4,13 @@ import PropTypes from 'prop-types'
 import { navigate } from '@reach/router' // eslint-disable-line
 
 import Social from 'components/elements/Social'
-import Title from 'components/elements/Title'
-import Main from 'components/styles/Main'
+import AbsoluteTitle from 'components/styles/AbsoluteTitle'
 import WorkThumbnail from './WorkThumbnail'
 
 import TransitionDiv from './elements/TransitionDiv'
 import GitHub from './elements/GitHub'
 
+import WorkMain from './styles/WorkMain'
 // TODO: can it have border somehow?
 import WorkWrapper from './styles/WorksWrapper'
 
@@ -38,15 +38,15 @@ const Work = ({ data, location }) => {
 
   return (
     <>
-      <Main as="section">
-        <Title className="title" animate={!fromWork}>
+      <WorkMain as="section">
+        <AbsoluteTitle className="title" animate={!fromWork}>
           My Work
-        </Title>
+        </AbsoluteTitle>
         <p>
           Check out some of my recent projects or browse my repositories on{' '}
           <GitHub />
         </p>
-      </Main>
+      </WorkMain>
       <WorkWrapper>
         {transitions.map(
           ({ item, props: { x, opacity }, key }) =>
