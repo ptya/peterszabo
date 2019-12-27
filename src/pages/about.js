@@ -18,7 +18,7 @@ Page.propTypes = {
 
 export const query = graphql`
   query {
-    imageOne: file(relativePath: { eq: "avatar.jpg" }) {
+    imageOne: file(relativePath: { eq: "profile.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 300) {
           ...GatsbyImageSharpFluid

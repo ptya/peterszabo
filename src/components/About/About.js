@@ -2,25 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Social from 'components/elements/Social'
-import Title from 'components/elements/Title'
 
-import Main from './styles/Main'
-import AvatarWrapper from './styles/AvatarWrapper'
+import MainWiWithBackground from './styles/MainWithBackground'
 import ProfilePic from './styles/ProfilePic'
-import WithBackground from './styles/WithBackground'
+import AboutTitle from './styles/AboutTitle'
 
 const About = ({ data }) => (
   <>
-    <Main>
-      <AvatarWrapper>
-        <ProfilePic
-          fluid={data.imageOne.childImageSharp.fluid}
-          alt="Peter Szabo"
-          style={{ position: 'absolute' }}
-        />
-        <Title className="title">About Me</Title>
-      </AvatarWrapper>
-      <WithBackground>
+    <MainWiWithBackground>
+      <AboutTitle className="title">About Me</AboutTitle>
+      <div className="text">
         <p>
           I am Péter from Budapest, Hungary. I am interested in the entire
           frontend playground with a strong focus on React.
@@ -31,10 +22,18 @@ const About = ({ data }) => (
           fully understand the requirements and the technicalities.
         </p>
         <p>When I am not doing all that I am an avid gamer and traveler.</p>
-        <p>You can also find me over here:</p>
-      </WithBackground>
-    </Main>
-    <Social type="col" />
+      </div>
+      <ProfilePic
+        className="pic"
+        fluid={data.imageOne.childImageSharp.fluid}
+        alt="Peter Szabo"
+        imgStyle={{}}
+      />
+      <section className="social">
+        <p>You can also find me:</p>
+        <Social type="row" animate={false} />
+      </section>
+    </MainWiWithBackground>
   </>
 )
 

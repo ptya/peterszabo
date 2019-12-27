@@ -1,16 +1,26 @@
+import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 
 import { colors } from 'components/styles/variables'
 
-const ProfilePic = styled(Img)`
-  width: 200px;
-  height: 200px;
-  border-radius: 100px;
-  position: absolute;
-  bottom: 4rem;
-  left: -7.1rem;
-  border: 3px solid ${colors.blue};
+const StyledImg = styled(Img)`
+  width: 250px;
+  height: 250px;
+  position: relative;
+  clip-path: polygon(0 2%, 100% 0, 100% 100%, 0 98%);
 `
+
+const Wrapper = styled.figure`
+  position: relative;
+  margin: 0;
+  filter: drop-shadow(1px 1px 2px ${colors.shadow});
+`
+
+const ProfilePic = props => (
+  <Wrapper>
+    <StyledImg {...props} />
+  </Wrapper>
+)
 
 export default ProfilePic
