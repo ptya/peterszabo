@@ -7,7 +7,6 @@ import { useActive } from 'components/hooks/useActive'
 
 import Logo from './elements/Logo'
 import Target from './elements/Target'
-import HeaderClipper from './elements/HeaderClipper'
 
 import StyledHeader from './styles/StyledHeader'
 import Menu from './styles/Menu'
@@ -43,7 +42,6 @@ const Header = ({ location }) => {
         {hovered.length > 0 && <Target pos={hovered} />}
       </Menu>
       <Logo isFull={location.pathname !== '/'} />
-      {/* {!isHome && <HeaderClipper height={40} />} */}
     </StyledHeader>
   )
 }
