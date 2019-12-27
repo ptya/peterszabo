@@ -9,7 +9,8 @@ import logo from 'assets/images/logo.png'
 const StyledLogo = styled.img`
   height: 82px;
 `
-
+// TODO check eslint warnings/errors for whole project
+// TODO do i need full logo?
 const Logo = ({ isFull }) => (
   <Link to="/">
     {/* <StyledLogo src={isFull ? fullLogo : logo} alt="Peter Szabo" /> */}

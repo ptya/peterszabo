@@ -4,6 +4,8 @@ import { normalize } from 'styled-normalize'
 import background from 'assets/images/Large-Triangles.svg'
 import { colors } from './variables'
 
+// TODO: all colors from variables!
+
 const GlobalStyle = createGlobalStyle`
   ${normalize}
 

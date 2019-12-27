@@ -3,6 +3,7 @@ import ReactMapGL, { Marker, Popup } from 'react-map-gl'
 import { useSpring, useChain, animated } from 'react-spring'
 import PropTypes from 'prop-types'
 
+// change avatar
 import Pic from 'assets/images/avatar.jpg'
 import Arrow from './elements/Arrow'
 import MapWrapper from './styles/MapWrapper'
