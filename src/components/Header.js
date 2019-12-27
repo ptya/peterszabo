@@ -43,7 +43,7 @@ const Header = ({ location }) => {
         {hovered.length > 0 && <Target pos={hovered} />}
       </Menu>
       <Logo isFull={location.pathname !== '/'} />
-      {!isHome && <HeaderClipper height={40} />}
+      {/* {!isHome && <HeaderClipper height={40} />} */}
     </StyledHeader>
   )
 }
