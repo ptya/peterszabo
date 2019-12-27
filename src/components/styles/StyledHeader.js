@@ -6,7 +6,6 @@ import background from 'assets/images/Large-Triangles.svg'
 
 const StyledHeader = styled.header`
   background-color: ${props => (props.isHome ? 'inherit' : colors.darkBg)};
-  background-image: url(${background});
   padding: 30px 30px 5px;
   display: grid;
   grid-template-columns: 1fr 105px;
