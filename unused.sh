@@ -1,4 +1,6 @@
 #!/bin/bash
+# only set for files under ./src
+# it will list MD files but no worries there
 files="$(git ls-files ./src)"
 for file in $files
     do
