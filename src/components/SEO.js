@@ -63,6 +63,10 @@ const SEO = ({ title, description, image, pathname, article }) => (
               <meta property="og:description" content={seo.description} />
             )}
             {seo.image && <meta property="og:image" content={seo.image} />}
+            <link
+              href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css"
+              rel="stylesheet"
+            />
           </Helmet>
         </>
       )
