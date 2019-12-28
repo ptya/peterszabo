@@ -3,7 +3,14 @@ path: "/work/gscript"
 order: 2
 title: "Google Scripts"
 tags: ["Apps Script","Jira API","Sheets API", "GitLab API"]
-images: [../assets/images/works/1.jpg, ../assets/images/works/2.jpg, ../assets/images/works/3.jpg]
+images: [../assets/images/works/gscript/tickets.jpg, ../assets/images/works/gscript/monday.jpg]
+repos: []
 ---
 
-There she is. See-Threepio, do you copy? For the moment. Uh, we're in the main hangar across from the ship. We're right above you. Stand by. You came in that thing? You're braver that I thought. Nice! Come on! It's them! Blast them! Get back to the ship! Where are you going? Come back! He certainly has courage. What good will it do us if he gets himself killed? Come on! I think we took a wrong turn. There's no lock! That oughta hold it for a while. Quick, we've got to get across. Find the control that extends the bridge. Oh, I think I just blasted it. They're coming through! Here, hold this. Here they come! For luck!
+Although not exactly web development, but during my ~7 years of being employed I always looked for ways to ease my work. It got really serious in the last 3 years where I wrote over 2.000 lines of code in Google Script.
+
+I made project management spreadsheets connecting Jira, Gitlab, Monday and several other internal tools. Even handled calendar and mail alert systems. If there's a tool we as a team would need to use, I most probably integrated it in my system. :)
+
+I really like these side projects.
+
+Unfortunately there's no repo for this kind of work I could share as these are 100% complany related.

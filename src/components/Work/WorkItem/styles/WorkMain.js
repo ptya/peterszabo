@@ -6,7 +6,10 @@ const WorkMain = styled(Main)`
   display: grid;
   grid-template-areas:
     'title back'
-    'content content';
+    'tag .'
+    'content content'
+    'repo repo'
+    'image image';
   width: 800px;
   margin: 10rem auto;
   .title {

@@ -3,7 +3,18 @@ path: "/work/mito-airline"
 order: 1
 title: "Mito Airline"
 tags: ["WebApp", "HTML5","React","Jest","Animation", "Styled Components"]
-images: [../assets/images/works/3.jpg, ../assets/images/works/1.jpg, ../assets/images/works/2.jpg]
+images: [../assets/images/works/airline/home.png, ../assets/images/works/airline/selection.png]
+repos: ["https://github.com/ptya/mito-airline"]
 ---
 
-Hey...hey, open the pressure maintenance hatch on unit number... where are we? Three-two-six-eight-two-seven. If we can just avoid any more female advice, we ought to be able to get out of here. Well, let's get moving! Where are you going? No, wait. They'll hear! Come here, you big coward! Chewie! Come here! Listen. I don't know who you are, or where you came from, but from now on, you do as I tell you. Okay? Look, Your Worshipfulness, let's get one thing straight! I take orders from one person! Me! It's a wonder you're still alive. Will somebody get this big walking carpet out of my way? No reward is worth this.
+This project started as a way to test the new trial for new frontend developers for the company. I had so much fun with it I did not stop until I created the last pieces of details I could think of. The project was based on a provided GFX.
+
+It is a web application using React framework to serve as a flight vendor site utilizing 3rd party API endpoints.
+
+It features:
+- Inputs with autosuggest
+- Spring-physics based animations using [React Spring](https://www.react-spring.io/)
+- 90%+ code coverage with tests using [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
+- Git hooks
+
+You can check out a [working example](https://pedantic-hugle-2b9f87.netlify.com/) of the site or simply head on to the repo below.

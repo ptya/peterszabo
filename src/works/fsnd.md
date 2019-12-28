@@ -3,7 +3,12 @@ path: "/work/fsnd"
 order: 3
 title: "Udacity Nanodegree"
 tags: ["HTML5","CSS3","Python", "JavaScript", "SQL", "SysAdmin"]
-images: [../assets/images/works/3.jpg, ../assets/images/works/2.jpg, ../assets/images/works/1.jpg]
+images: [../assets/images/works/fsnd/certificate.jpg, ../assets/images/works/fsnd/neighborhood.jpg]
+repos: ["https://github.com/ptya/neighborhood-map-udacity-fsnd","https://github.com/ptya/linux-server-configuration","https://github.com/ptya/item-catalog-applicaton-udacity-fsnd","https://github.com/ptya/logs-analysis-project-udacity-fsnd"]
 ---
 
-He says he's the property of Obi-Wan Kenobi, a resident of these parts. And it's a private message for him. Quite frankly, sir I don't know what he's talking about. Our last master was Captain Antilles, but with what we've been through, this little R2 unit has become a bit eccentric. Obi-Wan Kenobi? I wonder if he means old Ben Kenobi? I beg your pardon, sir, but do you know what he's talking about? Well, I don't know anyone named Obi-Wan, but old Ben lives out beyond the dune sea. He's kind of a strange old hermit. I wonder who she is. It sounds like she's in trouble. I'd better play back the whole thing.
+Long since I started programming on the side, in the middle of 2018 I decided to go through Udacity's [Full Stack Web Developer program](https://www.udacity.com/course/full-stack-web-developer-nanodegree--nd0044). I finished it long before the estimated duration and got more solid knowledge in Python, sysadmin related works and databases along with a refresher on HTML, CSS and JS.
+
+You can check out the [syllabus of the course](https://s3-us-west-2.amazonaws.com/udacity-printer/production/syllabus/syllabus-nd004-4.0.0-en-us.pdf) and even check if [my degree is valid](https://confirm.udacity.com/7SNKKNPF) :)
+
+There were several projects during the program and you can find some repos for those below.

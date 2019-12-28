@@ -35,6 +35,15 @@ export const pageQuery = graphql`
       frontmatter {
         path
         title
+        tags
+        images {
+          childImageSharp {
+            fluid(maxWidth: 400) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        repos
       }
     }
   }
