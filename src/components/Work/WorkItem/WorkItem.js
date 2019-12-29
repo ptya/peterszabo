@@ -3,8 +3,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 
-// TODO: enter animation for whole page
-// TODO: close animation?
+// TODO enter animation for whole page
+// TODO close animation?
+// TODO navigate between works on the side
 
 import Title from 'components/elements/Title'
 import Background from 'components/styles/Background'
