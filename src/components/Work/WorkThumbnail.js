@@ -3,38 +3,19 @@ import PropTypes from 'prop-types'
 import { useTransition, useSpring, animated } from 'react-spring'
 import Title from 'components/elements/Title'
 
-import styled, { css } from 'styled-components'
-import Img from 'gatsby-image'
-import { colors } from 'components/styles/variables'
+import WorkTag from './WorkTag'
 
 import DetailsWrapper from './styles/DetailsWrapper'
 import StyledItem from './styles/StyledItem'
-import WorkTag from './WorkTag'
+import ThumbImg, { thumbImgStyle } from './styles/ThumbImg'
 
 const AnimatedWrapper = animated(DetailsWrapper)
 const AnimatedItem = animated(StyledItem)
-
-const ThumbImg = styled(Img)`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border-left: 0.5px solid ${colors.shadow};
-  border-right: 0.5px solid ${colors.shadow};
-`
-
 const AnimatedThumbImg = animated(ThumbImg)
-
-const imgStyle = {
-  objectFit: 'cover',
-  objectPosition: 'center center',
-}
-
-// TODO correct images for the thumbnails
 
 const WorkItem = ({ work, style, onSelect }) => {
   const {
     frontmatter: { tags, title, images },
-    id,
   } = work
   const [hovered, setHovered] = useState(false)
 
@@ -61,7 +42,7 @@ const WorkItem = ({ work, style, onSelect }) => {
         style={fade}
         fluid={images[0].childImageSharp.fluid}
         alt={title}
-        imgStyle={imgStyle}
+        imgStyle={thumbImgStyle}
       />
       {transitions.map(
         ({ item, props, key }) =>

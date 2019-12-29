@@ -1,24 +1,20 @@
 /* eslint-disable react/no-danger */
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import { useTransition, useSpring, animated } from 'react-spring'
 
 // TODO: enter animation for whole page
 // TODO: close animation?
-// TODO: correct content
-// TODO screenshots for work
 
 import Title from 'components/elements/Title'
-import styled from 'styled-components'
+import Background from 'components/styles/Background'
+
 import CloseBtn from './elements/CloseBtn'
 import Repositories from './Repositories'
+import Screens from './Screens'
 
 import WorkMain from './styles/WorkMain'
 import Tag from './styles/Tag'
-import Screen from './styles/Screen'
-
-// TODO: maybe bottom of the screen with clip-path?
 
 const WorkItem = ({ data }) => {
   const { markdownRemark } = data // data.markdownRemark holds your post data
@@ -26,7 +22,6 @@ const WorkItem = ({ data }) => {
     frontmatter: { title, tags, repos, images },
     html,
   } = markdownRemark
-  console.log(images)
   return (
     <WorkMain>
       <Title className="title">{title}</Title>
@@ -38,17 +33,12 @@ const WorkItem = ({ data }) => {
           <Tag key={i}>{tag}</Tag>
         ))}
       </h2>
-      <div className="content" dangerouslySetInnerHTML={{ __html: html }} />
-      {repos.length > 0 && <Repositories className="repo" repos={repos} />}
-      <figure className="image">
-        {images.map((image, i) => (
-          <Screen
-            fluid={image.childImageSharp.fluid}
-            key={i}
-            alt={`${title} ${i + 1}`}
-          />
-        ))}
-      </figure>
+      <div className="content">
+        <Background />
+        <div className="markdown" dangerouslySetInnerHTML={{ __html: html }} />
+        {repos.length > 0 && <Repositories className="repo" repos={repos} />}
+        <Screens className="image" images={images} title={title} />
+      </div>
     </WorkMain>
   )
 }

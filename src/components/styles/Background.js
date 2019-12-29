@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components'
 
-import { colors } from './variables'
+import { colors, z } from './variables'
 
 const baseMoving = keyframes`
   0% {
@@ -45,6 +45,7 @@ const Background = styled.div`
   height: 100%;
   transform: translateX(10px) rotate3d(0, 1, 0, 10deg);
   animation: ${baseMoving} 4s ease-in-out infinite;
+  z-index: ${z.back};
 
   :before {
     content: '';

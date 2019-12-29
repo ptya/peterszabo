@@ -5,6 +5,7 @@ import background from 'assets/images/Large-Triangles.svg'
 import { colors } from './variables'
 
 // TODO: all colors from variables!
+// TODO check all z-index properties
 
 const GlobalStyle = createGlobalStyle`
   ${normalize}
@@ -27,12 +28,11 @@ const GlobalStyle = createGlobalStyle`
     font-size: 4.8rem;
   }
 
-  h2 {
+  h2, h3 {
     font-family: "Raleway", sans-serif;
     font-weight: 300;
     font-size: 2.8rem;
     color: #dadada;
-
   }
 
   * {

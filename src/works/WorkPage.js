@@ -41,8 +41,11 @@ export const pageQuery = graphql`
         tags
         images {
           childImageSharp {
-            fluid(maxWidth: 400) {
+            fluid {
               ...GatsbyImageSharpFluid
+            }
+            original {
+              src
             }
           }
         }
