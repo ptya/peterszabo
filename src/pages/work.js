@@ -30,6 +30,13 @@ export const query = graphql`
             title
             tags
             path
+            images {
+              childImageSharp {
+                fluid(maxWidth: 650, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }

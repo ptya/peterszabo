@@ -3,7 +3,7 @@ path: "/work/fsnd"
 order: 3
 title: "Udacity Nanodegree"
 tags: ["HTML5","CSS3","Python", "JavaScript", "SQL", "SysAdmin"]
-images: [../assets/images/works/fsnd/certificate.jpg, ../assets/images/works/fsnd/neighborhood.jpg]
+images: [../assets/images/works/fsnd/01-certificate.jpg, ../assets/images/works/fsnd/02-neighborhood.jpg]
 repos: ["https://github.com/ptya/neighborhood-map-udacity-fsnd","https://github.com/ptya/linux-server-configuration","https://github.com/ptya/item-catalog-applicaton-udacity-fsnd","https://github.com/ptya/logs-analysis-project-udacity-fsnd"]
 ---
 

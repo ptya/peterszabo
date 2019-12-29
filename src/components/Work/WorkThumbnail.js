@@ -3,6 +3,10 @@ import PropTypes from 'prop-types'
 import { useTransition, useSpring, animated } from 'react-spring'
 import Title from 'components/elements/Title'
 
+import styled, { css } from 'styled-components'
+import Img from 'gatsby-image'
+import { colors } from 'components/styles/variables'
+
 import DetailsWrapper from './styles/DetailsWrapper'
 import StyledItem from './styles/StyledItem'
 import WorkTag from './WorkTag'
@@ -10,11 +14,26 @@ import WorkTag from './WorkTag'
 const AnimatedWrapper = animated(DetailsWrapper)
 const AnimatedItem = animated(StyledItem)
 
+const ThumbImg = styled(Img)`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-left: 0.5px solid ${colors.shadow};
+  border-right: 0.5px solid ${colors.shadow};
+`
+
+const AnimatedThumbImg = animated(ThumbImg)
+
+const imgStyle = {
+  objectFit: 'cover',
+  objectPosition: 'center center',
+}
+
 // TODO correct images for the thumbnails
 
 const WorkItem = ({ work, style, onSelect }) => {
   const {
-    frontmatter: { tags, title },
+    frontmatter: { tags, title, images },
     id,
   } = work
   const [hovered, setHovered] = useState(false)
@@ -38,10 +57,11 @@ const WorkItem = ({ work, style, onSelect }) => {
       onBlur={() => setHovered(false)}
       onClick={e => onSelect(e)}
     >
-      <animated.img
+      <AnimatedThumbImg
         style={fade}
-        src={`http://www.facetheforce.today/random/360?r=${id}`}
+        fluid={images[0].childImageSharp.fluid}
         alt={title}
+        imgStyle={imgStyle}
       />
       {transitions.map(
         ({ item, props, key }) =>
@@ -65,6 +85,7 @@ WorkItem.propTypes = {
     frontmatter: PropTypes.shape({
       tags: PropTypes.array.isRequired,
       title: PropTypes.string.isRequired,
+      images: PropTypes.array.isRequired,
     }).isRequired,
     id: PropTypes.string.isRequired,
   }).isRequired,

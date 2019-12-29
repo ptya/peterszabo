@@ -6,16 +6,13 @@ import { navigate } from '@reach/router' // eslint-disable-line
 import Social from 'components/elements/Social'
 import AbsoluteTitle from 'components/styles/AbsoluteTitle'
 import WorkThumbnail from './WorkThumbnail'
-
-// TODO remove the rounding
 import TransitionDiv from './elements/TransitionDiv'
 import GitHub from './elements/GitHub'
 
 import WorkMain from './styles/WorkMain'
-// TODO: can it have border somehow?
-import WorkWrapper from './styles/WorksWrapper'
+import WorksWrapper from './styles/WorksWrapper'
 
-const AnimatedWorkItem = animated(WorkThumbnail)
+const AnimatedThumbnail = animated(WorkThumbnail)
 
 const Work = ({ data, location }) => {
   const { state } = location
@@ -48,11 +45,11 @@ const Work = ({ data, location }) => {
           <GitHub />
         </p>
       </WorkMain>
-      <WorkWrapper>
+      <WorksWrapper>
         {transitions.map(
           ({ item, props: { x, opacity }, key }) =>
             item && (
-              <AnimatedWorkItem
+              <AnimatedThumbnail
                 style={{
                   transform: x.interpolate(n => `translateX(${n}px)`),
                   opacity,
@@ -63,7 +60,7 @@ const Work = ({ data, location }) => {
               />
             )
         )}
-      </WorkWrapper>
+      </WorksWrapper>
       <Social type="col" animate={!fromWork} />
       {selected && (
         <TransitionDiv
@@ -87,7 +84,18 @@ const Work = ({ data, location }) => {
 Work.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.array.isRequired,
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            frontmatter: PropTypes.shape({
+              title: PropTypes.string.isRequired,
+              path: PropTypes.string.isRequired,
+              tags: PropTypes.array.isRequired,
+              images: PropTypes.array.isRequired,
+            }).isRequired,
+          }).isRequired,
+        }).isRequired
+      ).isRequired,
     }).isRequired,
   }).isRequired,
   location: PropTypes.object.isRequired,

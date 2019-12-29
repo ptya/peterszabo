@@ -16,7 +16,7 @@ const TransitionDiv = ({ data, fromWork, callback }) => {
       height: fromWork ? '100%' : '0%',
       opacity: fromWork ? 1 : 0,
       background: fromWork ? colors.darkBg : colors.lightBlue,
-      borderRadius: fromWork ? '0%' : '100%',
+      borderRadius: fromWork ? '0%' : '5%',
     },
     width: fromWork ? '0%' : '100%',
     height: fromWork ? '0%' : '100%',
@@ -24,7 +24,7 @@ const TransitionDiv = ({ data, fromWork, callback }) => {
     left: fromWork ? left : 0,
     opacity: fromWork ? 0 : 1,
     background: fromWork ? colors.lightBlue : colors.darkBg,
-    borderRadius: fromWork ? '100%' : '0%',
+    borderRadius: fromWork ? '5%' : '0%',
     config: {
       // pretty quick
       mass: 1,

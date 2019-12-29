@@ -2,8 +2,11 @@ import styled from 'styled-components'
 
 import { z } from 'components/styles/variables'
 
-const StyledItem = styled.article`
+const StyledItem = styled.figure`
   position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
   cursor: pointer;
   img {
     height: 100%;

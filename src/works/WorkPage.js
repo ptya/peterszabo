@@ -21,6 +21,9 @@ WorkPage.propTypes = {
       html: PropTypes.string.isRequired,
       frontmatter: PropTypes.shape({
         title: PropTypes.string.isRequired,
+        tags: PropTypes.array.isRequired,
+        repos: PropTypes.array.isRequired,
+        images: PropTypes.array.isRequired,
       }).isRequired,
     }).isRequired,
   }).isRequired,

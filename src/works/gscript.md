@@ -3,7 +3,7 @@ path: "/work/gscript"
 order: 2
 title: "Google Scripts"
 tags: ["Apps Script","Jira API","Sheets API", "GitLab API"]
-images: [../assets/images/works/gscript/tickets.jpg, ../assets/images/works/gscript/monday.jpg]
+images: [../assets/images/works/gscript/01-tickets.jpg, ../assets/images/works/gscript/02-monday.jpg]
 repos: []
 ---
 
