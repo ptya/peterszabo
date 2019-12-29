@@ -11,7 +11,17 @@ const WorkMain = styled(Main)`
     'repo repo'
     'image image';
   width: 800px;
-  margin: 10rem auto;
+  margin: 5rem auto 0;
+
+  h2 {
+    margin: 0;
+  }
+
+  p,
+  li {
+    line-height: 2.5rem;
+  }
+
   .title {
     grid-area: title;
   }
@@ -24,8 +34,23 @@ const WorkMain = styled(Main)`
     right: -2rem;
   }
 
+  .tag {
+    grid-area: tag;
+  }
+
   .content {
     grid-area: content;
+  }
+
+  .repo {
+    grid-area: repo;
+  }
+
+  .image {
+    grid-area: image;
+    position: relative;
+    margin: 0;
+    display: flex;
   }
 `
 

@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { useTransition, useSpring, animated } from 'react-spring'
-import Img from 'gatsby-image'
 
 // TODO: enter animation for whole page
 // TODO: close animation?
@@ -11,40 +10,15 @@ import Img from 'gatsby-image'
 // TODO screenshots for work
 
 import Title from 'components/elements/Title'
-
 import styled from 'styled-components'
-import WorkMain from './styles/WorkMain'
 import CloseBtn from './elements/CloseBtn'
+import Repositories from './Repositories'
 
-const Screen = styled(Img)`
-  width: 250px;
-  /* height: 250px; */
-  position: relative;
-  flex-grow: 1;
-`
+import WorkMain from './styles/WorkMain'
+import Tag from './styles/Tag'
+import Screen from './styles/Screen'
+
 // TODO: maybe bottom of the screen with clip-path?
-const Screens = styled.figure`
-  position: relative;
-  margin: 0;
-  grid-area: image;
-  display: flex;
-`
-
-const Tags = styled.p`
-  grid-area: tag;
-  span {
-    margin: 0 1rem;
-    text-transform: uppercase;
-    background: #004daa;
-    font-size: 1.2rem;
-    padding: 0.5rem;
-    font-weight: 400;
-  }
-`
-
-const Repos = styled.section`
-  grid-area: repo;
-`
 
 const WorkItem = ({ data }) => {
   const { markdownRemark } = data // data.markdownRemark holds your post data
@@ -59,25 +33,14 @@ const WorkItem = ({ data }) => {
       <Link className="back" to="/work" state={{ fromWork: true }}>
         <CloseBtn>Close</CloseBtn>
       </Link>
-      <Tags>
+      <h2 className="tag">
         {tags.map((tag, i) => (
-          <span key={i}>{tag}</span>
+          <Tag key={i}>{tag}</Tag>
         ))}
-      </Tags>
+      </h2>
       <div className="content" dangerouslySetInnerHTML={{ __html: html }} />
-      {repos.length > 0 && (
-        <Repos>
-          <h3>Related repositor{repos.length > 1 ? 'ies' : 'y'}:</h3>
-          <ul>
-            {repos.map((repo, i) => (
-              <li key={i}>
-                <a href={repo}>{repo.split(/[//]+/).pop()}</a>
-              </li>
-            ))}
-          </ul>
-        </Repos>
-      )}
-      <Screens>
+      {repos.length > 0 && <Repositories className="repo" repos={repos} />}
+      <figure className="image">
         {images.map((image, i) => (
           <Screen
             fluid={image.childImageSharp.fluid}
@@ -85,7 +48,7 @@ const WorkItem = ({ data }) => {
             alt={`${title} ${i + 1}`}
           />
         ))}
-      </Screens>
+      </figure>
     </WorkMain>
   )
 }
