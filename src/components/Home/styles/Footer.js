@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { colors } from 'components/styles/variables'
+import { colors, device } from 'components/styles/variables'
 
 const Footer = styled.footer`
   position: absolute;
@@ -19,6 +19,13 @@ const Footer = styled.footer`
     font-size: 2.2rem;
     color: ${colors.white};
     text-transform: uppercase;
+  }
+
+  @media ${device.mobileS} {
+    /* -> @media (max-width: 320px)" */
+    h3 {
+      font-size: 1.6rem;
+    }
   }
 `
 

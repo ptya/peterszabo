@@ -2,10 +2,11 @@ import { createGlobalStyle } from 'styled-components'
 import { normalize } from 'styled-normalize'
 
 import background from 'assets/images/Large-Triangles.svg'
-import { colors } from './variables'
+import { colors, device } from './variables'
 
 // TODO: all colors from variables!
 // TODO check all z-index properties
+// TODO change every px into rem
 
 const GlobalStyle = createGlobalStyle`
   ${normalize}
@@ -37,6 +38,16 @@ const GlobalStyle = createGlobalStyle`
 
   * {
   box-sizing: border-box;
+  }
+
+  @media ${device.mobileS} {
+    /* -> @media (max-width: 320px)" */
+    h1, nav {
+      font-size: 3.3rem;
+    }
+    h2,h3 {
+      font-size: 1.6rem;
+    }
   }
 `
 

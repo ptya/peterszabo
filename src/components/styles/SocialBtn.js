@@ -5,6 +5,8 @@ import gh from 'assets/images/github.png'
 import ig from 'assets/images/instagram.png'
 import li from 'assets/images/linkedin.png'
 
+import { device, colors } from 'components/styles/variables'
+
 function getUrl(social) {
   switch (social) {
     case 'fb':
@@ -36,6 +38,13 @@ const SocialBtn = styled.a.attrs(props => ({
     text-indent: -9999em;
     background: url(${props => props.img}) no-repeat 0;
     background-size: cover;
+  }
+
+  @media ${device.mobileS} {
+    /* -> @media (max-width: 320px)" */
+    flex-grow: 1;
+    height: 65px;
+    background-color: ${props => colors[props.social]};
   }
 `
 

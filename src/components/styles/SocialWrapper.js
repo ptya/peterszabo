@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components'
 
+import { device } from 'components/styles/variables'
+
 const SocialWrapper = styled.aside`
   display: flex;
   flex-direction: ${props =>
@@ -18,6 +20,15 @@ const SocialWrapper = styled.aside`
       left: 0;
       margin: auto;
     `}
+
+  /* @media ${device.mobileS} { */
+  @media screen and (max-width: 32rem), screen and (max-device-width: 32rem) {
+    /* -> @media (max-width: 320px)" */
+    width: ${props =>
+      (props.type === 'row' && '100%') || (props.type === 'col' && '55px')};
+    height: ${props =>
+      (props.type === 'row' && '65px') || (props.type === 'col' && '220px')};
+  }
 `
 
 export default SocialWrapper
