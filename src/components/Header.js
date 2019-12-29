@@ -11,6 +11,8 @@ import Target from './elements/Target'
 import StyledHeader from './styles/StyledHeader'
 import Menu from './styles/Menu'
 
+// TODO mobile menu
+
 const Header = ({ location }) => {
   const [active, setActive] = useState([])
   const [hovered, setHovered] = useState([])
