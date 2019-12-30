@@ -6,8 +6,15 @@ import PropTypes from 'prop-types'
 import fullLogo from 'assets/images/logo-full.png'
 import logo from 'assets/images/logo.png'
 
+import { device } from 'components/styles/variables'
+
 const StyledLogo = styled.img`
-  height: 82px;
+  height: 8.2rem;
+
+  @media ${device.mobileS} {
+    /* -> @media (max-width: 320px)" */
+    height: 5rem;
+  }
 `
 // TODO check eslint warnings/errors for whole project
 // TODO do i need full logo?

@@ -21,8 +21,7 @@ const SocialWrapper = styled.aside`
       margin: auto;
     `}
 
-  /* @media ${device.mobileS} { */
-  @media screen and (max-width: 32rem), screen and (max-device-width: 32rem) {
+  @media ${device.mobileS} {
     /* -> @media (max-width: 320px)" */
     width: ${props =>
       (props.type === 'row' && '100%') || (props.type === 'col' && '55px')};

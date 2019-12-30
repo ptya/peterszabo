@@ -1,48 +1,61 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
+import { useMediaQuery } from 'react-responsive'
 
 import { useTarget } from 'components/hooks/useTarget'
 import { useActive } from 'components/hooks/useActive'
+import { useOnClickOutside } from 'components/hooks/useOnClickOutside'
 
 import Logo from './elements/Logo'
 import Target from './elements/Target'
+import Burger from './elements/Burger'
 
 import StyledHeader from './styles/StyledHeader'
 import Menu from './styles/Menu'
 
-// TODO mobile menu
-
 const Header = ({ location }) => {
   const [active, setActive] = useState([])
   const [hovered, setHovered] = useState([])
+  const [open, setOpen] = useState(false)
+
+  const menu = useRef()
+
+  useOnClickOutside(menu, () => setOpen(false))
   useActive(setActive, setHovered)
   useTarget(active, setHovered)
 
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' })
   const isHome = location.pathname === '/'
+  const isTargetShown = menuType === 'default' && hovered.length > 0
+
+  const menuType = isTabletOrMobile ? 'burger' : 'default'
 
   return (
-    <StyledHeader isHome={isHome}>
-      <Menu id="menu">
-        <Link id="home" activeClassName="active" to="/">
-          Home
-        </Link>
-        <Link id="about" activeClassName="active" partiallyActive to="/about">
-          About
-        </Link>
-        <Link id="work" activeClassName="active" partiallyActive to="/work">
-          Work
-        </Link>
-        <Link
-          id="contact"
-          activeClassName="active"
-          partiallyActive
-          to="/contact"
-        >
-          Contact
-        </Link>
-        {hovered.length > 0 && <Target pos={hovered} />}
-      </Menu>
+    <StyledHeader type={menuType} isHome={isHome} >
+      <div ref={menu}>
+        {isTabletOrMobile && (<Burger open={open} setOpen={setOpen} />)}
+        <Menu id="menu" type={menuType} open={open}>
+          <Link id="home" activeClassName="active" to="/">
+            Home
+          </Link>
+          <Link id="about" activeClassName="active" partiallyActive to="/about">
+            About
+          </Link>
+          <Link id="work" activeClassName="active" partiallyActive to="/work">
+            Work
+          </Link>
+          <Link
+            id="contact"
+            activeClassName="active"
+            partiallyActive
+            to="/contact"
+          >
+            Contact
+          </Link>
+          {isTargetShown && <Target pos={hovered} />}
+        </Menu>
+      </div>
       <Logo isFull={location.pathname !== '/'} />
     </StyledHeader>
   )
