@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { colors, z } from './variables'
+import { colors, z, device } from './variables'
 
 const MenuBtn = styled.button`
   background: initial;
@@ -32,7 +32,7 @@ const MenuBtn = styled.button`
   div:nth-child(2) {
     width: 30px;
     opacity: ${props => (props.open ? 0 : 1)};
-    transform: ${props => (props.open ? 'translateX(33px)' : 'translateX(0)')};
+    transform: ${props => (props.open ? 'translateX(45px)' : 'translateX(0)')};
   }
   div:nth-child(3) {
     transform: ${props => (props.open ? 'rotate(-45deg)' : 'rotate(0)')};
@@ -43,6 +43,22 @@ const MenuBtn = styled.button`
     margin: 0;
     padding: 0;
     position: absolute;
+  }
+
+  @media screen and (${device.tablet}) {
+    /* -> @media (min-width: 768px)" */
+    height: 49px;
+    width: 58px;
+
+    & > div {
+      height: 5px;
+    }
+
+    div:nth-child(2) {
+      width: 40px;
+      transform: ${props =>
+        props.open ? 'translateX(55px)' : 'translateX(0)'};
+    }
   }
 `
 

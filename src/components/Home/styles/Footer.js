@@ -16,15 +16,22 @@ const Footer = styled.footer`
     margin: 10px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 200;
-    font-size: 2.2rem;
+    font-size: 1.6rem;
     color: ${colors.white};
     text-transform: uppercase;
   }
 
-  @media ${device.mobileS} {
-    /* -> @media (max-width: 320px)" */
+  @media screen and (${device.mobileM}) {
+    /* -> @media (min-width: 375px)" */
     h3 {
-      font-size: 1.6rem;
+      font-size: 2rem;
+    }
+  }
+
+  @media screen and (${device.tablet}) {
+    /* -> @media (min-width: 768px)" */
+    h3 {
+      font-size: 2.2rem;
     }
   }
 `

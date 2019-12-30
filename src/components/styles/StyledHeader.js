@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-import { colors, z } from 'components/styles/variables'
+import { colors, z, device } from 'components/styles/variables'
 
 const StyledHeader = styled.header`
   padding: 3rem 3rem 0.5rem;
@@ -19,6 +19,11 @@ const StyledHeader = styled.header`
       display: flex;
       justify-content: space-between;
       padding: 3rem 2rem 0;
+
+      @media screen and (${device.tablet}) {
+        /* -> @media (min-width: 768px)" */
+        padding: 5rem 5rem 0;
+      }
     `}
 `
 

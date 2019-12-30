@@ -9,11 +9,16 @@ import logo from 'assets/images/logo.png'
 import { device } from 'components/styles/variables'
 
 const StyledLogo = styled.img`
-  height: 8.2rem;
+  height: 5rem;
 
-  @media ${device.mobileS} {
-    /* -> @media (max-width: 320px)" */
-    height: 5rem;
+  @media screen and (${device.mobileM}) {
+    /* -> @media (min-width: 375px)" */
+    height: 6rem;
+  }
+
+  @media screen and (${device.tablet}) {
+    /* -> @media (min-width: 768px)" */
+    height: 8.2rem;
   }
 `
 // TODO check eslint warnings/errors for whole project

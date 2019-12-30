@@ -26,10 +26,12 @@ const SocialBtn = styled.a.attrs(props => ({
   img: getUrl(props.social),
 }))`
   width: 55px;
-  height: 55px;
   display: flex;
+  flex-grow: 1;
+  height: 65px;
   align-items: center;
   justify-content: center;
+  background-color: ${props => colors[props.social]};
   span {
     /* display: block; */
     width: 55px;
@@ -40,11 +42,16 @@ const SocialBtn = styled.a.attrs(props => ({
     background-size: cover;
   }
 
-  @media ${device.mobileS} {
-    /* -> @media (max-width: 320px)" */
-    flex-grow: 1;
-    height: 65px;
-    background-color: ${props => colors[props.social]};
+  @media screen and (${device.tablet}) {
+    /* -> @media (min-width: 768px)" */
+    height: 7rem;
+  }
+
+  @media screen and (${device.laptop}) {
+    /* -> @media (min-width: 1024px)" */
+    flex-grow: 0;
+    height: 55px;
+    background-color: initial;
   }
 `
 

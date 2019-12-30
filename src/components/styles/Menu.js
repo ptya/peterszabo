@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-import { colors } from './variables'
+import { colors, device } from './variables'
 
 const Menu = styled.nav`
   display: flex;
@@ -47,7 +47,7 @@ const Menu = styled.nav`
       transform: ${props.open ? 'translateX(0)' : 'translateX(-24rem)'};
 
       a {
-        margin: 0;
+        margin: 1rem 0;
         padding: 10px;
       }
 
@@ -60,6 +60,27 @@ const Menu = styled.nav`
         background-color: ${colors.blue};
         left: 0;
         bottom: 3px;
+      }
+
+      @media screen and (${device.mobileM}) {
+        /* -> @media (min-width: 375px)" */
+        width: 26rem;
+        transform: ${props.open ? 'translateX(0)' : 'translateX(-26rem)'};
+
+        a {
+          margin: 1rem 1rem;
+        }
+      }
+
+      @media screen and (${device.tablet}) {
+        /* -> @media (min-width: 768px)" */
+        width: 32rem;
+        transform: ${props.open ? 'translateX(0)' : 'translateX(-32rem)'};
+        padding: 20rem 5rem 0;
+
+        a {
+          margin: 2rem 1rem;
+        }
       }
     `}
 `

@@ -13,6 +13,7 @@ import Burger from './elements/Burger'
 
 import StyledHeader from './styles/StyledHeader'
 import Menu from './styles/Menu'
+import { device } from './styles/variables'
 
 const Header = ({ location }) => {
   const [active, setActive] = useState([])
@@ -25,16 +26,15 @@ const Header = ({ location }) => {
   useActive(setActive, setHovered)
   useTarget(active, setHovered)
 
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' })
   const isHome = location.pathname === '/'
+  const isTabletOrMobile = useMediaQuery({ query: device.tabletOrMobile })
+  const menuType = isTabletOrMobile ? 'burger' : 'default'
   const isTargetShown = menuType === 'default' && hovered.length > 0
 
-  const menuType = isTabletOrMobile ? 'burger' : 'default'
-
   return (
-    <StyledHeader type={menuType} isHome={isHome} >
+    <StyledHeader type={menuType} isHome={isHome}>
       <div ref={menu}>
-        {isTabletOrMobile && (<Burger open={open} setOpen={setOpen} />)}
+        {isTabletOrMobile && <Burger open={open} setOpen={setOpen} />}
         <Menu id="menu" type={menuType} open={open}>
           <Link id="home" activeClassName="active" to="/">
             Home
