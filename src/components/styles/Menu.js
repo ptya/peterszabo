@@ -31,7 +31,7 @@ const Menu = styled.nav`
 
   /* BURGER MENU SETTINGS */
   ${props =>
-    props.type === 'burger' &&
+    (props.type === 'burger' || props.type === 'mini') &&
     css`
       flex-direction: column;
       justify-content: flex-start;

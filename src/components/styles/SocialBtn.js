@@ -25,12 +25,13 @@ function getUrl(social) {
 const SocialBtn = styled.a.attrs(props => ({
   img: getUrl(props.social),
 }))`
-  width: 55px;
+  width: 65px;
   display: flex;
   flex-grow: 1;
-  height: 65px;
+  height: 100%;
   align-items: center;
   justify-content: center;
+  border: 1px solid ${props => colors[props.social]};
   background-color: ${props => colors[props.social]};
   span {
     /* display: block; */
@@ -39,7 +40,7 @@ const SocialBtn = styled.a.attrs(props => ({
     /* background-size: cover; */
     text-indent: -9999em;
     background: url(${props => props.img}) no-repeat 0;
-    background-size: cover;
+    background-size: contain;
   }
 
   @media screen and (${device.tablet}) {
@@ -49,6 +50,7 @@ const SocialBtn = styled.a.attrs(props => ({
 
   @media screen and (${device.laptop}) {
     /* -> @media (min-width: 1024px)" */
+    width: 55px;
     flex-grow: 0;
     height: 55px;
     background-color: initial;

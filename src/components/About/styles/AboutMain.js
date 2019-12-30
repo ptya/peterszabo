@@ -4,15 +4,16 @@ import styled from 'styled-components'
 
 import Background from 'components/styles/Background'
 import Main from 'components/styles/Main'
+import { device } from 'components/styles/variables'
 
 const StyledMain = styled(Main)`
   grid-template-areas:
-    'text pic'
-    'text social';
-  grid-column-gap: 1rem;
+    'text'
+    'pic'
+    'social';
 
   p {
-    line-height: 3rem;
+    line-height: 2.8rem;
     position: relative;
   }
 
@@ -29,9 +30,26 @@ const StyledMain = styled(Main)`
     grid-area: social;
     justify-self: center;
     text-align: center;
+    margin-bottom: 3rem;
 
     p {
       margin-bottom: 0.5rem;
+    }
+  }
+
+  @media screen and (${device.laptop}) {
+    /* -> @media (min-width: 1024px)" */
+    grid-template-areas:
+      'text pic'
+      'text social';
+    grid-column-gap: 1rem;
+
+    p {
+      line-height: 3rem;
+    }
+
+    .social {
+      margin-bottom: 0;
     }
   }
 `

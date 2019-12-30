@@ -2,26 +2,27 @@ import styled from 'styled-components'
 
 import AbsoluteTitle from './AbsoluteTitle'
 
-import { colors, z } from './variables'
+import { colors, z, device } from './variables'
 
 const Main = styled.main`
   display: grid;
   justify-content: center;
   align-items: center;
-  margin: 17rem auto 2rem;
-  padding: 2rem 3rem;
-  width: 750px;
+
   position: relative;
-  perspective: 1000px;
+  perspective: 2000px;
+  margin: 12rem auto 2rem;
+  padding: 0;
+  width: 300px;
 
   p,
   li {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 200;
   }
 
   p {
-    margin: 2rem 0;
+    margin: 1.5rem 0;
   }
 
   li {
@@ -37,8 +38,30 @@ const Main = styled.main`
   }
 
   ${AbsoluteTitle} {
-    left: -50px;
-    top: -20px;
+    left: 1.5rem;
+    top: -1.5rem;
+  }
+
+  @media screen and (${device.laptop}) {
+    /* -> @media (min-width: 1024px)" */
+    margin: 17rem auto 2rem;
+    padding: 2rem 3rem;
+    width: 750px;
+    perspective: 1000px;
+
+    p,
+    li {
+      font-size: 1.8rem;
+    }
+
+    p {
+      margin: 2rem 0;
+    }
+
+    ${AbsoluteTitle} {
+      left: -50px;
+      top: -20px;
+    }
   }
 `
 

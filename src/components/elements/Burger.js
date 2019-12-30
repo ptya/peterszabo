@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import MenuBtn from '../styles/MenuBtn'
 
-const Burger = ({ open, setOpen }) => (
-  <MenuBtn open={open} onClick={() => setOpen(!open)}>
+const Burger = ({ open, setOpen, mini }) => (
+  <MenuBtn open={open} mini={mini} onClick={() => setOpen(!open)}>
     <div />
     <div />
     <div />
@@ -13,6 +13,7 @@ const Burger = ({ open, setOpen }) => (
 
 Burger.propTypes = {
   open: PropTypes.bool.isRequired,
+  mini: PropTypes.bool.isRequired,
   setOpen: PropTypes.func.isRequired,
 }
 

@@ -13,7 +13,7 @@ const StyledImg = styled(Img)`
 
 const Wrapper = styled.figure`
   position: relative;
-  margin: 0;
+  margin: 0 auto;
   filter: drop-shadow(1px 1px 2px ${colors.shadow});
 `
 

@@ -1,9 +1,10 @@
 import styled, { css } from 'styled-components'
 
-import { device } from 'components/styles/variables'
+import { device, colors } from 'components/styles/variables'
 
 const SocialWrapper = styled.aside`
   display: flex;
+  border: 1px solid ${colors.bgGrey};
   flex-direction: ${props =>
     (props.type === 'row' && 'row') || (props.type === 'col' && 'column')};
   width: ${props =>

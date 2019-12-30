@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { useMediaQuery } from 'react-responsive'
@@ -15,10 +15,13 @@ import StyledHeader from './styles/StyledHeader'
 import Menu from './styles/Menu'
 import { device } from './styles/variables'
 
+// TODO menu open then disable scroll
+
 const Header = ({ location }) => {
   const [active, setActive] = useState([])
   const [hovered, setHovered] = useState([])
   const [open, setOpen] = useState(false)
+  const [miniHeader, setMiniHeader] = useState(false)
 
   const menu = useRef()
 
@@ -28,13 +31,42 @@ const Header = ({ location }) => {
 
   const isHome = location.pathname === '/'
   const isTabletOrMobile = useMediaQuery({ query: device.tabletOrMobile })
-  const menuType = isTabletOrMobile ? 'burger' : 'default'
+
+  let menuType
+  if (isTabletOrMobile && miniHeader) {
+    menuType = 'mini'
+  } else if (isTabletOrMobile && !miniHeader) {
+    menuType = 'burger'
+  } else {
+    menuType = 'default'
+  }
+
   const isTargetShown = menuType === 'default' && hovered.length > 0
+  const switchToMini = 25
+  const isMini = menuType === 'mini'
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollOffset = window.pageYOffset
+      if (currentScrollOffset >= switchToMini) {
+        setMiniHeader(true)
+      } else if (currentScrollOffset < switchToMini && miniHeader) {
+        setMiniHeader(false)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  })
 
   return (
     <StyledHeader type={menuType} isHome={isHome}>
       <div ref={menu}>
-        {isTabletOrMobile && <Burger open={open} setOpen={setOpen} />}
+        {isTabletOrMobile && (
+          <Burger open={open} setOpen={setOpen} mini={isMini} />
+        )}
         <Menu id="menu" type={menuType} open={open}>
           <Link id="home" activeClassName="active" to="/">
             Home
@@ -56,7 +88,7 @@ const Header = ({ location }) => {
           {isTargetShown && <Target pos={hovered} />}
         </Menu>
       </div>
-      <Logo isFull={location.pathname !== '/'} />
+      <Logo isFull={location.pathname !== '/'} mini={isMini} />
     </StyledHeader>
   )
 }

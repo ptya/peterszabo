@@ -9,7 +9,8 @@ import logo from 'assets/images/logo.png'
 import { device } from 'components/styles/variables'
 
 const StyledLogo = styled.img`
-  height: 5rem;
+  height: ${props => (props.mini ? '2rem' : '5rem')};
+  transition: height 0.2s linear;
 
   @media screen and (${device.mobileM}) {
     /* -> @media (min-width: 375px)" */
@@ -23,15 +24,16 @@ const StyledLogo = styled.img`
 `
 // TODO check eslint warnings/errors for whole project
 // TODO do i need full logo?
-const Logo = ({ isFull }) => (
+const Logo = ({ isFull, mini }) => (
   <Link to="/">
     {/* <StyledLogo src={isFull ? fullLogo : logo} alt="Peter Szabo" /> */}
-    <StyledLogo src={logo} alt="Peter Szabo" />
+    <StyledLogo src={logo} alt="Peter Szabo" mini={mini} />
   </Link>
 )
 
 Logo.propTypes = {
   isFull: PropTypes.bool.isRequired,
+  mini: PropTypes.bool.isRequired,
 }
 
 export default Logo
