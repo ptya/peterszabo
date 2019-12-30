@@ -7,6 +7,7 @@ import { colors, device } from './variables'
 // TODO: all colors from variables!
 // TODO check all z-index properties
 // TODO change every px into rem
+// TODO comment the styles properly
 
 const GlobalStyle = createGlobalStyle`
   ${normalize}

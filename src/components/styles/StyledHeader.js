@@ -30,20 +30,33 @@ const StyledHeader = styled.header`
       }
     `}
 
-  ${props =>
-    props.type === 'mini' &&
-    css`
-      height: 5rem;
-      padding: 1rem 2rem 0;
-      background-color: ${colors.darkBg};
-      border-bottom: 1px solid ${colors.bgGrey};
-    `}
+  @media screen and (${device.mobileM}) {
+      /* -> @media (min-width: 375px)" */
+      height: 9.2rem;
+    }
 
   @media screen and (${device.tablet}) {
       /* -> @media (min-width: 768px)" */
       height: 14.5rem;
     }
 
+  /* *************************** */
+  /* MINI HAMBURGER MENU VERSION */
+  /* *************************** */
+
+  ${props =>
+    props.type === 'mini' &&
+    css`
+      height: 5rem;
+      padding: 0 2rem;
+      background-color: ${colors.darkBg};
+      border-bottom: 1px solid ${colors.bgGrey};
+
+      @media screen and (${device.mobileM}) {
+        /* -> @media (min-width: 375px)" */
+        height: 6rem;
+      }
+    `}
 `
 
 export default StyledHeader

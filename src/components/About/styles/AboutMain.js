@@ -6,6 +6,8 @@ import Background from 'components/styles/Background'
 import Main from 'components/styles/Main'
 import { device } from 'components/styles/variables'
 
+// TODO tablet version?
+
 const StyledMain = styled(Main)`
   grid-template-areas:
     'text'

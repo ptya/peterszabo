@@ -2,6 +2,8 @@ import styled, { keyframes } from 'styled-components'
 
 import { colors, z, device } from './variables'
 
+// TODO tablet version?
+
 const baseMovingLaptop = keyframes`
   0% {
     transform: translateX(10px) rotate3d(0,1,0, 10deg);

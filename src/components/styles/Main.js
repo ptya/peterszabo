@@ -4,6 +4,8 @@ import AbsoluteTitle from './AbsoluteTitle'
 
 import { colors, z, device } from './variables'
 
+// TODO tablet version?
+
 const Main = styled.main`
   display: grid;
   justify-content: center;
