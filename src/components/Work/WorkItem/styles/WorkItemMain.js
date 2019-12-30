@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 import Main from 'components/styles/Main'
-import { colors, z } from 'components/styles/variables'
+import { colors, z, device } from 'components/styles/variables'
 
-const WorkMain = styled(Main)`
+const WorkItemMain = styled(Main)`
   position: relative;
   display: grid;
   grid-template-areas:
@@ -13,7 +13,7 @@ const WorkMain = styled(Main)`
     'repo repo'
     'image image';
   width: 800px;
-  margin: 3rem auto 0;
+  margin: 0 auto;
   padding: 0;
 
   h2 {
@@ -95,15 +95,14 @@ const WorkMain = styled(Main)`
 
   .content {
     grid-area: content;
-    /* experimental */
     position: relative;
     perspective: 1500px;
-    margin-top: 14px;
+    padding: 2rem 0;
 
     .markdown {
       position: relative;
       margin: 20px;
-      padding: 0 30px;
+      padding: 1px 30px;
     }
   }
 
@@ -115,9 +114,21 @@ const WorkMain = styled(Main)`
 
   .image {
     grid-area: image;
-    margin: 20px auto 50px;
+    margin: 2rem auto 0;
     width: 700px;
+  }
+
+  @media screen and (${device.laptop}) {
+    /* -> @media (min-width: 1024px)" */
+    width: 80rem;
+    margin: 2rem auto 0;
+    padding: 0;
+
+    p,
+    li {
+      font-size: 1.8rem;
+    }
   }
 `
 
-export default WorkMain
+export default WorkItemMain

@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import Background from 'components/styles/Background'
 import Main from 'components/styles/Main'
+import SocialWrapper from 'components/styles/SocialWrapper'
 import { device } from 'components/styles/variables'
 
 // TODO tablet version?
@@ -21,7 +22,6 @@ const StyledMain = styled(Main)`
 
   .text {
     grid-area: text;
-    margin: 2rem 2.5rem;
   }
 
   .pic {
@@ -39,13 +39,8 @@ const StyledMain = styled(Main)`
     }
   }
 
-  @media screen and (${device.laptop}) {
-    /* -> @media (min-width: 1024px)" */
-    grid-template-areas:
-      'text pic'
-      'text social';
-    grid-column-gap: 1rem;
-
+  @media screen and (${device.tablet}) {
+    /* -> @media (min-width: 768px)" */
     p {
       line-height: 3rem;
     }
@@ -53,6 +48,14 @@ const StyledMain = styled(Main)`
     .social {
       margin-bottom: 0;
     }
+  }
+
+  @media screen and (${device.laptop}) {
+    /* -> @media (min-width: 1024px)" */
+    grid-template-areas:
+      'text pic'
+      'text social';
+    grid-column-gap: 4rem;
   }
 `
 

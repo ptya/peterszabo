@@ -14,7 +14,7 @@ const Main = styled.main`
   position: relative;
   perspective: 2000px;
   margin: 12rem auto 2rem;
-  padding: 0;
+  padding: 2.5rem 3.5rem 2.5rem 2rem;
   width: 300px;
 
   p,
@@ -44,12 +44,10 @@ const Main = styled.main`
     top: -1.5rem;
   }
 
-  @media screen and (${device.laptop}) {
-    /* -> @media (min-width: 1024px)" */
+  @media screen and (${device.tablet}) {
+    /* -> @media (min-width: 768px)" */
+    width: 65rem;
     margin: 17rem auto 2rem;
-    padding: 2rem 3rem;
-    width: 750px;
-    perspective: 1000px;
 
     p,
     li {
@@ -61,8 +59,19 @@ const Main = styled.main`
     }
 
     ${AbsoluteTitle} {
-      left: -50px;
-      top: -20px;
+      left: -1rem;
+      top: -2rem;
+    }
+  }
+
+  @media screen and (${device.laptop}) {
+    /* -> @media (min-width: 1024px)" */
+    padding: 5rem 5rem 5rem 3rem;
+    width: 75rem;
+    perspective: 100rem;
+
+    ${AbsoluteTitle} {
+      left: -5rem;
     }
   }
 `

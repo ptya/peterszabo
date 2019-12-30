@@ -7,8 +7,8 @@ const StyledTitle = styled.h1`
   position: relative;
   margin: 0;
 
-  @media screen and (${device.laptop}) {
-    /* -> @media (min-width: 1024px)" */
+  @media screen and (${device.tablet}) {
+    /* -> @media (min-width: 768px)" */
     font-size: 3.2rem;
   }
 `

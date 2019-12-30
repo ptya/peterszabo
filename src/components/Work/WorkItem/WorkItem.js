@@ -14,7 +14,7 @@ import CloseBtn from './elements/CloseBtn'
 import Repositories from './Repositories'
 import Screens from './Screens'
 
-import WorkMain from './styles/WorkMain'
+import WorkItemMain from './styles/WorkItemMain'
 import Tag from './styles/Tag'
 
 const WorkItem = ({ data }) => {
@@ -24,7 +24,7 @@ const WorkItem = ({ data }) => {
     html,
   } = markdownRemark
   return (
-    <WorkMain>
+    <WorkItemMain>
       <Title className="title">{title}</Title>
       <Link className="back" to="/work" state={{ fromWork: true }}>
         <CloseBtn>Close</CloseBtn>
@@ -40,7 +40,7 @@ const WorkItem = ({ data }) => {
         {repos.length > 0 && <Repositories className="repo" repos={repos} />}
         <Screens className="image" images={images} title={title} />
       </div>
-    </WorkMain>
+    </WorkItemMain>
   )
 }
 
