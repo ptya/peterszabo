@@ -34,16 +34,21 @@ const StyledForm = styled(Form)`
     justify-self: end;
   }
 
-  @media screen and (${device.laptop}) {
-    /* -> @media (min-width: 1024px)" */
-    width: 630px;
-    margin: 10px;
+  @media screen and (${device.tablet}) {
+    /* -> @media (min-width: 768px)" */
+    width: 55rem;
     grid-template-areas:
       'name    email'
       'subject subject'
       'message message'
       '.       submit';
     gap: 40px 20px;
+  }
+
+  @media screen and (${device.laptop}) {
+    /* -> @media (min-width: 1024px)" */
+    margin: 2rem;
+    width: 630px;
   }
 `
 

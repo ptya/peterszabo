@@ -12,7 +12,7 @@ import Map from './Map'
 import Main from './styles/ContactMain'
 
 const Contact = () => {
-  const isTabletOrMobile = useMediaQuery({ query: device.tabletOrMobile })
+  const isMobile = useMediaQuery({ query: device.mobile })
 
   return (
     <>
@@ -20,15 +20,15 @@ const Contact = () => {
         <AbsoluteTitle>Get in touch</AbsoluteTitle>
         <p>Have a question? Want to work together or just say hi?</p>
         <Form />
-        {isTabletOrMobile && (
+        {isMobile && (
           <section className="social">
             <p>You can also find me:</p>
             <Social type="row" animate={false} />
           </section>
         )}
       </Main>
-      {!isTabletOrMobile && <Social type="col" />}
-      <Map delay={1000} isMobile={isTabletOrMobile} />
+      {!isMobile && <Social type="col" />}
+      <Map delay={1000} isMobile={isMobile} />
     </>
   )
 }

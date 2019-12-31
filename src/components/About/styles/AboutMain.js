@@ -4,7 +4,6 @@ import styled from 'styled-components'
 
 import Background from 'components/styles/Background'
 import Main from 'components/styles/Main'
-import SocialWrapper from 'components/styles/SocialWrapper'
 import { device } from 'components/styles/variables'
 
 // TODO tablet version?

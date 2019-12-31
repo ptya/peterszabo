@@ -3,9 +3,9 @@ import { colors, z, device } from 'components/styles/variables'
 
 const MapWrapper = styled.aside`
   width: 100%;
+  height: 20rem;
   position: initial;
   border-top: 2px solid ${colors.blue};
-  z-index: ${z.middle};
 
   .mapboxgl-popup-content {
     p {
@@ -15,11 +15,12 @@ const MapWrapper = styled.aside`
     }
   }
 
-  @media screen and (${device.laptop}) {
-    /* -> @media (min-width: 1024px)" */
+  @media screen and (${device.tablet}) {
+    /* -> @media (min-width: 768px)" */
     position: fixed;
     bottom: 0;
     left: 0;
+    z-index: ${z.middle};
   }
 `
 

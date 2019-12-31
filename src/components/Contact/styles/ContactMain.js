@@ -16,16 +16,28 @@ const StyledMain = styled(Main)`
   }
 
   .social {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     p {
       margin-top: 0;
       text-align: center;
     }
   }
 
-  @media screen and (${device.laptop}) {
-    /* -> @media (min-width: 1024px)" */
+  @media screen and (${device.tablet}) {
+    /* -> @media (min-width: 768px)" */
     margin-bottom: 2rem;
 
+    p {
+      margin: 3.8rem 1rem 2rem;
+    }
+  }
+
+  @media screen and (${device.laptop}) {
+    /* -> @media (min-width: 1024px)" */
     p {
       margin: 3.8rem 2.5rem 2rem;
     }

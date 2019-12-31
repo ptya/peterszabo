@@ -38,6 +38,7 @@ const size = {
   laptopL: '1440px',
   desktop: '2560px',
   tabletOrMobile: '1023px', // for burger menu
+  mobile: '767px', // only mobile size
 }
 
 export const device = {
@@ -49,5 +50,7 @@ export const device = {
   laptopL: `(min-width: ${size.laptopL})`,
   desktop: `(min-width: ${size.desktop})`,
   desktopL: `(min-width: ${size.desktop})`,
+  // for react-responsive below
   tabletOrMobile: `(max-width: ${size.tabletOrMobile})`, // for burger menu
+  mobile: `(max-width: ${size.mobile})`, // only mobile size
 }

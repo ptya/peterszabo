@@ -12,10 +12,10 @@ const Main = styled.main`
   align-items: center;
 
   position: relative;
-  perspective: 2000px;
+  perspective: 200rem;
   margin: 12rem auto 2rem;
   padding: 2.5rem 3.5rem 2.5rem 2rem;
-  width: 300px;
+  width: 30rem;
 
   p,
   li {
@@ -42,6 +42,11 @@ const Main = styled.main`
   ${AbsoluteTitle} {
     left: 1.5rem;
     top: -1.5rem;
+  }
+
+  @media screen and (${device.mobileM}) {
+    /* -> @media (min-width: 375px)" */
+    width: 33rem;
   }
 
   @media screen and (${device.tablet}) {
