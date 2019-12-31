@@ -37,6 +37,12 @@ const GlobalStyle = createGlobalStyle`
     color: ${colors.grey};
   }
 
+  p,
+  li {
+    font-size: 1.6rem;
+    font-weight: 200;
+  }
+
   * {
   box-sizing: border-box;
   }
@@ -58,6 +64,11 @@ const GlobalStyle = createGlobalStyle`
     }
     h2,h3 {
       font-size: 2.8rem;
+    }
+
+    p,
+    li {
+      font-size: 1.8rem;
     }
   }
 `

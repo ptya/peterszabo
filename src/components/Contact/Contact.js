@@ -2,6 +2,7 @@ import React from 'react'
 import { useMediaQuery } from 'react-responsive'
 
 import Social from 'components/elements/Social'
+import StaticSocial from 'components/elements/StaticSocial'
 
 import AbsoluteTitle from 'components/styles/AbsoluteTitle'
 import { device } from 'components/styles/variables'
@@ -20,12 +21,7 @@ const Contact = () => {
         <AbsoluteTitle>Get in touch</AbsoluteTitle>
         <p>Have a question? Want to work together or just say hi?</p>
         <Form />
-        {isMobile && (
-          <section className="social">
-            <p>You can also find me:</p>
-            <Social type="row" animate={false} />
-          </section>
-        )}
+        {isMobile && <StaticSocial />}
       </Main>
       {!isMobile && <Social type="col" />}
       <Map delay={1000} isMobile={isMobile} />

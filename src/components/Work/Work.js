@@ -5,6 +5,7 @@ import { navigate } from '@reach/router' // eslint-disable-line
 import { useMediaQuery } from 'react-responsive'
 
 import Social from 'components/elements/Social'
+import StaticSocial from 'components/elements/StaticSocial'
 import AbsoluteTitle from 'components/styles/AbsoluteTitle'
 import { device } from 'components/styles/variables'
 
@@ -72,7 +73,8 @@ const Work = ({ data, location }) => {
             )
         )}
       </WorksWrapper>
-      {/* <Social type="col" animate={!fromWork} /> */}
+      {isMobile && <StaticSocial />}
+      {!isMobile && <Social type="col" animate={!fromWork} />}
       {selected && (
         <TransitionDiv
           data={selected}

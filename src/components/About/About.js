@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Social from 'components/elements/Social'
+import StaticSocial from 'components/elements/StaticSocial'
 
 import AbsoluteTitle from 'components/styles/AbsoluteTitle'
 import AboutMain from './styles/AboutMain'
@@ -29,10 +29,7 @@ const About = ({ data }) => (
         alt="Peter Szabo"
         imgStyle={{}}
       />
-      <section className="social">
-        <p>You can also find me:</p>
-        <Social type="row" animate={false} />
-      </section>
+      <StaticSocial className="social" />
     </AboutMain>
   </>
 )

@@ -17,12 +17,6 @@ const Main = styled.main`
   padding: 2.5rem 3.5rem 2.5rem 2rem;
   width: 30rem;
 
-  p,
-  li {
-    font-size: 1.6rem;
-    font-weight: 200;
-  }
-
   p {
     margin: 1.5rem 0;
   }
@@ -53,11 +47,6 @@ const Main = styled.main`
     /* -> @media (min-width: 768px)" */
     width: 65rem;
     margin: 17rem auto 2rem;
-
-    p,
-    li {
-      font-size: 1.8rem;
-    }
 
     p {
       margin: 2rem 0;

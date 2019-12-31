@@ -29,8 +29,6 @@ const StyledMain = styled(Main)`
 
   .social {
     grid-area: social;
-    justify-self: center;
-    text-align: center;
     margin-bottom: 3rem;
 
     p {

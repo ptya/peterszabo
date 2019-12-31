@@ -15,18 +15,6 @@ const StyledMain = styled(Main)`
     letter-spacing: 0.5px;
   }
 
-  .social {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    p {
-      margin-top: 0;
-      text-align: center;
-    }
-  }
-
   @media screen and (${device.tablet}) {
     /* -> @media (min-width: 768px)" */
     margin-bottom: 2rem;
