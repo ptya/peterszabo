@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useLayoutEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { useMediaQuery } from 'react-responsive'
@@ -60,6 +60,11 @@ const Header = ({ location }) => {
       window.removeEventListener('scroll', handleScroll)
     }
   })
+
+  useLayoutEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : 'unset'
+    return () => (document.body.style.overflow = 'unset')
+  }, [open])
 
   return (
     <StyledHeader type={menuType} isHome={isHome}>
