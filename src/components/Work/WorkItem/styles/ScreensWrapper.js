@@ -28,7 +28,7 @@ const FlexWrapper = styled.div`
     clip-path: polygon(0 0%, 100% 3%, 100% 97%, 0% 100%);
   }
 
-  @media screen and (${device.laptop}) {
+  @media screen and (${device.tablet}) {
     /* -> @media (min-width: 1024px)" */
     clip-path: polygon(0 5%, 100% 0%, 100% 100%, 0% 95%);
     flex-direction: row;

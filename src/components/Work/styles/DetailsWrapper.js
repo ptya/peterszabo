@@ -41,7 +41,7 @@ const DetailsWrapper = styled.div`
   @media screen and (${device.mobileM}) {
     /* -> @media (min-width: 375px)" */
     h2 {
-      max-width: 100%;
+      max-width: unset;
     }
   }
 `

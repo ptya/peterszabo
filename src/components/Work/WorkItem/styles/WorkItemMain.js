@@ -142,11 +142,9 @@ const WorkItemMain = styled(Main)`
     width: 270px;
   }
 
-  @media screen and (${device.laptop}) {
-    /* -> @media (min-width: 1024px)" */
-    width: 80rem;
+  @media screen and (${device.tablet}) {
+    /* -> @media (min-width: 768px)" */
     margin: 2rem auto 0;
-    padding: 0;
     grid-template-areas:
       'title back'
       'tag tag'
@@ -167,16 +165,27 @@ const WorkItemMain = styled(Main)`
       max-width: unset;
     }
 
+    .title {
+      justify-self: baseline;
+      max-width: unset;
+    }
+
     .back {
       position: absolute;
       right: -2rem;
       padding: 0;
     }
 
-    .title {
-      justify-self: baseline;
-      max-width: unset;
+    .image {
+      width: 55rem;
+      margin: 2rem auto 0;
     }
+  }
+
+  @media screen and (${device.laptop}) {
+    /* -> @media (min-width: 1024px)" */
+    width: 80rem;
+    padding: 0;
 
     .tag {
       margin-top: 0;
@@ -190,13 +199,13 @@ const WorkItemMain = styled(Main)`
       padding: 1px 30px;
     }
 
-    .image {
-      width: 700px;
-      margin: 2rem auto 0;
-    }
-
     .repo {
       padding: 0 30px;
+    }
+
+    .image {
+      width: 70rem;
+      margin: 2rem auto 0;
     }
   }
 `

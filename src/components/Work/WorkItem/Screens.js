@@ -1,11 +1,17 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import { useMediaQuery } from 'react-responsive'
+
+import { device } from 'components/styles/variables'
 
 import ScreensWrapper from './styles/ScreensWrapper'
 import Screen, { screenImgStyle } from './styles/Screen'
 
 const Screens = ({ images, title, className }) => {
   const [active, setActive] = useState(null)
+
+  const isTouch = useMediaQuery({ query: device.touch })
+
   return (
     <ScreensWrapper className={className}>
       {images.map((image, i) => (
@@ -15,8 +21,8 @@ const Screens = ({ images, title, className }) => {
           target="_blank"
           onMouseOver={() => setActive(i)}
           onMouseLeave={() => setActive(null)}
-          onFocus={() => setActive(i)}
-          onBlur={() => setActive(null)}
+          onFocus={() => !isTouch && setActive(i)}
+          onBlur={() => !isTouch && setActive(null)}
           key={i}
         >
           <Screen
