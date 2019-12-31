@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { colors } from 'components/styles/variables'
+import { colors, device } from 'components/styles/variables'
 
 const DetailsWrapper = styled.div`
   position: absolute;
@@ -20,6 +20,8 @@ const DetailsWrapper = styled.div`
     display: inline-block;
     /* margin: 1rem auto 3rem 1rem; */
     font-size: 2.4rem;
+    text-align: center;
+    max-width: 21.6rem;
   }
   p {
     padding: 0 3rem;
@@ -37,6 +39,14 @@ const DetailsWrapper = styled.div`
     padding: 0.5rem 1rem;
     margin: 0.5rem;
   }
+
+  @media screen and (${device.laptop}) {
+    /* -> @media (min-width: 1024px)" */
+    h2 {
+      max-width: 100%;
+    }
+  }
+
 `
 
 export default DetailsWrapper
