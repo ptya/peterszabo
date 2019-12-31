@@ -1,7 +1,9 @@
 import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
-import AccessibleText from 'components/styles/AccessibleText'
 import { animated, useSpring, useChain } from 'react-spring'
+
+import AccessibleText from 'components/styles/AccessibleText'
+import { colors } from 'components/styles/variables'
 
 import BtnWrapper from '../styles/BtnWrapper'
 import StyledButton from '../styles/StyledButton'
@@ -13,11 +15,13 @@ const CloseBtn = ({ children }) => {
   const svgRef = useRef()
   const bgRef = useRef()
 
-  const { width } = useSpring({
+  const { width, color } = useSpring({
     from: {
       width: 0,
+      color: colors.darkBg,
     },
     width: 100,
+    color: colors.bgGrey,
     config: {
       // a bit more solid than normal
       mass: 1,
@@ -39,7 +43,9 @@ const CloseBtn = ({ children }) => {
   return (
     <>
       <BtnWrapper>
-        <AnimBtnBg style={{ width: width.interpolate(w => `${w}%`) }} />
+        <AnimBtnBg
+          style={{ width: width.interpolate(w => `${w}%`), borderColor: color }}
+        />
         <AnimSvg style={animation} viewBox="0 0 60 60">
           <line
             x1="3"

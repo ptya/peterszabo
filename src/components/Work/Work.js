@@ -28,7 +28,6 @@ const Work = ({ data, location }) => {
   const [selected, setSelected] = useState(null)
   const isMobile = useMediaQuery({ query: device.mobile })
   const isTouch = useMediaQuery({ query: device.touch })
-  console.log('isTouch', isTouch)
 
   const transitions = useTransition(items, item => item.id, {
     from: {

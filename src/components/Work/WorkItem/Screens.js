@@ -17,10 +17,10 @@ const Screens = ({ images, title, className }) => {
           onMouseLeave={() => setActive(null)}
           onFocus={() => setActive(i)}
           onBlur={() => setActive(null)}
+          key={i}
         >
           <Screen
             fluid={image.childImageSharp.fluid}
-            key={i}
             alt={`${title} ${i + 1}`}
             imgStyle={screenImgStyle(active !== null && i === active)}
             isInActive={active !== null && i !== active}
@@ -33,8 +33,8 @@ const Screens = ({ images, title, className }) => {
 
 Screens.propTypes = {
   images: PropTypes.array.isRequired,
-  title: PropTypes.array.isRequired,
-  className: PropTypes.array,
+  title: PropTypes.string.isRequired,
+  className: PropTypes.string,
 }
 
 Screens.defaultProps = {

@@ -7,13 +7,13 @@ const WorkItemMain = styled(Main)`
   position: relative;
   display: grid;
   grid-template-areas:
-    'title back'
-    'tag tag'
-    'content content'
-    'repo repo'
-    'image image';
-  width: 800px;
-  margin: 0 auto;
+    'back'
+    'title'
+    'tag'
+    'content'
+    'repo'
+    'image';
+  margin: 0 auto 5rem;
   padding: 0;
 
   h2 {
@@ -28,7 +28,7 @@ const WorkItemMain = styled(Main)`
 
   p,
   li {
-    line-height: 2.5rem;
+    line-height: 2.8rem;
     font-size: 1.6rem;
   }
 
@@ -38,6 +38,21 @@ const WorkItemMain = styled(Main)`
 
   ul {
     margin: 0;
+    padding-left: 1rem;
+  }
+
+  li {
+    margin: 1rem auto;
+
+    a {
+      display: inline-block;
+      vertical-align: bottom;
+      text-overflow: ellipsis;
+      max-width: 22rem;
+      overflow: hidden;
+      white-space: nowrap;
+      line-height: 2.7rem;
+    }
   }
 
   .repo,
@@ -50,7 +65,6 @@ const WorkItemMain = styled(Main)`
       text-underline-offset: 0.5rem;
       transition: all 0.15s ease-out;
       position: relative;
-      display: inline-block;
     }
 
     a:before {
@@ -77,45 +91,55 @@ const WorkItemMain = styled(Main)`
 
   .title {
     grid-area: title;
-    margin-bottom: 0;
+    margin: 1rem 0;
+    justify-self: center;
+    max-width: 21.6rem;
+    text-align: center;
   }
 
   .back {
     grid-area: back;
     text-align: center;
-    position: absolute;
-    right: -2rem;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    justify-self: right;
   }
 
   .tag {
     grid-area: tag;
     justify-self: right;
     margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 1rem;
+    justify-content: center;
   }
 
   .content {
     grid-area: content;
     position: relative;
-    perspective: 1500px;
+    perspective: 2500px;
     padding: 2rem 0;
+  }
 
-    .markdown {
-      position: relative;
-      margin: 20px;
-      padding: 1px 30px;
-    }
+  .markdown {
+    position: relative;
+    margin: 2rem 2rem 0;
+    padding: 1px 0px;
   }
 
   .repo {
     grid-area: repo;
-    padding: 0 30px;
-    margin: 0 20px;
+    padding: 0;
+    margin: 0 2rem;
   }
 
   .image {
     grid-area: image;
-    margin: 2rem auto 0;
-    width: 700px;
+    margin: 2.5rem auto 0;
+    width: 270px;
   }
 
   @media screen and (${device.laptop}) {
@@ -123,10 +147,56 @@ const WorkItemMain = styled(Main)`
     width: 80rem;
     margin: 2rem auto 0;
     padding: 0;
+    grid-template-areas:
+      'title back'
+      'tag tag'
+      'content content'
+      'repo repo'
+      'image image';
+
+    ul {
+      padding-left: 4rem;
+    }
 
     p,
     li {
       font-size: 1.8rem;
+    }
+
+    li > a {
+      max-width: unset;
+    }
+
+    .back {
+      position: absolute;
+      right: -2rem;
+      padding: 0;
+    }
+
+    .title {
+      justify-self: baseline;
+      max-width: unset;
+    }
+
+    .tag {
+      margin-top: 0;
+    }
+
+    .content {
+      perspective: 2500px;
+    }
+
+    .markdown {
+      padding: 1px 30px;
+    }
+
+    .image {
+      width: 700px;
+      margin: 2rem auto 0;
+    }
+
+    .repo {
+      padding: 0 30px;
     }
   }
 `
