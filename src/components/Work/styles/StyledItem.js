@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { z } from 'components/styles/variables'
 
-const StyledItem = styled.figure`
+const StyledItem = styled.a`
   position: relative;
   width: 100%;
   height: 100%;

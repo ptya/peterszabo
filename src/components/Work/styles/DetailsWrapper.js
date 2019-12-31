@@ -33,6 +33,7 @@ const DetailsWrapper = styled.div`
   }
   span {
     background: ${colors.blue};
+    color: ${colors.white};
     padding: 0.5rem 1rem;
     margin: 0.5rem;
   }

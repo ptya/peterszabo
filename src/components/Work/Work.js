@@ -2,9 +2,12 @@ import React, { useState } from 'react'
 import { useTransition, animated } from 'react-spring'
 import PropTypes from 'prop-types'
 import { navigate } from '@reach/router' // eslint-disable-line
+import { useMediaQuery } from 'react-responsive'
 
 import Social from 'components/elements/Social'
 import AbsoluteTitle from 'components/styles/AbsoluteTitle'
+import { device } from 'components/styles/variables'
+
 import WorkThumbnail from './WorkThumbnail'
 import TransitionDiv from './elements/TransitionDiv'
 import GitHub from './elements/GitHub'
@@ -22,6 +25,8 @@ const Work = ({ data, location }) => {
   const items = data.allMarkdownRemark.edges.map(({ node }) => node)
 
   const [selected, setSelected] = useState(null)
+  const isMobile = useMediaQuery({ query: device.mobile })
+
   const transitions = useTransition(items, item => item.id, {
     from: {
       x: fromWork ? 0 : -50,
@@ -31,6 +36,7 @@ const Work = ({ data, location }) => {
     trail: 100,
   })
   const onSelect = (e, item) => {
+    e.preventDefault()
     setSelected({ top: e.clientY, left: e.clientX, item })
   }
 
@@ -50,18 +56,23 @@ const Work = ({ data, location }) => {
           ({ item, props: { x, opacity }, key }) =>
             item && (
               <AnimatedThumbnail
-                style={{
-                  transform: x.interpolate(n => `translateX(${n}px)`),
-                  opacity,
-                }}
+                style={
+                  isMobile
+                    ? {}
+                    : {
+                        transform: x.interpolate(n => `translateX(${n}px)`),
+                        opacity,
+                      }
+                }
                 key={key}
                 work={item}
                 onSelect={e => onSelect(e, item)}
+                isMobile={isMobile}
               />
             )
         )}
       </WorksWrapper>
-      <Social type="col" animate={!fromWork} />
+      {/* <Social type="col" animate={!fromWork} /> */}
       {selected && (
         <TransitionDiv
           data={selected}
