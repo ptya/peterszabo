@@ -13,7 +13,7 @@ import Avatar from './styles/Avatar'
 const AnimWrapper = animated(MapWrapper)
 const AnimAvatar = animated(Avatar)
 
-const Map = ({ delay }) => {
+const Map = ({ delay, isMobile }) => {
   const [ready, setReady] = useState(false)
   const [isExtended, setExtended] = useState(false)
   const [on, setOn] = useState(false)
@@ -32,13 +32,16 @@ const Map = ({ delay }) => {
   const resizeRef = useRef()
 
   const { x } = useSpring({
-    from: { x: 250 },
+    from: { x: isMobile ? 0 : 250 },
     x: 0,
     ref: enterRef,
-    delay: 950,
+    delay: isMobile ? 0 : 950,
   })
+
+  const baseHeight = isMobile ? '35rem' : '20vh'
+
   const resize = useSpring({
-    height: isExtended ? '100vh' : '20vh',
+    height: isExtended ? '100vh' : baseHeight,
     ref: resizeRef,
   })
 
@@ -48,20 +51,23 @@ const Map = ({ delay }) => {
     <>
       {ready && (
         <AnimWrapper
+          isExtended={isExtended}
           style={{
             transform: x.interpolate(n => `translateY(${n}px)`),
             ...resize,
           }}
         >
-          <MapBtn
-            onClick={() => setExtended(!isExtended)}
-            isExtended={isExtended}
-          >
-            <Arrow>
-              {isExtended && 'Close map'}
-              {!isExtended && 'Open map'}
-            </Arrow>
-          </MapBtn>
+          {!isMobile && (
+            <MapBtn
+              onClick={() => setExtended(!isExtended)}
+              isExtended={isExtended}
+            >
+              <Arrow>
+                {isExtended && 'Close map'}
+                {!isExtended && 'Open map'}
+              </Arrow>
+            </MapBtn>
+          )}
           <ReactMapGL
             {...viewport}
             width="100%"
@@ -107,6 +113,7 @@ const Map = ({ delay }) => {
 
 Map.propTypes = {
   delay: PropTypes.number,
+  isMobile: PropTypes.bool.isRequired,
 }
 
 Map.defaultPropTypes = {

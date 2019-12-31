@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { colors } from 'components/styles/variables'
+import { colors, device } from 'components/styles/variables'
 
 const InputWrapper = styled.div`
   position: relative;
@@ -27,7 +27,7 @@ const InputWrapper = styled.div`
     height: 50px;
     min-width: 100%;
     max-width: 590px;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     padding: 20px 10px 10px;
     /* background-color: ${colors.darkBlue}; */
     background-color: #1e2a3c;
@@ -39,6 +39,13 @@ const InputWrapper = styled.div`
 
   textarea {
     height: 150px;
+  }
+
+  @media screen and (${device.laptop}) {
+    /* -> @media (min-width: 1024px)" */
+    input, textarea {
+      font-size: 1.6rem;
+    }
   }
 `
 

@@ -1,13 +1,9 @@
 import styled from 'styled-components'
-import { colors, z } from 'components/styles/variables'
+import { colors, z, device } from 'components/styles/variables'
 
 const MapWrapper = styled.aside`
   width: 100%;
-  /* transition: height ease-in-out 0.3s; */
-  height: ${props => (props.isExtended ? '100vh' : '200px')};
-  position: fixed;
-  bottom: 0;
-  left: 0;
+  position: initial;
   border-top: 2px solid ${colors.blue};
   z-index: ${z.middle};
 
@@ -17,6 +13,13 @@ const MapWrapper = styled.aside`
       font-size: 1.2rem;
       margin: 0;
     }
+  }
+
+  @media screen and (${device.laptop}) {
+    /* -> @media (min-width: 1024px)" */
+    position: fixed;
+    bottom: 0;
+    left: 0;
   }
 `
 
