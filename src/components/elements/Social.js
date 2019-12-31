@@ -11,7 +11,7 @@ const AnimWrapper = animated(SocialWrapper)
 
 const Social = ({ type, animate }) => {
   const { x } = useSpring({
-    from: { x: animate ? 56 : 0 },
+    from: { x: animate ? 65 : 0 },
     x: 0,
     delay: animate ? 300 : 0,
   })

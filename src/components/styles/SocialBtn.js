@@ -25,10 +25,10 @@ function getUrl(social) {
 const SocialBtn = styled.a.attrs(props => ({
   img: getUrl(props.social),
 }))`
-  width: 65px;
+  /* width: 65px; */
   display: flex;
   flex-grow: 1;
-  height: 100%;
+  height: 65px;
   align-items: center;
   justify-content: center;
   border: 1px solid ${props => colors[props.social]};
@@ -45,7 +45,7 @@ const SocialBtn = styled.a.attrs(props => ({
 
   @media screen and (${device.tablet}) {
     /* -> @media (min-width: 768px)" */
-    height: 7rem;
+    /* height: 7rem; */
   }
 
   @media screen and (${device.laptop}) {
