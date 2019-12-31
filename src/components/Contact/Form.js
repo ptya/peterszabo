@@ -60,25 +60,38 @@ const ContactForm = () => {
     >
       {({ isSubmitting, isValid }) => (
         <StyledForm>
-          <Field type="text" name="name" placeholder="Name" component={Input} />
           <Field
+            className="name"
+            type="text"
+            name="name"
+            placeholder="Name"
+            component={Input}
+          />
+          <Field
+            className="email"
             type="email"
             name="email"
             placeholder="Email"
             component={Input}
           />
           <Field
+            className="subject"
             type="text"
             name="subject"
             placeholder="Subject"
             component={Input}
           />
           <Field
+            className="message"
             name="message"
             placeholder="Something nice :)"
             component={Textarea}
           />
-          <SubmitBtn type="submit" disabled={isSubmitting || !isValid}>
+          <SubmitBtn
+            className="submit"
+            type="submit"
+            disabled={isSubmitting || !isValid}
+          >
             Send
           </SubmitBtn>
         </StyledForm>
