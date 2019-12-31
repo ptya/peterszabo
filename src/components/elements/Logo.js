@@ -25,7 +25,7 @@ const StyledLogo = styled.img`
 
   @media screen and (${device.tablet}) {
     /* -> @media (min-width: 768px)" */
-    height: 8.2rem;
+    height: ${props => (props.mini ? '5.3rem' : '8.2rem')};
   }
 `
 // TODO check eslint warnings/errors for whole project

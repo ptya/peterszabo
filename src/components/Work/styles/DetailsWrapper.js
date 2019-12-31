@@ -16,9 +16,7 @@ const DetailsWrapper = styled.div`
   h2 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
-    /* background: ${colors.blue}; */
     display: inline-block;
-    /* margin: 1rem auto 3rem 1rem; */
     font-size: 2.4rem;
     text-align: center;
     max-width: 21.6rem;
@@ -40,13 +38,12 @@ const DetailsWrapper = styled.div`
     margin: 0.5rem;
   }
 
-  @media screen and (${device.laptop}) {
-    /* -> @media (min-width: 1024px)" */
+  @media screen and (${device.mobileM}) {
+    /* -> @media (min-width: 375px)" */
     h2 {
       max-width: 100%;
     }
   }
-
 `
 
 export default DetailsWrapper

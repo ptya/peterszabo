@@ -7,6 +7,8 @@ import SocialWrapper from '../styles/SocialWrapper'
 
 const AnimWrapper = animated(SocialWrapper)
 
+// TODO fixme!
+
 const Social = ({ type, animate }) => {
   const { x } = useSpring({
     from: { x: animate ? 56 : 0 },

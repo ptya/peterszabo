@@ -53,4 +53,5 @@ export const device = {
   // for react-responsive below
   tabletOrMobile: `(max-width: ${size.tabletOrMobile})`, // for burger menu
   mobile: `(max-width: ${size.mobile})`, // only mobile size
+  touch: '(hover: none)',
 }

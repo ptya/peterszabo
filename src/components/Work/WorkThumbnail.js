@@ -13,7 +13,9 @@ const AnimatedWrapper = animated(DetailsWrapper)
 const AnimatedItem = animated(StyledItem)
 const AnimatedThumbImg = animated(ThumbImg)
 
-const WorkThumbnail = ({ work, style, onSelect, isMobile }) => {
+// TODO: column version should animate in from each side
+
+const WorkThumbnail = ({ work, style, onSelect, isTouch }) => {
   const {
     frontmatter: { tags, title, images, path },
   } = work
@@ -21,12 +23,12 @@ const WorkThumbnail = ({ work, style, onSelect, isMobile }) => {
 
   // in case of window size falls below then change behaviour instantly
   useEffect(() => {
-    if (isMobile) {
+    if (isTouch) {
       setHovered(true)
     } else {
       setHovered(false)
     }
-  }, [isMobile])
+  }, [isTouch])
 
   const transitions = useTransition(hovered, null, {
     from: { position: 'absolute', opacity: 0 },
@@ -34,7 +36,7 @@ const WorkThumbnail = ({ work, style, onSelect, isMobile }) => {
     leave: { opacity: 0 },
   })
 
-  const brightness = isMobile ? '0.6' : '0.4'
+  const brightness = isTouch ? '0.6' : '0.4'
 
   const fade = useSpring({
     filter: `brightness( ${hovered ? brightness : '1'} )`,
@@ -45,8 +47,8 @@ const WorkThumbnail = ({ work, style, onSelect, isMobile }) => {
       style={style}
       onMouseOver={() => setHovered(true)}
       onFocus={() => setHovered(true)}
-      onMouseLeave={() => !isMobile && setHovered(false)}
-      onBlur={() => !isMobile && setHovered(false)}
+      onMouseLeave={() => !isTouch && setHovered(false)}
+      onBlur={() => !isTouch && setHovered(false)}
       onClick={e => onSelect(e)}
       href={path}
     >
@@ -85,7 +87,7 @@ WorkThumbnail.propTypes = {
   }).isRequired,
   style: PropTypes.object,
   onSelect: PropTypes.func.isRequired,
-  isMobile: PropTypes.bool.isRequired,
+  isTouch: PropTypes.bool.isRequired,
 }
 
 WorkThumbnail.defaultProps = {

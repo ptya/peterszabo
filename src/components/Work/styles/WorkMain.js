@@ -13,6 +13,7 @@ const WorkMain = styled(Main)`
     margin-top: 3.8rem;
     flex-wrap: wrap;
     justify-content: center;
+    line-height: 2.8rem;
   }
 `
 

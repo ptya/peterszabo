@@ -56,6 +56,11 @@ const StyledHeader = styled.header`
         /* -> @media (min-width: 375px)" */
         height: 6rem;
       }
+
+      @media screen and (${device.tablet}) {
+        /* -> @media (min-width: 768px)" */
+        height: 8rem;
+      }
     `}
 `
 
