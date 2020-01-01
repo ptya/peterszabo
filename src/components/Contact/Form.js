@@ -1,7 +1,10 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Formik, Field } from 'formik'
+
 import Input from './elements/Input'
 import Textarea from './elements/Textarea'
+
 import StyledForm from './styles/StyledForm'
 import SubmitBtn from './styles/SubmitBtn'
 
@@ -9,7 +12,7 @@ import SubmitBtn from './styles/SubmitBtn'
 // TODO after submitting a message just show a thank you note without the form
 // TODO transition animation after submit
 
-const ContactForm = () => {
+const Form = ({ setSent }) => {
   const initialValues = {
     name: '',
     email: '',
@@ -48,6 +51,7 @@ const ContactForm = () => {
       alert(JSON.stringify(values, null, 2))
       setSubmitting(false)
       resetForm()
+      setSent(true)
     }, 400)
   }
 
@@ -100,6 +104,8 @@ const ContactForm = () => {
   )
 }
 
-ContactForm.propTypes = {}
+Form.propTypes = {
+  setSent: PropTypes.func.isRequired,
+}
 
-export default ContactForm
+export default Form
