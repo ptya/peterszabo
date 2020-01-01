@@ -46,7 +46,20 @@ const Form = ({ setSent }) => {
     return errors
   }
 
+  const encode = data =>
+    Object.keys(data)
+      .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+      .join('&')
+
   const onSubmit = (values, { setSubmitting, resetForm }) => {
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({ 'form-name': 'contact', ...values }),
+    })
+      .then(() => alert('Success!'))
+      .catch(error => alert(error))
+
     setSubmitting(false)
     resetForm()
     setSent(true)
