@@ -66,6 +66,7 @@ const Form = ({ setSent }) => {
           data-netlify="true"
           method="post"
         >
+          <input type="hidden" name="form-name" value="contact" />
           <input type="hidden" name="bot-field" />
           <Field
             className="name"
