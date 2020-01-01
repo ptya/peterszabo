@@ -46,8 +46,7 @@ const Form = ({ setSent }) => {
     return errors
   }
 
-  const onSubmit = (values, { setSubmitting, resetForm }, e) => {
-    e.preventDefault()
+  const onSubmit = (values, { setSubmitting, resetForm }) => {
     setSubmitting(false)
     resetForm()
     setSent(true)
