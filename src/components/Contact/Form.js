@@ -46,13 +46,11 @@ const Form = ({ setSent }) => {
     return errors
   }
 
-  const onSubmit = (values, { setSubmitting, resetForm }) => {
-    setTimeout(() => {
-      alert(JSON.stringify(values, null, 2))
-      setSubmitting(false)
-      resetForm()
-      setSent(true)
-    }, 400)
+  const onSubmit = (values, { setSubmitting, resetForm }, e) => {
+    e.preventDefault()
+    setSubmitting(false)
+    resetForm()
+    setSent(true)
   }
 
   return (
@@ -63,7 +61,13 @@ const Form = ({ setSent }) => {
       onSubmit={onSubmit}
     >
       {({ isSubmitting, isValid }) => (
-        <StyledForm>
+        <StyledForm
+          name="contact"
+          netlify-honeypot="bot-field"
+          data-netlify="true"
+          method="post"
+        >
+          <input type="hidden" name="bot-field" />
           <Field
             className="name"
             type="text"
