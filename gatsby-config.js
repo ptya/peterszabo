@@ -41,6 +41,12 @@ module.exports = {
         excerpt_separator: `<!-- end -->`,
       },
     },
+    {
+      resolve: `gatsby-plugin-polyfill-io`,
+      options: {
+        features: [`ResizeObserver`],
+      },
+    },
   ],
   siteMetadata: {
     // TODO compare with wedding site for a working example
