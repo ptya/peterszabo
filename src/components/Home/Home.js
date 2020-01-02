@@ -5,6 +5,9 @@ import HomeBackground from './styles/HomeBackground'
 import Hero from './styles/Hero'
 import Footer from './styles/Footer'
 
+// TODO integrate sentry.io
+// TODO try logrocket as well
+
 const Home = () => (
   <HomeBackground>
     <Hero>

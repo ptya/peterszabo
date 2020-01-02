@@ -8,8 +8,7 @@ import Textarea from './elements/Textarea'
 import StyledForm from './styles/StyledForm'
 import SubmitBtn from './styles/SubmitBtn'
 
-// TODO: netlfiy form for messages
-// TODO after submitting a message just show a thank you note without the form
+// TODO clean up form submission
 // TODO transition animation after submit
 
 const Form = ({ setSent }) => {
