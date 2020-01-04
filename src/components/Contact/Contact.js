@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
-import { useMediaQuery } from 'react-responsive'
+import React, { useState, useContext } from 'react'
+
+import ScreenContext from 'components/context/ScreenContext'
 
 import Social from 'components/elements/Social'
 import StaticSocial from 'components/elements/StaticSocial'
 
 import AbsoluteTitle from 'components/styles/AbsoluteTitle'
-import { device } from 'components/styles/variables'
 
 import Form from './Form'
 import Map from './Map'
@@ -20,7 +20,7 @@ import Confirm from './styles/Confirm'
 const Contact = () => {
   const [isSent, setSent] = useState(false)
 
-  const isMobile = useMediaQuery({ query: device.mobile })
+  const { isMobile } = useContext(ScreenContext)
 
   return (
     <>

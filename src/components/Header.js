@@ -1,7 +1,8 @@
-import React, { useState, useRef, useEffect, useLayoutEffect } from 'react'
+import React, { useState, useRef, useLayoutEffect, useContext } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import { useMediaQuery } from 'react-responsive'
+
+import ScreenContext from 'components/context/ScreenContext'
 
 import { useTarget } from 'components/hooks/useTarget'
 import { useActive } from 'components/hooks/useActive'
@@ -13,9 +14,9 @@ import Burger from './elements/Burger'
 
 import StyledHeader from './styles/StyledHeader'
 import Menu from './styles/Menu'
-import { device } from './styles/variables'
+import RobotMenu from './styles/RobotMenu'
 
-// TODO menu open then disable scroll
+// TODO SSR mobile detection to custom hook then use it in works and everywhere it is required
 
 const Header = ({ location }) => {
   const [active, setActive] = useState([])
@@ -29,23 +30,25 @@ const Header = ({ location }) => {
   useActive(setActive, setHovered)
   useTarget(active, setHovered)
 
-  const isHome = location.pathname === '/'
-  const isTabletOrMobile = useMediaQuery({ query: device.tabletOrMobile })
+  const { isClient, isSmallScreen } = useContext(ScreenContext)
 
   let menuType
-  if (isTabletOrMobile && miniHeader) {
+  if (isSmallScreen && miniHeader) {
     menuType = 'mini'
-  } else if (isTabletOrMobile && !miniHeader) {
+  } else if (isSmallScreen && !miniHeader) {
     menuType = 'burger'
   } else {
     menuType = 'default'
   }
 
+  const isHome = location.pathname === '/'
   const isTargetShown = menuType === 'default' && hovered.length > 0
   const switchToMini = 25
   const isMini = menuType === 'mini'
 
-  useEffect(() => {
+  // minimize menu on small screens when scrolled above $switchToMini
+  useLayoutEffect(() => {
+    if (!isClient) return
     const handleScroll = () => {
       const currentScrollOffset = window.pageYOffset
       if (currentScrollOffset >= switchToMini) {
@@ -61,6 +64,7 @@ const Header = ({ location }) => {
     }
   })
 
+  // disable scrollbar when menu is open
   useLayoutEffect(() => {
     document.body.style.overflow = open ? 'hidden' : 'unset'
     return () => (document.body.style.overflow = 'unset')
@@ -68,31 +72,46 @@ const Header = ({ location }) => {
 
   return (
     <StyledHeader type={menuType} isHome={isHome}>
-      <div ref={menu}>
-        {isTabletOrMobile && (
-          <Burger open={open} setOpen={setOpen} mini={isMini} />
-        )}
-        <Menu id="menu" type={menuType} open={open}>
-          <Link id="home" activeClassName="active" to="/">
-            Home
-          </Link>
-          <Link id="about" activeClassName="active" partiallyActive to="/about">
-            About
-          </Link>
-          <Link id="work" activeClassName="active" partiallyActive to="/work">
-            Work
-          </Link>
-          <Link
-            id="contact"
-            activeClassName="active"
-            partiallyActive
-            to="/contact"
-          >
-            Contact
-          </Link>
-          {isTargetShown && <Target pos={hovered} />}
-        </Menu>
-      </div>
+      {!isClient && (
+        <RobotMenu>
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/work">Work</Link>
+          <Link to="/contact">Contact</Link>
+        </RobotMenu>
+      )}
+      {isClient && (
+        <div ref={menu}>
+          {isSmallScreen && (
+            <Burger open={open} setOpen={setOpen} mini={isMini} />
+          )}
+          <Menu id="menu" type={menuType} open={open}>
+            <Link id="home" activeClassName="active" to="/">
+              Home
+            </Link>
+            <Link
+              id="about"
+              activeClassName="active"
+              partiallyActive
+              to="/about"
+            >
+              About
+            </Link>
+            <Link id="work" activeClassName="active" partiallyActive to="/work">
+              Work
+            </Link>
+            <Link
+              id="contact"
+              activeClassName="active"
+              partiallyActive
+              to="/contact"
+            >
+              Contact
+            </Link>
+            {isTargetShown && <Target pos={hovered} />}
+          </Menu>
+        </div>
+      )}
       <Logo isFull={location.pathname !== '/'} mini={isMini} />
     </StyledHeader>
   )

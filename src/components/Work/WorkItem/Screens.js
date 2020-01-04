@@ -1,17 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useLayoutEffect, useContext } from 'react'
 import PropTypes from 'prop-types'
-import { useMediaQuery } from 'react-responsive'
 
-import { device } from 'components/styles/variables'
+import ScreenContext from 'components/context/ScreenContext'
 
 import ScreensWrapper from './styles/ScreensWrapper'
 import Screen, { screenImgStyle } from './styles/Screen'
 
 const Screens = ({ images, title, className }) => {
   const [active, setActive] = useState(null)
+  const { isClient, isTouch } = useContext(ScreenContext)
 
-  const isTouch = useMediaQuery({ query: device.touch })
-
+  const isHoverAvailable = isClient && !isTouch
   return (
     <ScreensWrapper className={className}>
       {images.map((image, i) => (
@@ -21,15 +20,17 @@ const Screens = ({ images, title, className }) => {
           target="_blank"
           onMouseOver={() => setActive(i)}
           onMouseLeave={() => setActive(null)}
-          onFocus={() => !isTouch && setActive(i)}
-          onBlur={() => !isTouch && setActive(null)}
+          onFocus={() => setActive(i)}
+          onBlur={() => setActive(null)}
           key={i}
         >
           <Screen
             fluid={image.childImageSharp.fluid}
             alt={`${title} ${i + 1}`}
-            imgStyle={screenImgStyle(active !== null && i === active)}
-            isInActive={active !== null && i !== active}
+            imgStyle={screenImgStyle(
+              isHoverAvailable && (active !== null && i === active)
+            )}
+            isInActive={isHoverAvailable && (active !== null && i !== active)}
           />
         </a>
       ))}

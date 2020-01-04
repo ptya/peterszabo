@@ -7,6 +7,7 @@ function useActive(setActive, setHovered) {
 
   useLayoutEffect(() => {
     const active = document.getElementsByClassName('active')[0]
+    if (typeof window === 'undefined' || typeof active === 'undefined') return
 
     const handleActive = () => {
       const newLeft = active.offsetLeft - constants.leftOffset

@@ -1,6 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, {
+  useState,
+  useEffect,
+  useLayoutEffect,
+  useContext,
+  useRef,
+} from 'react'
 import PropTypes from 'prop-types'
-import { useTransition, useSpring, animated } from 'react-spring'
+import { useTransition, useSpring, animated, useChain } from 'react-spring'
+
+import ScreenContext from 'components/context/ScreenContext'
+
 import Title from 'components/elements/Title'
 
 import WorkTag from './WorkTag'
@@ -10,41 +19,42 @@ import StyledItem from './styles/StyledItem'
 import ThumbImg, { thumbImgStyle } from './styles/ThumbImg'
 
 const AnimatedWrapper = animated(DetailsWrapper)
-const AnimatedItem = animated(StyledItem)
+// const AnimatedItem = animated(StyledItem)
 const AnimatedThumbImg = animated(ThumbImg)
 
 // TODO: column version should animate in from each side
 
-const WorkThumbnail = ({ work, style, onSelect, isTouch }) => {
+const WorkThumbnail = ({ work, onSelect }) => {
+  const springRef = useRef()
+  const transitionRef = useRef()
+  // const WorkThumbnail = ({ work, style, onSelect }) => {
+  // const WorkThumbnail = ({ work, style, onSelect }) => {
   const {
     frontmatter: { tags, title, images, path },
   } = work
   const [hovered, setHovered] = useState(false)
-
-  // in case of window size falls below then change behaviour instantly
-  useEffect(() => {
-    if (isTouch) {
-      setHovered(true)
-    } else {
-      setHovered(false)
-    }
-  }, [isTouch])
+  const { isTouch } = useContext(ScreenContext)
+  console.log('I AM RENDERING')
 
   const transitions = useTransition(hovered, null, {
-    from: { position: 'absolute', opacity: 0 },
+    from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
+    ref: transitionRef,
   })
 
   const brightness = isTouch ? '0.6' : '0.4'
 
   const fade = useSpring({
-    filter: `brightness( ${hovered ? brightness : '1'} )`,
+    filter: `brightness( ${hovered ? 0.6 : 1} )`,
+    ref: springRef,
   })
 
+  useChain([springRef, transitionRef])
+
   return (
-    <AnimatedItem
-      style={style}
+    <StyledItem
+      // style={style}
       onMouseOver={() => setHovered(true)}
       onFocus={() => setHovered(true)}
       onMouseLeave={() => !isTouch && setHovered(false)}
@@ -71,7 +81,7 @@ const WorkThumbnail = ({ work, style, onSelect, isTouch }) => {
             </AnimatedWrapper>
           )
       )}
-    </AnimatedItem>
+    </StyledItem>
   )
 }
 
@@ -87,7 +97,7 @@ WorkThumbnail.propTypes = {
   }).isRequired,
   style: PropTypes.object,
   onSelect: PropTypes.func.isRequired,
-  isTouch: PropTypes.bool.isRequired,
+  // isTouch: PropTypes.bool.isRequired,
 }
 
 WorkThumbnail.defaultProps = {

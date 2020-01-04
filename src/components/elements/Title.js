@@ -8,6 +8,7 @@ import { AnimBgLeft, AnimBgRight } from '../styles/AnimBg'
 const AnimatedTitle = animated(StyledTitle)
 
 const Title = ({ children, type, className, animate }) => {
+  console.log('Title RENDERS')
   const textRef = useRef()
   const bgLeftRef = useRef()
   const bgRightRef = useRef()

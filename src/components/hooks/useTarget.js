@@ -5,6 +5,9 @@ import { constants } from 'utils'
 function useTarget(base, handler) {
   useLayoutEffect(() => {
     const menu = document.getElementById('menu')
+
+    if (menu === null) return
+
     const home = document.getElementById('home')
     const about = document.getElementById('about')
     const work = document.getElementById('work')

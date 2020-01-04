@@ -2,9 +2,12 @@ import styled, { css } from 'styled-components'
 
 import { colors, z, device } from 'components/styles/variables'
 
+import Logo from '../elements/Logo'
+
 const StyledHeader = styled.header`
   display: grid;
   grid-template-columns: 1fr 10.5rem;
+  grid-template-areas: 'nav logo';
   align-items: center;
   position: fixed;
   top: 0;
@@ -15,6 +18,15 @@ const StyledHeader = styled.header`
   width: 100%;
   z-index: ${z.middle};
   transition: all 0.2s linear;
+
+  nav {
+    grid-area: nav;
+  }
+
+  a {
+    grid-area: logo;
+  }
+
 
   ${props =>
     (props.type === 'burger' || props.type === 'mini') &&

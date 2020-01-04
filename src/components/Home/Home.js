@@ -6,7 +6,7 @@ import Hero from './styles/Hero'
 import Footer from './styles/Footer'
 
 // TODO integrate sentry.io
-// TODO try logrocket as well
+// TODO try logrocket as wellgat
 
 const Home = () => (
   <HomeBackground>

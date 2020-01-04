@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { useTransition, animated } from 'react-spring'
 import PropTypes from 'prop-types'
 import { navigate } from '@reach/router' // eslint-disable-line
-import { useMediaQuery } from 'react-responsive'
+
+import ScreenContext from 'components/context/ScreenContext'
 
 import Social from 'components/elements/Social'
 import StaticSocial from 'components/elements/StaticSocial'
 import AbsoluteTitle from 'components/styles/AbsoluteTitle'
-import { device } from 'components/styles/variables'
 
 import WorkThumbnail from './WorkThumbnail'
 import TransitionDiv from './elements/TransitionDiv'
@@ -26,22 +26,27 @@ const Work = ({ data, location }) => {
   const items = data.allMarkdownRemark.edges.map(({ node }) => node)
 
   const [selected, setSelected] = useState(null)
-  const isMobile = useMediaQuery({ query: device.mobile })
-  const isTouch = useMediaQuery({ query: device.touch })
+
+  // const { isMobile, isTouch } = useContext(ScreenContext)
+  const { isMobile } = useContext(ScreenContext)
 
   const transitions = useTransition(items, item => item.id, {
     from: {
-      x: fromWork ? 0 : -50,
-      opacity: fromWork ? 1 : 0,
+      // offset: fromWork ? 0 : -50,
+      // opacity: fromWork ? 1 : 0,
+      opacity: 0,
     },
-    enter: { x: 0, opacity: 1 },
-    trail: 100,
+    // enter: { offset: 0, opacity: 1 },
+    enter: { opacity: 1 },
+    // trail: 100,
   })
+
   const onSelect = (e, item) => {
     e.preventDefault()
     setSelected({ top: e.clientY, left: e.clientX, item })
   }
-
+  // TODO go for useChain instead of useTransition
+  console.log('WORK RENDERS')
   return (
     <>
       <WorkMain as="section">
@@ -55,21 +60,17 @@ const Work = ({ data, location }) => {
       </WorkMain>
       <WorksWrapper>
         {transitions.map(
-          ({ item, props: { x, opacity }, key }) =>
+          ({ item, props: { offset, opacity }, key }) =>
             item && (
               <AnimatedThumbnail
-                style={
-                  isMobile
-                    ? {}
-                    : {
-                        transform: x.interpolate(n => `translateX(${n}px)`),
-                        opacity,
-                      }
-                }
+                style={{
+                  // transform: offset.interpolate(n => `translateX(${n}px)`),
+                  opacity,
+                }}
                 key={key}
                 work={item}
                 onSelect={e => onSelect(e, item)}
-                isTouch={isTouch}
+                // isTouch={isTouch}
               />
             )
         )}
