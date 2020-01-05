@@ -30,6 +30,7 @@ const BackgroundSection = ({ className, children }) => {
       className={className}
       fluid={imageData}
       backgroundColor={colors.darkBg}
+      style={{ position: 'fixed' }}
     >
       {children}
     </BackgroundImage>
@@ -47,6 +48,7 @@ const StyledBackgroundSection = styled(BackgroundSection)`
   background-position: bottom center;
   background-repeat: repeat-y;
   background-size: cover;
+  position: fixed;
 `
 
 export default StyledBackgroundSection
