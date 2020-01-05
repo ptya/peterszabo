@@ -28,7 +28,7 @@ const WorkThumbnail = ({ work, onSelect }) => {
     frontmatter: { tags, title, images, path },
   } = work
   const [hovered, setHovered] = useState(false)
-  const { isMobile } = useContext(ScreenContext)
+  const { isClient, isMobile } = useContext(ScreenContext)
 
   const transitions = useTransition(hovered, null, {
     from: { opacity: 0 },
@@ -40,25 +40,8 @@ const WorkThumbnail = ({ work, onSelect }) => {
     filter: `brightness(${hovered ? 0.5 : 0.9})`,
   })
 
-  const { opacity, offset } = useSpring({
-    from: {
-      offset: -50,
-      opacity: 0,
-    },
-    offset: 0,
-    opacity: 1,
-  })
-
   return (
-    <AnimatedItem
-      style={
-        isMobile
-          ? {}
-          : {
-              transform: offset.interpolate(n => `translateX(${n}px)`),
-              opacity,
-            }
-      }
+    <StyledItem
       onMouseOver={() => setHovered(true)}
       onFocus={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -73,7 +56,7 @@ const WorkThumbnail = ({ work, onSelect }) => {
         imgStyle={thumbImgStyle}
       />
       <DetailsWrapper>
-        <Title type="h2" animate={!isMobile}>
+        <Title type="h2" animate={isClient && !isMobile}>
           {title}
         </Title>
         {transitions.map(
@@ -87,7 +70,7 @@ const WorkThumbnail = ({ work, onSelect }) => {
             )
         )}
       </DetailsWrapper>
-    </AnimatedItem>
+    </StyledItem>
   )
 }
 
