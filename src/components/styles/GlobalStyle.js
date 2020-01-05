@@ -15,13 +15,23 @@ const GlobalStyle = createGlobalStyle`
   html {
     font-size: 10px;
     font-family: "Raleway", sans-serif;
-    color: ${colors.white}
+    color: ${colors.white};
+    width: 100%;
+    height: 100%;
   }
 
   body {
     background-color: ${colors.darkBg};
     background-image: url(${background});
     /* background by SVGBackgrounds.com */
+    width: 100%;
+    height: 100%;
+  }
+
+  #___gatsby,
+  #gatsby-focus-wrapper {
+    width: 100%;
+    height: 100%;
   }
 
   h1, nav {

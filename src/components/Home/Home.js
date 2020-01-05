@@ -7,7 +7,6 @@ import Footer from './styles/Footer'
 
 // TODO integrate sentry.io
 // TODO try logrocket as wellgat
-// TODO: try to lock footer on bottom of the screen with Chrome mobile - now the status bar fucks it up
 
 const Home = () => (
   <HomeBackground>
