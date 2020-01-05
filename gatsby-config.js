@@ -53,7 +53,7 @@ module.exports = {
     titleTemplate: '%s · Peter Szabo',
     description:
       "Hello! My name is Péter Szabó and I create websites. Check out my site and let's talk.",
-    url: 'https://www.doe.com', // TODO:
+    url: 'https://peterszabo.io',
     image: '/images/logo.png',
   },
 }
