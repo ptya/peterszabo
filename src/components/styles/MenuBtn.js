@@ -26,7 +26,7 @@ const MenuBtn = styled.button`
     transition: all 0.2s linear;
     transform-origin: left;
     height: 3px;
-    width: 30px;
+    width: ${props => (props.mini && !props.open ? '24px' : '30px')};
     border-radius: 10px;
   }
 

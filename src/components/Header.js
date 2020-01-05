@@ -14,9 +14,6 @@ import Burger from './elements/Burger'
 
 import StyledHeader from './styles/StyledHeader'
 import Menu from './styles/Menu'
-import RobotMenu from './styles/RobotMenu'
-
-// TODO SSR mobile detection to custom hook then use it in works and everywhere it is required
 
 const Header = ({ location }) => {
   const [active, setActive] = useState([])
@@ -25,26 +22,17 @@ const Header = ({ location }) => {
   const [miniHeader, setMiniHeader] = useState(false)
 
   const menu = useRef()
-
   useOnClickOutside(menu, () => setOpen(false))
+
   useActive(setActive, setHovered)
   useTarget(active, setHovered)
 
   const { isClient, isSmallScreen } = useContext(ScreenContext)
 
-  let menuType
-  if (isSmallScreen && miniHeader) {
-    menuType = 'mini'
-  } else if (isSmallScreen && !miniHeader) {
-    menuType = 'burger'
-  } else {
-    menuType = 'default'
-  }
-
   const isHome = location.pathname === '/'
-  const isTargetShown = menuType === 'default' && hovered.length > 0
+  const isTargetShown = !isSmallScreen && hovered.length > 0
   const switchToMini = 25
-  const isMini = menuType === 'mini'
+  const isMini = isSmallScreen && miniHeader
 
   // minimize menu on small screens when scrolled above $switchToMini
   useLayoutEffect(() => {
@@ -71,47 +59,32 @@ const Header = ({ location }) => {
   }, [open])
 
   return (
-    <StyledHeader type={menuType} isHome={isHome}>
-      {!isClient && (
-        <RobotMenu>
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/work">Work</Link>
-          <Link to="/contact">Contact</Link>
-        </RobotMenu>
-      )}
-      {isClient && (
-        <div ref={menu}>
-          {isSmallScreen && (
-            <Burger open={open} setOpen={setOpen} mini={isMini} />
-          )}
-          <Menu id="menu" type={menuType} open={open}>
-            <Link id="home" activeClassName="active" to="/">
-              Home
-            </Link>
-            <Link
-              id="about"
-              activeClassName="active"
-              partiallyActive
-              to="/about"
-            >
-              About
-            </Link>
-            <Link id="work" activeClassName="active" partiallyActive to="/work">
-              Work
-            </Link>
-            <Link
-              id="contact"
-              activeClassName="active"
-              partiallyActive
-              to="/contact"
-            >
-              Contact
-            </Link>
-            {isTargetShown && <Target pos={hovered} />}
-          </Menu>
-        </div>
-      )}
+    <StyledHeader mini={isMini} isHome={isHome}>
+      <div ref={menu}>
+        {isSmallScreen && (
+          <Burger open={open} setOpen={setOpen} mini={isMini} />
+        )}
+        <Menu id="menu" open={open} ref={menu}>
+          <Link id="home" activeClassName="active" to="/">
+            Home
+          </Link>
+          <Link id="about" activeClassName="active" partiallyActive to="/about">
+            About
+          </Link>
+          <Link id="work" activeClassName="active" partiallyActive to="/work">
+            Work
+          </Link>
+          <Link
+            id="contact"
+            activeClassName="active"
+            partiallyActive
+            to="/contact"
+          >
+            Contact
+          </Link>
+          {isTargetShown && <Target pos={hovered} />}
+        </Menu>
+      </div>
       <Logo isFull={location.pathname !== '/'} mini={isMini} />
     </StyledHeader>
   )

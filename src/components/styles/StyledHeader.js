@@ -2,17 +2,14 @@ import styled, { css } from 'styled-components'
 
 import { colors, z, device } from 'components/styles/variables'
 
-import Logo from '../elements/Logo'
-
 const StyledHeader = styled.header`
-  display: grid;
-  grid-template-columns: 1fr 10.5rem;
-  grid-template-areas: 'nav logo';
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   position: fixed;
   top: 0;
   right: 0;
-  padding: 0 3rem 0.5rem;
+  padding: 0 2rem 0;
   margin: auto;
   height: 8.2rem;
   width: 100%;
@@ -27,37 +24,37 @@ const StyledHeader = styled.header`
     grid-area: logo;
   }
 
-
-  ${props =>
-    (props.type === 'burger' || props.type === 'mini') &&
-    css`
-      display: flex;
-      justify-content: space-between;
-      padding: 0 2rem 0;
-
-      @media screen and (${device.tablet}) {
-        /* -> @media (min-width: 768px)" */
-        padding: 0 5rem;
-        height: 12rem;
-      }
-    `}
+  @media screen and (${device.tablet}) {
+    /* -> @media (min-width: 768px)" */
+    padding: 0 5rem;
+    height: 12rem;
+  }
 
   @media screen and (${device.mobileM}) {
-      /* -> @media (min-width: 375px)" */
-      height: 9.2rem;
-    }
+    /* -> @media (min-width: 375px)" */
+    height: 9.2rem;
+  }
 
   @media screen and (${device.tablet}) {
-      /* -> @media (min-width: 768px)" */
-      height: 14.5rem;
-    }
+    /* -> @media (min-width: 768px)" */
+    height: 14.5rem;
+  }
+
+  @media screen and (${device.laptop}) {
+    /* -> @media (min-width: 1024px)" */
+    display: grid;
+    grid-template-columns: 1fr 10.5rem;
+    grid-template-areas: 'nav logo';
+    padding: 0 3rem 0.5rem;
+    justify-content: unset;
+  }
 
   /* *************************** */
   /* MINI HAMBURGER MENU VERSION */
   /* *************************** */
 
   ${props =>
-    props.type === 'mini' &&
+    props.mini &&
     css`
       height: 5rem;
       padding: 0 2rem;
