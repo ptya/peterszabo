@@ -12,18 +12,21 @@ const MenuBtn = styled.button`
   margin: 0;
   padding: 6px;
   text-indent: -999px;
-  height: ${props => (props.mini && !props.open ? '29px' : '39px')};
-  width: ${props => (props.mini && !props.open ? '35px' : '45px')};
+  height: ${props => (props.mini && !props.open ? '29px' : '36px')};
   cursor: pointer;
   z-index: ${z.middle};
   transition: all 0.2s linear;
+
+  :focus {
+    outline: none;
+  }
 
   & > div {
     background-color: ${colors.white};
     transition: all 0.2s linear;
     transform-origin: left;
     height: 3px;
-    width: 100%;
+    width: 30px;
     border-radius: 10px;
   }
 
@@ -31,7 +34,7 @@ const MenuBtn = styled.button`
     transform: ${props => (props.open ? 'rotate(45deg)' : 'rotate(0)')};
   }
   div:nth-child(2) {
-    width: ${props => (props.mini ? '20px' : '30px')};
+    width: ${props => (props.mini ? '20px' : '26px')};
     opacity: ${props => (props.open ? 0 : 1)};
     transform: ${props => (props.open ? 'translateX(45px)' : 'translateX(0)')};
   }
@@ -49,10 +52,10 @@ const MenuBtn = styled.button`
   @media screen and (${device.tablet}) {
     /* -> @media (min-width: 768px)" */
     height: 49px;
-    width: 58px;
 
     & > div {
       height: 5px;
+      width: 44px;
     }
 
     div:nth-child(2) {
