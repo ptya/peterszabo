@@ -15,7 +15,6 @@ const ScreenProvider = ({ children }) => {
     }
   }, [])
 
-  const isTouch = useMediaQuery({ query: device.touch })
   const isSmallScreen = useMediaQuery({ query: device.tabletOrMobile })
   const isMobile = useMediaQuery({ query: device.mobile })
 
@@ -23,7 +22,6 @@ const ScreenProvider = ({ children }) => {
     <ScreenContext.Provider
       value={{
         isClient,
-        isTouch,
         isSmallScreen,
         isMobile,
       }}

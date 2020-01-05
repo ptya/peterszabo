@@ -1,16 +1,12 @@
-import React, { useState, useLayoutEffect, useContext } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-
-import ScreenContext from 'components/context/ScreenContext'
 
 import ScreensWrapper from './styles/ScreensWrapper'
 import Screen, { screenImgStyle } from './styles/Screen'
 
 const Screens = ({ images, title, className }) => {
   const [active, setActive] = useState(null)
-  const { isClient, isTouch } = useContext(ScreenContext)
 
-  const isHoverAvailable = isClient && !isTouch
   return (
     <ScreensWrapper className={className}>
       {images.map((image, i) => (
@@ -27,10 +23,8 @@ const Screens = ({ images, title, className }) => {
           <Screen
             fluid={image.childImageSharp.fluid}
             alt={`${title} ${i + 1}`}
-            imgStyle={screenImgStyle(
-              isHoverAvailable && (active !== null && i === active)
-            )}
-            isInActive={isHoverAvailable && (active !== null && i !== active)}
+            imgStyle={screenImgStyle(active !== null && i === active)}
+            isInActive={active !== null && i !== active}
           />
         </a>
       ))}

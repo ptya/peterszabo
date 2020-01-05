@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import { colors, device } from 'components/styles/variables'
+import StyledTitleWrapper from 'components/styles/StyledTitleWrapper'
 
 const DetailsWrapper = styled.div`
   position: absolute;
@@ -12,6 +13,12 @@ const DetailsWrapper = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
+  display: grid;
+  grid-template-rows: 6rem 1fr;
+  grid-template-areas:
+    'title'
+    'tags';
+  padding: 3rem 0;
 
   h2 {
     font-family: 'Montserrat', sans-serif;
@@ -21,6 +28,14 @@ const DetailsWrapper = styled.div`
     text-align: center;
     max-width: 21.6rem;
   }
+
+  ${StyledTitleWrapper} {
+    grid-area: title;
+    margin-bottom: 0;
+    justify-self: center;
+    filter: drop-shadow(2px 2px 3px ${colors.darkBlue});
+  }
+
   p {
     padding: 0 3rem;
     width: calc(100% - 1rem);
@@ -30,6 +45,7 @@ const DetailsWrapper = styled.div`
     align-items: center;
     font-size: 1.4rem;
     font-weight: 400;
+    grid-area: tags;
   }
   span {
     background: ${colors.blue};
@@ -43,6 +59,12 @@ const DetailsWrapper = styled.div`
     h2 {
       max-width: unset;
     }
+  }
+
+  @media screen and (${device.tablet}) {
+    /* -> @media (min-width: 768px)" */
+    grid-template-rows: 3rem 1fr;
+    padding: 5rem 0;
   }
 `
 

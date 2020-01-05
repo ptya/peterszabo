@@ -18,47 +18,51 @@ import DetailsWrapper from './styles/DetailsWrapper'
 import StyledItem from './styles/StyledItem'
 import ThumbImg, { thumbImgStyle } from './styles/ThumbImg'
 
-const AnimatedWrapper = animated(DetailsWrapper)
-// const AnimatedItem = animated(StyledItem)
+const AnimatedItem = animated(StyledItem)
 const AnimatedThumbImg = animated(ThumbImg)
 
-// TODO: column version should animate in from each side
+// TODO: column version should animate in from each side -- pass down the index from Work and do odd/even style
 
 const WorkThumbnail = ({ work, onSelect }) => {
-  const springRef = useRef()
-  const transitionRef = useRef()
-  // const WorkThumbnail = ({ work, style, onSelect }) => {
-  // const WorkThumbnail = ({ work, style, onSelect }) => {
   const {
     frontmatter: { tags, title, images, path },
   } = work
   const [hovered, setHovered] = useState(false)
-  const { isTouch } = useContext(ScreenContext)
-  console.log('I AM RENDERING')
+  const { isMobile } = useContext(ScreenContext)
 
   const transitions = useTransition(hovered, null, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
-    ref: transitionRef,
   })
-
-  const brightness = isTouch ? '0.6' : '0.4'
 
   const fade = useSpring({
-    filter: `brightness( ${hovered ? 0.6 : 1} )`,
-    ref: springRef,
+    filter: `brightness(${hovered ? 0.5 : 0.9})`,
   })
 
-  useChain([springRef, transitionRef])
+  const { opacity, offset } = useSpring({
+    from: {
+      offset: -50,
+      opacity: 0,
+    },
+    offset: 0,
+    opacity: 1,
+  })
 
   return (
-    <StyledItem
-      // style={style}
+    <AnimatedItem
+      style={
+        isMobile
+          ? {}
+          : {
+              transform: offset.interpolate(n => `translateX(${n}px)`),
+              opacity,
+            }
+      }
       onMouseOver={() => setHovered(true)}
       onFocus={() => setHovered(true)}
-      onMouseLeave={() => !isTouch && setHovered(false)}
-      onBlur={() => !isTouch && setHovered(false)}
+      onMouseLeave={() => setHovered(false)}
+      onBlur={() => setHovered(false)}
       onClick={e => onSelect(e)}
       href={path}
     >
@@ -68,20 +72,22 @@ const WorkThumbnail = ({ work, onSelect }) => {
         alt={title}
         imgStyle={thumbImgStyle}
       />
-      {transitions.map(
-        ({ item, props, key }) =>
-          item && (
-            <AnimatedWrapper style={props} key={key}>
-              <Title type="h2">{title}</Title>
-              <p>
+      <DetailsWrapper>
+        <Title type="h2" animate={!isMobile}>
+          {title}
+        </Title>
+        {transitions.map(
+          ({ item, props, key }) =>
+            item && (
+              <animated.p key={key} style={props}>
                 {tags.map((tag, i) => (
                   <WorkTag key={tag + i} tag={tag} delay={(i + 1) * 75} />
                 ))}
-              </p>
-            </AnimatedWrapper>
-          )
-      )}
-    </StyledItem>
+              </animated.p>
+            )
+        )}
+      </DetailsWrapper>
+    </AnimatedItem>
   )
 }
 
@@ -95,13 +101,7 @@ WorkThumbnail.propTypes = {
     }).isRequired,
     id: PropTypes.string.isRequired,
   }).isRequired,
-  style: PropTypes.object,
   onSelect: PropTypes.func.isRequired,
-  // isTouch: PropTypes.bool.isRequired,
-}
-
-WorkThumbnail.defaultProps = {
-  style: {},
 }
 
 export default WorkThumbnail
