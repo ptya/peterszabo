@@ -21,7 +21,7 @@ const About = ({ data }) => (
           strategize. I have a strong Project Management background so I can
           fully understand the requirements and the technicalities.
         </p>
-        <p>When I am not doing all that I am an avid gamer and traveler.</p>
+        <p>When I am not doing all that, I am an avid gamer and traveler.</p>
       </div>
       <ProfilePic
         className="pic"
