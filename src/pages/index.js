@@ -6,7 +6,7 @@ import Home from 'components/Home'
 
 const Page = props => (
   <Layout bgEnabled {...props}>
-    <SEO />
+    <SEO title="I create websites" />
     <Home />
   </Layout>
 )

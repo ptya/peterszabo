@@ -49,11 +49,11 @@ module.exports = {
     },
   ],
   siteMetadata: {
-    // TODO compare with wedding site for a working example
-    title: 'Peter Szabo',
-    titleTemplate: '%s · Web Development',
-    description: 'Peter Szabo, Web Developer',
+    title: 'Web Development',
+    titleTemplate: '%s · Peter Szabo',
+    description:
+      "Hello! My name is Péter Szabó and I create websites. Check out my site and let's talk.",
     url: 'https://www.doe.com', // TODO:
-    image: '/images/favicon.ico', // TODO:
+    image: '/images/logo.png',
   },
 }

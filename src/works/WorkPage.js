@@ -2,6 +2,8 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 
+import SEO from 'components/SEO'
+
 import WorkItem from 'components/Work/WorkItem'
 
 import GlobalStyle from 'components/styles/GlobalStyle'
@@ -11,6 +13,7 @@ const WorkPage = ({
 }) => (
   <>
     <GlobalStyle />
+    <SEO title={data.markdownRemark.frontmatter.title} />
     <WorkItem data={data} />
   </>
 )
