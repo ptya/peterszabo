@@ -42,11 +42,12 @@ const Work = ({ data, location }) => {
         </p>
       </WorkMain>
       <WorksWrapper>
-        {items.map(item => (
+        {items.map((item, i) => (
           <WorkThumbnail
             key={item.id}
             work={item}
             onSelect={e => onSelect(e, item)}
+            i={i}
           />
         ))}
       </WorksWrapper>

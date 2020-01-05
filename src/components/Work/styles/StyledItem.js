@@ -1,10 +1,33 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes, css } from 'styled-components'
 
 import { z, device } from 'components/styles/variables'
 
-const enter = keyframes`
+const enterDesktop = keyframes`
   0% {
     transform: translateX(-50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+`
+const enterMobileOdd = keyframes`
+  0% {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+`
+
+const enterMobileEven = keyframes`
+  0% {
+    transform: translateX(-20px);
     opacity: 0;
   }
 
@@ -20,6 +43,7 @@ const StyledItem = styled.a`
   height: 100%;
   margin: 0;
   cursor: pointer;
+  animation:${enterMobileEven} 0.4s ease-out 1;
   img {
     height: 100%;
     width: 100%;
@@ -27,9 +51,16 @@ const StyledItem = styled.a`
     z-index: ${z.back};
   }
 
+  ${props =>
+    props.odd &&
+    css`
+      animation: ${enterMobileOdd} 0.4s ease-out 1;
+    `}
+
+
   @media screen and (${device.laptop}) {
     /* -> @media (min-width: 1024px)" */
-    animation: ${enter} 0.4s ease-out 1;
+    animation: ${enterDesktop} 0.4s ease-out 1;
   }
 `
 

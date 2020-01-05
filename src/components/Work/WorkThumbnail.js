@@ -21,9 +21,7 @@ import ThumbImg, { thumbImgStyle } from './styles/ThumbImg'
 const AnimatedItem = animated(StyledItem)
 const AnimatedThumbImg = animated(ThumbImg)
 
-// TODO: column version should animate in from each side -- pass down the index from Work and do odd/even style
-
-const WorkThumbnail = ({ work, onSelect }) => {
+const WorkThumbnail = ({ work, onSelect, i }) => {
   const {
     frontmatter: { tags, title, images, path },
   } = work
@@ -40,6 +38,8 @@ const WorkThumbnail = ({ work, onSelect }) => {
     filter: `brightness(${hovered ? 0.5 : 0.9})`,
   })
 
+  const odd = i % 2
+
   return (
     <StyledItem
       onMouseOver={() => setHovered(true)}
@@ -48,6 +48,7 @@ const WorkThumbnail = ({ work, onSelect }) => {
       onBlur={() => setHovered(false)}
       onClick={e => onSelect(e)}
       href={path}
+      odd={odd}
     >
       <AnimatedThumbImg
         style={fade}
@@ -85,6 +86,7 @@ WorkThumbnail.propTypes = {
     id: PropTypes.string.isRequired,
   }).isRequired,
   onSelect: PropTypes.func.isRequired,
+  i: PropTypes.number.isRequired,
 }
 
 export default WorkThumbnail
