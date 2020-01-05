@@ -41,17 +41,8 @@ const SEO = ({ title, description, image, pathname, article }) => (
       }
       return (
         <>
-          <Helmet
-            title={seo.title}
-            titleTemplate={titleTemplate}
-            link={[
-              {
-                rel: 'shortcut icon',
-                type: 'image/x-icon',
-                href: `${favicon}`,
-              },
-            ]}
-          >
+          <Helmet title={seo.title} titleTemplate={titleTemplate}>
+            <link rel="icon" type="image/x-icon" href={favicon} />
             <meta name="description" content={seo.description} />
             <meta name="image" content={seo.image} />
             {seo.url && <meta property="og:url" content={seo.url} />}
