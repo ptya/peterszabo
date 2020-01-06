@@ -55,6 +55,6 @@ module.exports = {
     description:
       "Hello! My name is Péter Szabó and I create websites. Check out my site and let's talk.",
     url: 'https://peterszabo.io',
-    image: '/images/logo.png',
+    image: '/images/peter-szabo_dark.jpg',
   },
 }
