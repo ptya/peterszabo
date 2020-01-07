@@ -12,7 +12,7 @@ const Screens = ({ images, title, className }) => {
       {images.map((image, i) => (
         <a
           href={image.childImageSharp.original.src}
-          rel="noopener noreferrer"
+          rel="noopener"
           target="_blank"
           onMouseOver={() => setActive(i)}
           onMouseLeave={() => setActive(null)}

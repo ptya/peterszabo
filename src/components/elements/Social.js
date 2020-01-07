@@ -29,6 +29,7 @@ const Social = ({ type, animate }) => {
         social="gh"
         href="https://github.com/ptya"
         target="_blank"
+        rel="noopener"
         title="Follow on Github"
       >
         <span>Follow on Github</span>
@@ -37,6 +38,7 @@ const Social = ({ type, animate }) => {
         social="fb"
         href="https://www.facebook.com/szabo.peter"
         target="_blank"
+        rel="noopener"
         title="Follow on Facebook"
       >
         <span>Follow on Facebook</span>
@@ -45,6 +47,7 @@ const Social = ({ type, animate }) => {
         social="ig"
         href="https://www.instagram.com/szpeta"
         target="_blank"
+        rel="noopener"
         title="Follow on Instagram"
       >
         <span>Follow on Instagram</span>
@@ -53,6 +56,7 @@ const Social = ({ type, animate }) => {
         social="li"
         href="https://www.linkedin.com/in/petersz/"
         target="_blank"
+        rel="noopener"
         title="Connect on Linkedin"
       >
         <span>Connect on Linkedin</span>
