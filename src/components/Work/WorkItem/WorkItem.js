@@ -29,11 +29,11 @@ const WorkItem = ({ data }) => {
       <Link className="back" to="/work" state={{ fromWork: true }}>
         <CloseBtn>Close</CloseBtn>
       </Link>
-      <h2 className="tag">
+      <section className="tag">
         {tags.map((tag, i) => (
           <Tag key={i}>{tag}</Tag>
         ))}
-      </h2>
+      </section>
       <div className="content">
         <Background />
         <div className="markdown" dangerouslySetInnerHTML={{ __html: html }} />

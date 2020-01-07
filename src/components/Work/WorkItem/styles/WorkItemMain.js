@@ -113,7 +113,6 @@ const WorkItemMain = styled(Main)`
     margin-top: 1rem;
     display: flex;
     flex-wrap: wrap;
-    row-gap: 1rem;
     justify-content: center;
   }
 

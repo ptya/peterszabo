@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const Tag = styled.span`
-  margin: 0 1rem;
+  margin: 0.5rem 1rem;
   text-transform: uppercase;
   background: #004daa;
   font-size: 1.2rem;
