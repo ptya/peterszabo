@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import fb from 'assets/images/facebook.png'
 import gh from 'assets/images/github.png'
@@ -25,7 +25,6 @@ function getUrl(social) {
 const SocialBtn = styled.a.attrs(props => ({
   img: getUrl(props.social),
 }))`
-  /* width: 65px; */
   display: flex;
   flex-grow: 1;
   height: 65px;
@@ -33,19 +32,14 @@ const SocialBtn = styled.a.attrs(props => ({
   justify-content: center;
   border: 1px solid ${props => colors[props.social]};
   background-color: ${props => colors[props.social]};
+  transition: all 0.3s ease-in-out;
+
   span {
-    /* display: block; */
     width: 55px;
     height: 55px;
-    /* background-size: cover; */
     text-indent: -9999em;
     background: url(${props => props.img}) no-repeat 0;
     background-size: contain;
-  }
-
-  @media screen and (${device.tablet}) {
-    /* -> @media (min-width: 768px)" */
-    /* height: 7rem; */
   }
 
   @media screen and (${device.laptop}) {
@@ -53,7 +47,26 @@ const SocialBtn = styled.a.attrs(props => ({
     width: 55px;
     flex-grow: 0;
     height: 55px;
-    background-color: initial;
+
+    :hover {
+      filter: brightness(1.2);
+    }
+
+    ${props =>
+      props.type === 'row' &&
+      css`
+        :hover {
+          height: 70px;
+        }
+      `}
+
+    ${props =>
+      props.type === 'col' &&
+      css`
+        :hover {
+          width: 75px;
+        }
+      `}
   }
 `
 

@@ -2,6 +2,8 @@ import styled from 'styled-components'
 
 import { colors, device } from 'components/styles/variables'
 
+import SocialWrapper from 'components/styles/SocialWrapper'
+
 const Footer = styled.footer`
   position: absolute;
   display: flex;
@@ -13,7 +15,7 @@ const Footer = styled.footer`
   overflow: hidden;
 
   h3 {
-    margin: 10px;
+    margin: 1rem;
     font-family: 'Montserrat', sans-serif;
     font-weight: 200;
     font-size: 1.6rem;
@@ -32,6 +34,11 @@ const Footer = styled.footer`
     /* -> @media (min-width: 768px)" */
     h3 {
       font-size: 2.2rem;
+      margin: 0;
+    }
+    ${SocialWrapper} {
+      height: 7rem;
+      align-items: flex-end;
     }
   }
 `

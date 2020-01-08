@@ -31,6 +31,7 @@ const Social = ({ type, animate }) => {
         target="_blank"
         rel="noopener"
         title="Follow on Github"
+        type={type}
       >
         <span>Follow on Github</span>
       </SocialBtn>
@@ -40,6 +41,7 @@ const Social = ({ type, animate }) => {
         target="_blank"
         rel="noopener"
         title="Follow on Facebook"
+        type={type}
       >
         <span>Follow on Facebook</span>
       </SocialBtn>
@@ -49,6 +51,7 @@ const Social = ({ type, animate }) => {
         target="_blank"
         rel="noopener"
         title="Follow on Instagram"
+        type={type}
       >
         <span>Follow on Instagram</span>
       </SocialBtn>
@@ -58,6 +61,7 @@ const Social = ({ type, animate }) => {
         target="_blank"
         rel="noopener"
         title="Connect on Linkedin"
+        type={type}
       >
         <span>Connect on Linkedin</span>
       </SocialBtn>
