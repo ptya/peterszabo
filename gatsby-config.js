@@ -51,7 +51,7 @@ module.exports = {
   ],
   siteMetadata: {
     title: 'Web Development',
-    titleTemplate: '%s · Peter Szabo',
+    titleTemplate: '%s · Peter Szabo · Web Developer',
     description:
       "Hello! My name is Péter Szabó and I create websites. Check out my site and let's talk.",
     url: 'https://peterszabo.io',
