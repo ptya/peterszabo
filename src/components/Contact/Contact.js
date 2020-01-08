@@ -12,7 +12,7 @@ import Map from './Map'
 
 import Success from './elements/Success'
 
-import Main from './styles/ContactMain'
+import ContactMain from './styles/ContactMain'
 import Confirm from './styles/Confirm'
 
 // TODO transition animation for confirm message
@@ -24,7 +24,7 @@ const Contact = () => {
 
   return (
     <>
-      <Main>
+      <ContactMain>
         <AbsoluteTitle>Get in touch</AbsoluteTitle>
         {isSent && (
           <Confirm>
@@ -34,12 +34,24 @@ const Contact = () => {
         )}
         {!isSent && (
           <>
-            <p>Have a question? Want to work together or just say hi?</p>
+            <p>
+              Have a question? Want to work together or just say hi?
+              <br />
+              Drop an email to{' '}
+              <a
+                href="mailto:contact@peterszabo.io"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                contact@peterszabo.io
+              </a>{' '}
+              or use the form below.
+            </p>
             <Form setSent={setSent} />
           </>
         )}
         {isMobile && <StaticSocial />}
-      </Main>
+      </ContactMain>
       {!isMobile && <Social type="col" />}
       <Map delay={1000} isMobile={isMobile} />
     </>

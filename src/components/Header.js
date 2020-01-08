@@ -15,6 +15,8 @@ import Burger from './elements/Burger'
 import StyledHeader from './styles/StyledHeader'
 import Menu from './styles/Menu'
 
+// TODO minimize on desktop as well if they use a small window..
+
 const Header = ({ location }) => {
   const [active, setActive] = useState([])
   const [hovered, setHovered] = useState([])
