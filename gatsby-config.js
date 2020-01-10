@@ -7,11 +7,26 @@
 const path = require('path')
 
 module.exports = {
+  siteMetadata: {
+    title: 'Web Development',
+    titleTemplate: '%s · Peter Szabo · Web Developer',
+    description:
+      "Hello! My name is Péter Szabó and I create websites. Check out my site and let's talk.",
+    siteUrl: 'https://peterszabo.io',
+    image: '/images/logo_dark.png',
+  },
   plugins: [
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+
+    {
+      resolve: `gatsby-plugin-advanced-sitemap`,
+      options: {
+        createLinkInHead: true,
+      }
+    },
     {
       resolve: 'gatsby-plugin-root-import',
       options: {
@@ -49,12 +64,5 @@ module.exports = {
       },
     },
   ],
-  siteMetadata: {
-    title: 'Web Development',
-    titleTemplate: '%s · Peter Szabo · Web Developer',
-    description:
-      "Hello! My name is Péter Szabó and I create websites. Check out my site and let's talk.",
-    url: 'https://peterszabo.io',
-    image: '/images/logo_dark.png',
-  },
+
 }
