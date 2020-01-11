@@ -15,8 +15,6 @@ import Burger from './elements/Burger'
 import StyledHeader from './styles/StyledHeader'
 import Menu from './styles/Menu'
 
-// TODO minimize on desktop as well if they use a small window..
-
 const Header = ({ location }) => {
   const [active, setActive] = useState([])
   const [hovered, setHovered] = useState([])
@@ -34,9 +32,8 @@ const Header = ({ location }) => {
   const isHome = location.pathname === '/'
   const isTargetShown = !isSmallScreen && hovered.length > 0
   const switchToMini = 25
-  const isMini = isSmallScreen && miniHeader
 
-  // minimize menu on small screens when scrolled above $switchToMini
+  // minimize menu when scrolled above $switchToMini
   useLayoutEffect(() => {
     if (!isClient) return
     const handleScroll = () => {
@@ -54,6 +51,8 @@ const Header = ({ location }) => {
     }
   })
 
+  console.log(miniHeader)
+
   // disable scrollbar when menu is open
   useLayoutEffect(() => {
     document.body.style.overflow = open ? 'hidden' : 'unset'
@@ -61,10 +60,10 @@ const Header = ({ location }) => {
   }, [open])
 
   return (
-    <StyledHeader mini={isMini} isHome={isHome}>
+    <StyledHeader mini={miniHeader} isHome={isHome}>
       <div ref={menu}>
         {isSmallScreen && (
-          <Burger open={open} setOpen={setOpen} mini={isMini} />
+          <Burger open={open} setOpen={setOpen} mini={miniHeader} />
         )}
         <Menu id="menu" open={open} ref={menu}>
           <Link id="home" activeClassName="active" to="/">
@@ -87,7 +86,7 @@ const Header = ({ location }) => {
           {isTargetShown && <Target pos={hovered} />}
         </Menu>
       </div>
-      <Logo mini={isMini} />
+      <Logo mini={miniHeader} />
     </StyledHeader>
   )
 }
