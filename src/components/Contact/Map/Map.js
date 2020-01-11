@@ -3,12 +3,12 @@ import ReactMapGL, { Marker, Popup } from 'react-map-gl'
 import { useSpring, useChain, animated } from 'react-spring'
 import PropTypes from 'prop-types'
 
-// change avatar
-import Pic from 'assets/images/avatar.jpg'
+import Pic from 'assets/images/profile.jpg'
 import Arrow from './elements/Arrow'
 import MapWrapper from './styles/MapWrapper'
 import MapBtn from './styles/MapBtn'
 import Avatar from './styles/Avatar'
+import StyledPopup from './styles/StyledPopup'
 
 const AnimWrapper = animated(MapWrapper)
 const AnimAvatar = animated(Avatar)
@@ -92,7 +92,7 @@ const Map = ({ delay, isMobile }) => {
               />
             </Marker>
             {on && (
-              <Popup
+              <StyledPopup
                 latitude={47.51}
                 longitude={19.02}
                 closeButton={false}
@@ -101,8 +101,8 @@ const Map = ({ delay, isMobile }) => {
                 offsetLeft={15}
                 anchor="left"
               >
-                <p>Heyho!</p>
-              </Popup>
+                <p>Heyho! 👋</p>
+              </StyledPopup>
             )}
           </ReactMapGL>
         </AnimWrapper>

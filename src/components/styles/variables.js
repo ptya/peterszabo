@@ -1,5 +1,6 @@
 export const colors = {
   bg: '#283952',
+  black: '#222',
   grey: '#dadada',
   grey2: '#bbbbbb',
   darkGrey: '#a4a4a4',
