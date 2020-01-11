@@ -5,30 +5,28 @@ export const hoverLink = css`
   a {
     color: ${colors.white};
     font-weight: 300;
-    text-decoration-color: ${colors.blue};
-    text-decoration-thickness: 0.3rem;
-    text-underline-offset: 0.5rem;
     transition: all 0.15s ease-out;
     position: relative;
+    text-decoration: none;
   }
 
   a:before {
     content: '';
     width: 100%;
-    height: 0;
+    height: 0.3rem;
     background: ${colors.blue};
     position: absolute;
-    bottom: 0;
+    bottom: -0.5rem;
     left: 0;
-    transition: height 0.15s ease-out;
+    transition: all 0.15s ease-in-out;
     z-index: -1;
   }
 
   a:hover {
-    text-underline-offset: 0;
     color: #fff;
 
     :before {
+      bottom: 0;
       height: 100%;
     }
   }
