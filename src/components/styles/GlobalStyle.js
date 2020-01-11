@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import { normalize } from 'styled-normalize'
 
-import background from 'assets/images/Large-Triangles.svg'
+import background from 'assets/images/background/Large-Triangles.svg'
 import { colors, device } from './variables'
 
 // TODO: all colors from variables!

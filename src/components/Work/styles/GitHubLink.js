@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import GitHubMark from 'assets/images/GitHub-Mark-Light-32px.png'
+import GitHubMark from 'assets/images/3rd-party/GitHub-Mark-Light-32px.png'
 import { device } from 'components/styles/variables'
 
 const GitHubLink = styled.a`

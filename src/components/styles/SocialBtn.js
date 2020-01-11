@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components'
 
-import fb from 'assets/images/facebook.png'
-import gh from 'assets/images/github.png'
-import ig from 'assets/images/instagram.png'
-import li from 'assets/images/linkedin.png'
+import fb from 'assets/images/3rd-party/facebook.png'
+import gh from 'assets/images/3rd-party/github.png'
+import ig from 'assets/images/3rd-party/instagram.png'
+import li from 'assets/images/3rd-party/linkedin.png'
 
 import { device, colors } from 'components/styles/variables'
 
