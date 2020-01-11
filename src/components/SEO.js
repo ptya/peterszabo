@@ -5,8 +5,6 @@ import { graphql, useStaticQuery } from 'gatsby'
 
 import favicon from 'assets/images/logo.ico'
 
-// TODO create 404 site!
-
 const SEO = ({ title, description, image, pathname, lang, meta }) => {
   const {
     site: {

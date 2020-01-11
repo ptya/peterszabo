@@ -87,7 +87,7 @@ const Header = ({ location }) => {
           {isTargetShown && <Target pos={hovered} />}
         </Menu>
       </div>
-      <Logo isFull={location.pathname !== '/'} mini={isMini} />
+      <Logo mini={isMini} />
     </StyledHeader>
   )
 }

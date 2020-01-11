@@ -3,7 +3,6 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import fullLogo from 'assets/images/logo-full.png'
 import logo from 'assets/images/logo.png'
 
 import { device } from 'components/styles/variables'
@@ -29,16 +28,13 @@ const StyledLogo = styled.img`
   }
 `
 // TODO check eslint warnings/errors for whole project
-// TODO do i need full logo?
-const Logo = ({ isFull, mini }) => (
+const Logo = ({ mini }) => (
   <StyledLink to="/">
-    {/* <StyledLogo src={isFull ? fullLogo : logo} alt="Peter Szabo" /> */}
     <StyledLogo src={logo} alt="Peter Szabo" mini={mini} />
   </StyledLink>
 )
 
 Logo.propTypes = {
-  isFull: PropTypes.bool.isRequired,
   mini: PropTypes.bool.isRequired,
 }
 
