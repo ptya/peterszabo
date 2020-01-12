@@ -40,6 +40,7 @@ const SocialBtn = styled.a.attrs(props => ({
     text-indent: -9999em;
     background: url(${props => props.img}) no-repeat 0;
     background-size: contain;
+    font-size: 1.2rem;
   }
 
   @media screen and (${device.laptop}) {

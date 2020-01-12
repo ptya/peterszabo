@@ -25,7 +25,7 @@ module.exports = {
       resolve: `gatsby-plugin-advanced-sitemap`,
       options: {
         createLinkInHead: true,
-      }
+      },
     },
     {
       resolve: 'gatsby-plugin-root-import',
@@ -63,6 +63,22 @@ module.exports = {
         features: [`ResizeObserver`],
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: 'Peter Szabo · Web Developer',
+        short_name: 'Peter Szabo',
+        start_url: '/',
+        background_color: '#1e2a3d',
+        theme_color: '#1e2a3d',
+        display: 'standalone',
+        icon: 'src/assets/images/logo_dark.png', // This path is relative to the root of the site.
+        // An optional attribute which provides support for CORS check.
+        // If you do not provide a crossOrigin option, it will skip CORS for manifest.
+        // Any invalid keyword or empty string defaults to `anonymous`
+        crossOrigin: `use-credentials`,
+      },
+    },
+    `gatsby-plugin-offline`,
   ],
-
 }

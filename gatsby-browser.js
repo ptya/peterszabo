@@ -5,7 +5,6 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-// You can delete this file if you're not using it
 import React from 'react'
 import PropTypes from 'prop-types'
 
@@ -20,4 +19,14 @@ export const wrapRootElement = ({ element }) => (
 
 wrapRootElement.propTypes = {
   element: PropTypes.any.isRequired,
+}
+
+export const onServiceWorkerUpdateReady = () => {
+  const answer = window.confirm(
+    `This application has been updated. ` +
+      `Reload to display the latest version?`
+  )
+  if (answer === true) {
+    window.location.reload()
+  }
 }
