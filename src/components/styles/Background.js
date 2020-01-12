@@ -89,7 +89,6 @@ const Background = styled.div`
     content: '';
     width: 98%;
     height: 100%;
-    background: green;
     position: absolute;
     background: ${colors.textBgLowOpacity};
     transform: translateX(0rem) rotate3d(-1, -1, 1, -1.5deg);
@@ -100,7 +99,6 @@ const Background = styled.div`
     content: '';
     width: 98%;
     height: 100%;
-    background: yellow;
     position: absolute;
     background: ${colors.textBgMidOpacity};
     transform: translateX(0rem) rotate3d(1, 0, 1, -1.5deg);

@@ -24,7 +24,7 @@ export const hoverLink = css`
   }
 
   a:hover {
-    color: #fff;
+    color: ${colors.uberWhite};
 
     :before {
       bottom: 0;

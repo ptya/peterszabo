@@ -29,7 +29,7 @@ const InputWrapper = styled.div`
     max-width: 59rem;
     font-size: 1.5rem;
     padding: 2rem 1rem 1rem;
-    background-color: #1e2a3c;
+    background-color: ${colors.inputBg};
     border: ${props => (props.isError ? `0.1rem solid ${colors.red}` : `0`)};
     clip-path: polygon(0 0, 99% 2%, 99% 98%, 0% 100%);
     color: ${colors.lightBlue};

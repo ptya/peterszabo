@@ -9,7 +9,7 @@ const MapWrapper = styled.aside`
 
   .mapboxgl-popup-content {
     p {
-      color: #000;
+      color: ${colors.black};
       font-size: 1.2rem;
       margin: 0;
     }
