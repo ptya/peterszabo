@@ -1,5 +1,5 @@
 import { css } from 'styled-components'
-import { colors } from './variables'
+import { colors, z } from './variables'
 
 export const hoverLink = css`
   a {
@@ -20,7 +20,7 @@ export const hoverLink = css`
     bottom: -0.2rem;
     left: 0;
     transition: all 0.15s ease-in-out;
-    z-index: -1;
+    z-index: ${z.back};
   }
 
   a:hover {

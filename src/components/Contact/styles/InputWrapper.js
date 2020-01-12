@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
-import { colors, device } from 'components/styles/variables'
+import { colors, device, z } from 'components/styles/variables'
 
 const InputWrapper = styled.div`
   position: relative;
 
   label {
-    z-index: 100;
+    z-index: ${z.middle};
     position: absolute;
     top: ${props => (props.isActive ? '-0.4rem' : '0')};
     bottom: 0;
