@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Main from 'components/styles/Main'
-import { device } from 'components/styles/variables'
+import { device, z } from 'components/styles/variables'
 import { hoverLink } from 'components/styles/mixins'
 
 const WorkItemMain = styled(Main)`
@@ -43,7 +43,7 @@ const WorkItemMain = styled(Main)`
   }
 
   li {
-    margin: 1rem auto;
+    margin: 0.3rem auto;
 
     a {
       display: inline-block;
@@ -88,7 +88,7 @@ const WorkItemMain = styled(Main)`
     padding: 1rem;
     position: sticky;
     top: 0;
-    z-index: 1;
+    z-index: ${z.top};
     justify-self: right;
   }
 
