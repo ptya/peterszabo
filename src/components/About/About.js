@@ -27,7 +27,6 @@ const About = ({ data }) => (
         className="pic"
         fluid={data.imageOne.childImageSharp.fluid}
         alt="Peter Szabo"
-        imgStyle={{}}
       />
       <StaticSocial className="social" />
     </AboutMain>
