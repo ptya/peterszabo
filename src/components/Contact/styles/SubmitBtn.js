@@ -7,16 +7,16 @@ const SubmitBtn = styled.button`
     props.disabled ? `${colors.darkGrey}` : `${colors.white}`};
   font-size: 1.6rem;
   text-transform: uppercase;
-  height: 50px;
-  padding: 0 20px;
+  height: 5rem;
+  padding: 0 2rem;
   border: 0;
   background: ${props =>
     props.disabled ? `${colors.disabled}` : `${colors.blue}`};
-  box-shadow: 2px 2px 2px ${colors.shadow};
+  box-shadow: 0.2rem 0.2rem 0.2rem, ${colors.shadow};
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
   transition: all 0.2s ease-in-out;
-  width: 85px;
-  height: 50px;
+  width: 8.5rem;
+  height: 5rem;
 
   ${props =>
     !props.disabled &&
@@ -29,7 +29,7 @@ const SubmitBtn = styled.button`
 
       :active {
         font-size: 1.5rem;
-        transform: translateY(1px);
+        transform: translateY(0.1rem);
       }
     `}
 `

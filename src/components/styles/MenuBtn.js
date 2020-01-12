@@ -10,9 +10,9 @@ const MenuBtn = styled.button`
   justify-content: space-between;
   border: 0;
   margin: 0;
-  padding: 6px;
-  text-indent: -999px;
-  height: ${props => (props.mini && !props.open ? '29px' : '36px')};
+  padding: 0.6rem;
+  text-indent: -99rem;
+  height: ${props => (props.mini && !props.open ? '2.9rem' : '3.6rem')};
   cursor: pointer;
   z-index: ${z.middle};
   transition: all 0.2s linear;
@@ -25,18 +25,19 @@ const MenuBtn = styled.button`
     background-color: ${colors.white};
     transition: all 0.2s linear;
     transform-origin: left;
-    height: 3px;
-    width: ${props => (props.mini && !props.open ? '24px' : '30px')};
-    border-radius: 10px;
+    height: 0.3rem;
+    width: ${props => (props.mini && !props.open ? '2.4rem' : '3rem')};
+    border-radius: 1rem;
   }
 
   div:first-child {
     transform: ${props => (props.open ? 'rotate(45deg)' : 'rotate(0)')};
   }
   div:nth-child(2) {
-    width: ${props => (props.mini ? '20px' : '26px')};
+    width: ${props => (props.mini ? '2rem' : '2.6rem')};
     opacity: ${props => (props.open ? 0 : 1)};
-    transform: ${props => (props.open ? 'translateX(45px)' : 'translateX(0)')};
+    transform: ${props =>
+      props.open ? 'translateX(4.5rem)' : 'translateX(0)'};
   }
   div:nth-child(3) {
     transform: ${props => (props.open ? 'rotate(-45deg)' : 'rotate(0)')};
@@ -51,17 +52,17 @@ const MenuBtn = styled.button`
 
   @media screen and (${device.tablet}) {
     /* -> @media (min-width: 768px)" */
-    height: 49px;
+    height: 4.9rem;
 
     & > div {
-      height: 5px;
-      width: 44px;
+      height: 0.5rem;
+      width: 4.4rem;
     }
 
     div:nth-child(2) {
-      width: 40px;
+      width: 4rem;
       transform: ${props =>
-        props.open ? 'translateX(55px)' : 'translateX(0)'};
+        props.open ? 'translateX(5.5rem)' : 'translateX(0)'};
     }
   }
 `

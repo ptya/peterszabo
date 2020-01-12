@@ -14,9 +14,9 @@ const StyledImg = styled(Img)`
 const Wrapper = styled.figure`
   position: relative;
   margin: 0 auto;
-  width: 250px;
-  height: 250px;
-  filter: drop-shadow(1px 1px 2px ${colors.shadow});
+  width: 25rem;
+  height: 25rem;
+  filter: drop-shadow(0.1rem 0.1rem 0.2rem ${colors.shadow});
 `
 
 const ProfilePic = props => (

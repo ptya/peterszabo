@@ -5,7 +5,7 @@ const MapWrapper = styled.aside`
   width: 100%;
   height: 20rem;
   position: initial;
-  border-top: 2px solid ${colors.blue};
+  border-top: 0.2rem solid ${colors.blue};
 
   .mapboxgl-popup-content {
     p {

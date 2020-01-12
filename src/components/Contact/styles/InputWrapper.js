@@ -8,42 +8,41 @@ const InputWrapper = styled.div`
   label {
     z-index: 100;
     position: absolute;
-    top: ${props => (props.isActive ? '-4px' : '0')};
+    top: ${props => (props.isActive ? '-0.4rem' : '0')};
     bottom: 0;
     color: ${colors.lightBlue};
     opacity: ${props => (props.isActive ? '0.5' : '1')};
-    line-height: ${props => (props.isActive ? '30px' : '50px')};
+    line-height: ${props => (props.isActive ? '3rem' : '5rem')};
     font-weight: ${props => (props.isActive ? 700 : 'normal')};
     font-size: ${props => (props.isActive ? '1rem' : '1.6rem')};
-    letter-spacing: 0.5px;
+    letter-spacing: 0.05rem;
     text-transform: ${props => (props.isActive ? 'uppercase' : 'capitalize')};
-    padding: ${props => (props.isActive ? '0 8px 5px' : '0 15px')};
+    padding: ${props => (props.isActive ? '0 0.8rem 0.5rem' : '0 1.5rem')};
     transition: all 0.1s ease-in-out;
     cursor: text;
   }
 
   input,
   textarea {
-    height: 50px;
+    height: 5rem;
     min-width: 100%;
-    max-width: 590px;
+    max-width: 59rem;
     font-size: 1.5rem;
-    padding: 20px 10px 10px;
-    /* background-color: ${colors.darkBlue}; */
+    padding: 2rem 1rem 1rem;
     background-color: #1e2a3c;
-    border: ${props => (props.isError ? `1px solid ${colors.red}` : `0`)};
-    /* border-radius: 5px; */
+    border: ${props => (props.isError ? `0.1rem solid ${colors.red}` : `0`)};
     clip-path: polygon(0 0, 99% 2%, 99% 98%, 0% 100%);
     color: ${colors.lightBlue};
   }
 
   textarea {
-    height: 150px;
+    height: 15rem;
   }
 
   @media screen and (${device.laptop}) {
     /* -> @media (min-width: 1024px)" */
-    input, textarea {
+    input,
+    textarea {
       font-size: 1.6rem;
     }
   }

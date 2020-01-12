@@ -14,8 +14,8 @@ const StyledForm = styled(Form)`
     'subject'
     'message'
     'submit';
-  gap: 20px 20px;
-  padding: 20px 10px;
+  gap: 2rem 2rem;
+  padding: 2rem 1rem;
 
   .name {
     grid-area: name;
@@ -42,13 +42,13 @@ const StyledForm = styled(Form)`
       'subject subject'
       'message message'
       '.       submit';
-    gap: 40px 20px;
+    gap: 4rem 2rem;
   }
 
   @media screen and (${device.laptop}) {
     /* -> @media (min-width: 1024px)" */
     margin: 2rem;
-    width: 630px;
+    width: 63rem;
   }
 `
 

@@ -7,7 +7,7 @@ const HeaderSVG = styled.svg`
   transition: all 0.1 ease-in-out;
   height: ${props => `${props.y}px`};
   bottom: ${props => `-${props.y}px`};
-  min-height: 1px;
+  min-height: 0.1rem;
   polygon {
     fill: ${colors.darkBg};
   }

@@ -27,16 +27,16 @@ const SocialBtn = styled.a.attrs(props => ({
 }))`
   display: flex;
   flex-grow: 1;
-  height: 65px;
+  height: 6.5rem;
   align-items: center;
   justify-content: center;
-  border: 1px solid ${props => colors[props.social]};
+  border: 0.1rem solid ${props => colors[props.social]};
   background-color: ${props => colors[props.social]};
   transition: all 0.3s ease-in-out;
 
   span {
-    width: 55px;
-    height: 55px;
+    width: 5.5rem;
+    height: 5.5rem;
     text-indent: -9999em;
     background: url(${props => props.img}) no-repeat 0;
     background-size: contain;
@@ -44,9 +44,9 @@ const SocialBtn = styled.a.attrs(props => ({
 
   @media screen and (${device.laptop}) {
     /* -> @media (min-width: 1024px)" */
-    width: 55px;
+    width: 5.5rem;
     flex-grow: 0;
-    height: 55px;
+    height: 5.5rem;
 
     :hover {
       filter: brightness(1.2);
@@ -56,7 +56,7 @@ const SocialBtn = styled.a.attrs(props => ({
       props.type === 'row' &&
       css`
         :hover {
-          height: 70px;
+          height: 7rem;
         }
       `}
 
@@ -64,7 +64,7 @@ const SocialBtn = styled.a.attrs(props => ({
       props.type === 'col' &&
       css`
         :hover {
-          width: 75px;
+          width: 7.5rem;
         }
       `}
   }

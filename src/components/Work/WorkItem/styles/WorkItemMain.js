@@ -91,14 +91,14 @@ const WorkItemMain = styled(Main)`
   .content {
     grid-area: content;
     position: relative;
-    perspective: 2500px;
+    perspective: 250rem;
     padding: 2rem 0;
   }
 
   .markdown {
     position: relative;
     margin: 2rem 2rem 0;
-    padding: 1px 0px;
+    padding: 0.1rem 0;
   }
 
   .repo {
@@ -110,7 +110,7 @@ const WorkItemMain = styled(Main)`
   .image {
     grid-area: image;
     margin: 2.5rem auto 0;
-    width: 270px;
+    width: 27rem;
   }
 
   @media screen and (${device.tablet}) {
@@ -163,15 +163,15 @@ const WorkItemMain = styled(Main)`
     }
 
     .content {
-      perspective: 2500px;
+      perspective: 250rem;
     }
 
     .markdown {
-      padding: 1px 30px;
+      padding: 0.1rem 3rem;
     }
 
     .repo {
-      padding: 0 30px;
+      padding: 0 3rem;
     }
 
     .image {

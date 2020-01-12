@@ -1,10 +1,9 @@
 import styled from 'styled-components'
 
 import Wrapper from 'components/styles/Wrapper'
-import { colors, device } from 'components/styles/variables'
 
 const BtnWrapper = styled(Wrapper)`
-  width: 80px;
+  width: 8rem;
 
   :hover {
     .line {

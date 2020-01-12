@@ -1,16 +1,15 @@
 import styled, { css } from 'styled-components'
 
-import { device, colors } from 'components/styles/variables'
+import { device } from 'components/styles/variables'
 
 const SocialWrapper = styled.aside`
   display: flex;
-  /* border: 1px solid ${colors.bgGrey}; */
   flex-direction: ${props =>
     (props.type === 'row' && 'row') || (props.type === 'col' && 'column')};
   width: ${props =>
-    (props.type === 'row' && '100%') || (props.type === 'col' && '65px')};
+    (props.type === 'row' && '100%') || (props.type === 'col' && '6.5rem')};
   height: ${props =>
-    (props.type === 'row' && '65px') || (props.type === 'col' && '260px')};
+    (props.type === 'row' && '6.5rem') || (props.type === 'col' && '26rem')};
 
   ${props =>
     props.type === 'col' &&
@@ -25,17 +24,17 @@ const SocialWrapper = styled.aside`
   @media screen and (${device.tablet}) {
     /* -> @media (min-width: 768px)" */
     width: ${props =>
-      (props.type === 'row' && '360px') || (props.type === 'col' && '65px')};
+      (props.type === 'row' && '36rem') || (props.type === 'col' && '6.5rem')};
     height: ${props =>
-      (props.type === 'row' && '65px') || (props.type === 'col' && '260px')};
+      (props.type === 'row' && '6.5rem') || (props.type === 'col' && '26rem')};
   }
 
   @media screen and (${device.laptop}) {
     /* -> @media (min-width: 1024px)" */
     width: ${props =>
-      (props.type === 'row' && '220px') || (props.type === 'col' && '55px')};
+      (props.type === 'row' && '22rem') || (props.type === 'col' && '5.5rem')};
     height: ${props =>
-      (props.type === 'row' && '55px') || (props.type === 'col' && '220px')};
+      (props.type === 'row' && '5.5rem') || (props.type === 'col' && '22rem')};
   }
 `
 

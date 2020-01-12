@@ -59,7 +59,7 @@ const StyledHeader = styled.header`
       height: 5rem;
       padding: 0 2rem;
       background-color: ${colors.darkBg};
-      border-bottom: 1px solid ${colors.bgGrey};
+      border-bottom: 0.1rem solid ${colors.bgGrey};
 
       @media screen and (${device.mobileM}) {
         /* -> @media (min-width: 375px)" */

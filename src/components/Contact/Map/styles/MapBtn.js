@@ -7,7 +7,7 @@ const MapBtn = styled.button`
   margin: 0 auto;
   left: 0;
   right: 0;
-  top: ${props => (props.isExtended ? '0' : '-50px')};
+  top: ${props => (props.isExtended ? '0' : '-5rem')};
   background: none;
   border: none;
   cursor: pointer;

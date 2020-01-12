@@ -24,9 +24,9 @@ const Menu = styled.nav`
     margin: 1rem 0;
     padding: 1rem;
     color: ${colors.grey};
-    font-size: 28px;
+    font-size: 2.8rem;
     transition: all 0.3s ease-in-out;
-    text-shadow: 1px 1px 1px ${colors.bg};
+    text-shadow: 0.1rem 0.1rem 0.1rem ${colors.bg};
   }
 
   a:hover,
@@ -38,12 +38,12 @@ const Menu = styled.nav`
   .active:after {
     content: '';
     position: absolute;
-    height: 4px;
+    height: 0.4rem;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 1rem;
     background-color: ${colors.blue};
     left: 0;
-    bottom: 3px;
+    bottom: 0.3rem;
   }
 
   @media screen and (${device.mobileM}) {

@@ -15,7 +15,7 @@ const scaleAnimation = keyframes`
 
 const drawCircle = keyframes`
   0% {
-    stroke-dashoffset: 151px;
+    stroke-dashoffset: 15.1rem;
   }
   100% {
     stroke-dashoffset: 0;
@@ -24,7 +24,7 @@ const drawCircle = keyframes`
 
 const drawCheck = keyframes`
   0% {
-    stroke-dashoffset: 36px;
+    stroke-dashoffset: 3.6rem;
   }
   100% {
     stroke-dashoffset: 0;
@@ -54,14 +54,14 @@ const Check = styled.svg`
   animation: 1s ease-out 0s 1 both ${scaleAnimation};
 
   #successAnimationCircle {
-    stroke-dasharray: 151px 151px;
+    stroke-dasharray: 15.1rem 15.1rem;
     stroke: ${colors.green};
     animation: 1s cubic-bezier(0.77, 0, 0.175, 1) 0s 1 both ${drawCircle},
       0.3s linear 0.9s 1 both ${fadeOut};
   }
 
   #successAnimationCheck {
-    stroke-dasharray: 36px 36px;
+    stroke-dasharray: 3.6rem 3.6rem;
     stroke: ${colors.green};
     animation: 1s cubic-bezier(0.77, 0, 0.175, 1) 0s 1 both ${drawCheck},
       0.3s linear 0.9s 1 both ${fadeOut};

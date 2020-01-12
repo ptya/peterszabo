@@ -6,7 +6,7 @@ const Hero = styled.main`
   padding: 16rem 2rem 0;
   h1,
   h2 {
-    text-shadow: 1px 1px 1px ${colors.bg};
+    text-shadow: 0.1rem 0.1rem 0.1rem ${colors.bg};
   }
   h1 {
     margin: 0;

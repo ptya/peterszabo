@@ -14,7 +14,7 @@ const StyledMain = styled(Main)`
   p {
     position: relative;
     margin: 2.5rem 0 1rem;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.05rem;
     line-height: 2.8rem;
   }
 

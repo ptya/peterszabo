@@ -13,7 +13,7 @@ const TransitionWrapper = styled.div`
   div {
     position: absolute;
     background: ${colors.darkBg};
-    border: 1px solid ${colors.bg};
+    border: 0.1rem solid ${colors.bg};
   }
 `
 

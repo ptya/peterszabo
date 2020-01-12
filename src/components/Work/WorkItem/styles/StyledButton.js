@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import { colors } from 'components/styles/variables'
 
 const StyledButton = styled.svg`
-  width: 50px;
-  height: 45px;
+  width: 5rem;
+  height: 4.5rem;
   position: relative;
 
   .line {
@@ -25,7 +25,7 @@ const StyledButton = styled.svg`
 
   :active {
     .edges {
-      transform: translateY(-15px);
+      transform: translateY(-1.5rem);
     }
   }
 `

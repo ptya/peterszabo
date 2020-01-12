@@ -3,10 +3,10 @@ import { colors } from 'components/styles/variables'
 
 const Error = styled.span`
   position: absolute;
-  right: 10px;
-  top: 5px;
+  right: 1rem;
+  top: 0.5rem;
   color: ${colors.red};
-  letter-spacing: 1.5px;
+  letter-spacing: 0.15rem;
   font-size: 1.4rem;
   text-transform: lowercase;
 `

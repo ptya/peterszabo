@@ -5,14 +5,14 @@ import styled from 'styled-components'
 import { colors, device } from 'components/styles/variables'
 
 const MainWrapper = styled.section`
-  filter: drop-shadow(0px 0px 3px ${colors.blue});
+  filter: drop-shadow(0rem 0rem 0.3rem ${colors.blue});
   padding-bottom: 3rem;
 
   @media screen and (${device.laptop}) {
     /* -> @media (min-width: 1024px)" */
     clip-path: polygon(0 0, 100% 5%, 100% 95%, 0% 100%);
     margin-top: 4rem;
-    height: 465px;
+    height: 46.5rem;
     padding: 2rem 0;
   }
 `
@@ -34,7 +34,7 @@ const FlexWrapper = styled.div`
   @media screen and (${device.laptop}) {
     /* -> @media (min-width: 1024px)" */
     flex-direction: row;
-    filter: drop-shadow(0px 0px 10px ${colors.blue});
+    filter: drop-shadow(0rem 0rem 1rem ${colors.blue});
     clip-path: polygon(0 0, 100% 5%, 100% 95%, 0% 100%);
     margin-top: 0;
 

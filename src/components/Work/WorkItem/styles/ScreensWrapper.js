@@ -7,21 +7,21 @@ import Screen from './Screen'
 
 const MainWrapper = styled.figure`
   position: relative;
-  filter: drop-shadow(0px 2px 5px ${colors.blue});
+  filter: drop-shadow(0rem 0.2rem 0.5rem ${colors.blue});
 `
 
 const FlexWrapper = styled.div`
   display: flex;
   flex-direction: column;
   ${Screen}:first-of-type {
-    border-right: 1px solid ${colors.blue};
+    border-right: 0.1rem solid ${colors.blue};
   }
 
   a {
     flex-grow: 1;
     transition: opacity 0.1s ease-in-out;
     clip-path: polygon(0 3%, 100% 0%, 100% 100%, 0% 97%);
-    height: 200px;
+    height: 20rem;
   }
 
   a:nth-child(even) {

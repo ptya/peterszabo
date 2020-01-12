@@ -10,9 +10,9 @@ const Underline = styled(animated.div)`
     position: absolute;
     content: '';
     width: 100%;
-    height: 4px;
+    height: 0.4rem;
     background: ${colors.blue};
-    border-radius: 5px;
+    border-radius: 0.5rem;
   }
 `
 

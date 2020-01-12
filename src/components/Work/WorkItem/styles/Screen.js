@@ -3,7 +3,7 @@ import Img from 'gatsby-image'
 
 const Screen = styled(Img)`
   position: relative;
-  max-height: 270px;
+  max-height: 27rem;
   height: 100%;
   filter: ${props => (props.isInActive ? 'brightness(0.7)' : 'brightness(1)')};
   transition: all 0.2s ease-in-out;

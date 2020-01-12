@@ -4,7 +4,7 @@ import { z, device } from 'components/styles/variables'
 
 const enterDesktop = keyframes`
   0% {
-    transform: translateX(-50px);
+    transform: translateX(-5rem);
     opacity: 0;
   }
 
@@ -15,7 +15,7 @@ const enterDesktop = keyframes`
 `
 const enterMobileOdd = keyframes`
   0% {
-    transform: translateX(20px);
+    transform: translateX(2rem);
     opacity: 0;
   }
 
@@ -27,7 +27,7 @@ const enterMobileOdd = keyframes`
 
 const enterMobileEven = keyframes`
   0% {
-    transform: translateX(-20px);
+    transform: translateX(-2rem);
     opacity: 0;
   }
 

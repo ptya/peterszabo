@@ -6,9 +6,9 @@ import { colors, device } from 'components/styles/variables'
 const ThumbImg = styled(Img)`
   position: relative;
   width: 100%;
-  height: 250px;
-  border-left: 0.5px solid ${colors.shadow};
-  border-right: 0.5px solid ${colors.shadow};
+  height: 25rem;
+  border-left: 0.05rem solid ${colors.shadow};
+  border-right: 0.05rem solid ${colors.shadow};
 
   @media screen and (${device.laptop}) {
     /* -> @media (min-width: 1024px)" */

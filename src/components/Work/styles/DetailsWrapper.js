@@ -33,7 +33,7 @@ const DetailsWrapper = styled.div`
     grid-area: title;
     margin-bottom: 0;
     justify-self: center;
-    filter: drop-shadow(2px 2px 3px ${colors.darkBlue});
+    filter: drop-shadow(0.2rem 0.2rem 0.3rem ${colors.darkBlue});
   }
 
   p {
