@@ -51,8 +51,6 @@ const Header = ({ location }) => {
     }
   })
 
-  console.log(miniHeader)
-
   // disable scrollbar when menu is open
   useLayoutEffect(() => {
     document.body.style.overflow = open ? 'hidden' : 'unset'

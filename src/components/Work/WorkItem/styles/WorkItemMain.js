@@ -56,9 +56,22 @@ const WorkItemMain = styled(Main)`
     }
   }
 
+  li:before {
+    vertical-align: text-bottom;
+  }
+
   .repo,
   .markdown {
     ${hoverLink}
+    li {
+      a {
+        height: 2.9rem;
+        vertical-align: middle;
+      }
+      a:before {
+        bottom: 0rem;
+      }
+    }
   }
 
   .title {

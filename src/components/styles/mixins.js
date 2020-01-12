@@ -8,6 +8,7 @@ export const hoverLink = css`
     transition: all 0.15s ease-out;
     position: relative;
     text-decoration: none;
+    display: inline-block;
   }
 
   a:before {
@@ -16,7 +17,7 @@ export const hoverLink = css`
     height: 0.3rem;
     background: ${colors.blue};
     position: absolute;
-    bottom: -0.5rem;
+    bottom: -0.2rem;
     left: 0;
     transition: all 0.15s ease-in-out;
     z-index: -1;
