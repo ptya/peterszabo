@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import AbsoluteTitle from './AbsoluteTitle'
 
-import { colors, z, device } from './variables'
+import { colors, device } from './variables'
 
 // TODO tablet version?
 

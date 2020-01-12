@@ -1,12 +1,6 @@
-import React, {
-  useState,
-  useEffect,
-  useLayoutEffect,
-  useContext,
-  useRef,
-} from 'react'
+import React, { useState, useContext } from 'react'
 import PropTypes from 'prop-types'
-import { useTransition, useSpring, animated, useChain } from 'react-spring'
+import { useTransition, useSpring, animated } from 'react-spring'
 
 import ScreenContext from 'components/context/ScreenContext'
 
@@ -18,7 +12,6 @@ import DetailsWrapper from './styles/DetailsWrapper'
 import StyledItem from './styles/StyledItem'
 import ThumbImg, { thumbImgStyle } from './styles/ThumbImg'
 
-const AnimatedItem = animated(StyledItem)
 const AnimatedThumbImg = animated(ThumbImg)
 
 const WorkThumbnail = ({ work, onSelect, i }) => {
@@ -64,8 +57,8 @@ const WorkThumbnail = ({ work, onSelect, i }) => {
           ({ item, props, key }) =>
             item && (
               <animated.p key={key} style={props}>
-                {tags.map((tag, i) => (
-                  <WorkTag key={tag + i} tag={tag} delay={(i + 1) * 75} />
+                {tags.map((tag, ix) => (
+                  <WorkTag key={tag + ix} tag={tag} delay={(ix + 1) * 75} />
                 ))}
               </animated.p>
             )

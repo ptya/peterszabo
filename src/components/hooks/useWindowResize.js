@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect, useState } from 'react'
+import { useLayoutEffect, useState } from 'react'
 
 function useWindowResize() {
   const [bounds, set] = useState({

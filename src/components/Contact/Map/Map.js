@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import ReactMapGL, { Marker, Popup } from 'react-map-gl'
+import ReactMapGL, { Marker } from 'react-map-gl'
 import { useSpring, useChain, animated } from 'react-spring'
 import PropTypes from 'prop-types'
 
