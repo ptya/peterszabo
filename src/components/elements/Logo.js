@@ -27,7 +27,6 @@ const StyledLogo = styled.img`
     height: ${props => (props.mini ? '5.3rem' : '8.2rem')};
   }
 `
-// TODO check eslint warnings/errors for whole project
 const Logo = ({ mini }) => (
   <StyledLink to="/">
     <StyledLogo src={logo} alt="Peter Szabo" mini={mini} />
