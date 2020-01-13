@@ -12,7 +12,7 @@ const MapBtn = styled.button`
   border: none;
   cursor: pointer;
   padding: 0;
-  z-index: ${z.top};
+  z-index: ${z.high};
 
   ${props =>
     props.isExtended &&

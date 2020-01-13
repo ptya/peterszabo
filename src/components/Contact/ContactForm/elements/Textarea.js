@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+
 import { useFloat } from 'components/hooks/useFloat'
+
 import InputWrapper from '../styles/InputWrapper'
 import Error from '../styles/Error'
 
-const Input = ({
+const Textarea = ({
   field,
   form: { touched, errors },
   placeholder,
@@ -27,13 +29,13 @@ const Input = ({
   return (
     <InputWrapper isActive={isActive} isError={isError} className={className}>
       <label htmlFor={field.name}>{placeholder}</label>
-      <input id={field.name} {...field} {...props} onBlur={customBlur} />
-      {isError && <Error>{errors[field.name]}</Error>}
+      <textarea id={field.name} {...field} {...props} onBlur={customBlur} />
+      {isError && <Error className="error">{errors[field.name]}</Error>}
     </InputWrapper>
   )
 }
 
-Input.propTypes = {
+Textarea.propTypes = {
   field: PropTypes.object.isRequired,
   form: PropTypes.shape({
     touched: PropTypes.object.isRequired,
@@ -43,8 +45,8 @@ Input.propTypes = {
   className: PropTypes.string,
 }
 
-Input.defaultProps = {
+Textarea.defaultProps = {
   className: '',
 }
 
-export default Input
+export default Textarea

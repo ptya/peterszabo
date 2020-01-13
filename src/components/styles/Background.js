@@ -79,6 +79,7 @@ const afterMovingMobile = keyframes`
 const Background = styled.div`
   background-color: ${colors.textBgHighOpacity};
   position: absolute;
+  top: 0;
   width: 100%;
   height: 100%;
   transform: translateX(0.2rem) rotate3d(0, 1, 0, 10deg);

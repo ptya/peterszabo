@@ -1,13 +1,12 @@
-import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 
 import Main from 'components/styles/Main'
-import Background from 'components/styles/Background'
 import { device } from 'components/styles/variables'
 import { hoverLink } from 'components/styles/mixins'
 
-const StyledMain = styled(Main)`
+import StyledConfirm from './StyledConfirm'
+
+const ContactMain = styled(Main)`
   margin-bottom: 4rem;
 
   p {
@@ -33,18 +32,11 @@ const StyledMain = styled(Main)`
     p {
       margin: 0.5rem 2.5rem;
     }
+
+    ${StyledConfirm} {
+      margin-bottom: 5rem;
+    }
   }
 `
-
-const ContactMain = ({ children }) => (
-  <StyledMain>
-    <Background />
-    {children}
-  </StyledMain>
-)
-
-ContactMain.propTypes = {
-  children: PropTypes.any.isRequired,
-}
 
 export default ContactMain

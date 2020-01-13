@@ -28,7 +28,8 @@ export const colors = {
 }
 
 export const z = {
-  top: 200,
+  top: 300,
+  high: 200,
   middle: 100,
   back: -100,
 }

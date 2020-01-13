@@ -1,4 +1,7 @@
 import React, { useState, useContext } from 'react'
+import { useSpring, animated } from 'react-spring'
+
+import { useMeasure } from 'components/hooks/useMeasure'
 
 import ScreenContext from 'components/context/ScreenContext'
 
@@ -6,55 +9,48 @@ import Social from 'components/elements/Social'
 import StaticSocial from 'components/elements/StaticSocial'
 
 import AbsoluteTitle from 'components/styles/AbsoluteTitle'
+import Background from 'components/styles/Background'
 
-import Form from './Form'
+import ContactForm from './ContactForm'
 import Map from './Map'
+import Confirm from './Confirm'
 
-import Success from './elements/Success'
-
+import ContactWrapper from './styles/ContactWrapper'
 import ContactMain from './styles/ContactMain'
-import Confirm from './styles/Confirm'
 
-// TODO transition animation for confirm message
+const AnimatedMain = animated(ContactMain)
 
 const Contact = () => {
   const [isSent, setSent] = useState(false)
-
   const { isMobile } = useContext(ScreenContext)
+  const [bind, { height }] = useMeasure()
+  const animation = useSpring({
+    from: {
+      height: isMobile ? 825 : 613,
+      opacity: 0,
+    },
+    height: height + 50, // + 50 padding
+    opacity: 1,
+  })
 
   return (
-    <>
-      <ContactMain>
+    <ContactWrapper>
+      <AnimatedMain style={animation}>
+        <Background />
         <AbsoluteTitle>Get in touch</AbsoluteTitle>
-        {isSent && (
-          <Confirm>
-            <Success />
-            Thank you for your message!
-          </Confirm>
-        )}
-        {!isSent && (
-          <>
-            <p>
-              Have a question? Want to work together or just say hi?
-              <br />
-              Drop an email to{' '}
-              <a
-                href="mailto:contact@peterszabo.io"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                contact@peterszabo.io
-              </a>{' '}
-              or use the form below.
-            </p>
-            <Form setSent={setSent} />
-          </>
-        )}
-        {isMobile && <StaticSocial />}
-      </ContactMain>
+        <div {...bind}>
+          {isSent && <Confirm />}
+          {!isSent && (
+            <>
+              <ContactForm setSent={setSent} />
+              {isMobile && <StaticSocial />}
+            </>
+          )}
+        </div>
+      </AnimatedMain>
       {!isMobile && <Social type="col" />}
       <Map delay={1000} isMobile={isMobile} />
-    </>
+    </ContactWrapper>
   )
 }
 

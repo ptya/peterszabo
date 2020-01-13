@@ -4,7 +4,7 @@ import { colors, z, device } from 'components/styles/variables'
 const MapWrapper = styled.aside`
   width: 100%;
   height: 20rem;
-  position: initial;
+  position: sticky;
   border-top: 0.2rem solid ${colors.blue};
 
   .mapboxgl-popup-content {

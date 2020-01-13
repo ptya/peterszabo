@@ -13,7 +13,7 @@ const StyledHeader = styled.header`
   margin: auto;
   height: 8.2rem;
   width: 100%;
-  z-index: ${z.middle};
+  z-index: ${z.high};
   transition: all 0.2s linear;
 
   nav {

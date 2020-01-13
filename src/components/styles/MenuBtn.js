@@ -14,7 +14,7 @@ const MenuBtn = styled.button`
   text-indent: -99rem;
   height: ${props => (props.mini && !props.open ? '2.9rem' : '3.6rem')};
   cursor: pointer;
-  z-index: ${z.middle};
+  z-index: ${z.top};
   transition: all 0.2s linear;
 
   :focus {

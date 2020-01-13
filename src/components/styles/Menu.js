@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { colors, device } from './variables'
+import { colors, device, z } from './variables'
 
 const Menu = styled.nav`
   display: flex;
@@ -16,6 +16,7 @@ const Menu = styled.nav`
   background: ${colors.darkBlue};
   transition: all 0.2s linear;
   transform: ${props => (props.open ? 'translateX(0)' : 'translateX(-24rem)')};
+  z-index: ${z.high};
 
   a {
     position: relative;
