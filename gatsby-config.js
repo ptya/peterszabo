@@ -69,8 +69,8 @@ module.exports = {
         name: 'Peter Szabo · Web Developer',
         short_name: 'Peter Szabo',
         start_url: '/',
-        background_color: '#1e2a3d',
-        theme_color: '#1e2a3d',
+        background_color: '#0e1724',
+        theme_color: '#0e1724',
         display: 'standalone',
         icon: 'src/assets/images/logo_dark.png', // This path is relative to the root of the site.
         // An optional attribute which provides support for CORS check.
