@@ -8,10 +8,10 @@ import { device } from 'components/styles/variables'
 import { hoverLink } from 'components/styles/mixins'
 
 const StyledMain = styled(Main)`
-  ${hoverLink}
   margin-bottom: 4rem;
 
   p {
+    ${hoverLink}
     position: relative;
     margin: 2.5rem 0 1rem;
     letter-spacing: 0.05rem;
