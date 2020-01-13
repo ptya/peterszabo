@@ -55,9 +55,7 @@ const Form = ({ setSent }) => {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({ 'form-name': 'contact', ...values }),
-    })
-      .then(() => alert('Success!'))
-      .catch(error => alert(error))
+    }).catch(error => alert(error))
 
     setSubmitting(false)
     resetForm()
