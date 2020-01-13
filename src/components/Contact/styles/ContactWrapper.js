@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { device } from 'components/styles/variables'
 
 const ContactWrapper = styled.div.attrs(() => ({
-  size: window.innerHeight,
+  size: typeof window !== 'undefined' ? window.innerHeight : 0,
 }))`
   display: flex;
   flex-direction: column;
