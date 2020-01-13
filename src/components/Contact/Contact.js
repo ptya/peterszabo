@@ -14,6 +14,7 @@ import Background from 'components/styles/Background'
 import ContactForm from './ContactForm'
 import Map from './Map'
 import Confirm from './Confirm'
+import Oops from './Oops'
 
 import ContactWrapper from './styles/ContactWrapper'
 import ContactMain from './styles/ContactMain'
@@ -22,6 +23,7 @@ const AnimatedMain = animated(ContactMain)
 
 const Contact = () => {
   const [isSent, setSent] = useState(false)
+  const [isError, setError] = useState(false)
   const { isMobile } = useContext(ScreenContext)
   const [bind, { height }] = useMeasure()
   const animation = useSpring({
@@ -39,10 +41,11 @@ const Contact = () => {
         <Background />
         <AbsoluteTitle>Get in touch</AbsoluteTitle>
         <div {...bind}>
+          {isError && <Oops />}
           {isSent && <Confirm />}
-          {!isSent && (
+          {!isSent && !isError && (
             <>
-              <ContactForm setSent={setSent} />
+              <ContactForm setSent={setSent} setError={setError} />
               {isMobile && <StaticSocial />}
             </>
           )}

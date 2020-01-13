@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-const Confirm = styled.p`
+const StyledConfirm = styled.p`
   display: flex;
   justify-content: center;
   align-items: center;
 `
 
-export default Confirm
+export default StyledConfirm

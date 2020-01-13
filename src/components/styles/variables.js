@@ -20,6 +20,7 @@ export const colors = {
   textBgMidOpacity: 'rgba(35, 50, 71, 0.5)',
   textBgHighOpacity: 'rgba(35, 50, 71, 0.8)',
   red: '#c10606',
+  darkRed: '#9f0000',
   // social colors
   gh: '#24292e',
   fb: '#1778f2',

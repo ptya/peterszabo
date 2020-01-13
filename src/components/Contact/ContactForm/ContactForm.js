@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import Form from './Form'
 
-const ContactForm = ({ setSent }) => {
+const ContactForm = ({ setSent, setError }) => {
   const animation = useSpring({
     from: {
       opacity: 0,
@@ -28,13 +28,14 @@ const ContactForm = ({ setSent }) => {
         </a>{' '}
         or use the form below.
       </p>
-      <Form setSent={setSent} />
+      <Form setSent={setSent} setError={setError} />
     </animated.div>
   )
 }
 
 ContactForm.propTypes = {
   setSent: PropTypes.func.isRequired,
+  setError: PropTypes.func.isRequired,
 }
 
 export default ContactForm

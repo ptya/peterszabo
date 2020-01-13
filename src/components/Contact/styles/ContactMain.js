@@ -36,6 +36,10 @@ const ContactMain = styled(Main)`
     ${StyledConfirm} {
       margin-bottom: 5rem;
     }
+
+    .oops {
+      margin-bottom: 3rem;
+    }
   }
 `
 

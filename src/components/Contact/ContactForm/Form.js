@@ -8,10 +8,7 @@ import Textarea from './elements/Textarea'
 import StyledForm from './styles/StyledForm'
 import SubmitBtn from './styles/SubmitBtn'
 
-// TODO clean up form submission
-// TODO transition animation after submit
-
-const Form = ({ setSent }) => {
+const Form = ({ setSent, setError }) => {
   const initialValues = {
     name: '',
     email: '',
@@ -50,16 +47,24 @@ const Form = ({ setSent }) => {
       .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
       .join('&')
 
-  const onSubmit = (values, { setSubmitting, resetForm }) => {
-    fetch('/', {
+  const onSubmit = async (values, { setSubmitting, resetForm }) => {
+    const resp = await fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({ 'form-name': 'contact', ...values }),
-    }).catch(error => alert(error))
+    }).catch(error => {
+      console.error('FETCH FAILED', error)
+      setError(true)
+    })
 
-    setSubmitting(false)
-    resetForm()
-    setSent(true)
+    if (resp.ok) {
+      setSubmitting(false)
+      resetForm()
+      setSent(true)
+    } else {
+      console.error('REQUEST FAILED', resp)
+      setError(true)
+    }
   }
 
   return (
@@ -120,6 +125,7 @@ const Form = ({ setSent }) => {
 
 Form.propTypes = {
   setSent: PropTypes.func.isRequired,
+  setError: PropTypes.func.isRequired,
 }
 
 export default Form
