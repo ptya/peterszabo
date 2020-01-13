@@ -1,5 +1,5 @@
-import React, { useState, useContext } from 'react'
-import { useSpring, useTransition, animated } from 'react-spring'
+import React from 'react'
+import { useSpring, animated } from 'react-spring'
 import PropTypes from 'prop-types'
 
 import Form from './Form'
