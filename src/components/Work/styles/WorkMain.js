@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import Main from 'components/styles/Main'
 
 const WorkMain = styled(Main)`
-  grid-template-rows: auto auto auto;
   margin: 12rem auto 0;
   padding: 1.5rem 1rem;
 
