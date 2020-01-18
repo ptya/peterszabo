@@ -1,15 +1,29 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { animated } from 'react-spring'
 
+// hooks
+import { useFadeIn } from 'components/hooks/useSpring'
+
+// shared elements
 import StaticSocial from 'components/elements/StaticSocial'
 
+// shared styles
 import AbsoluteTitle from 'components/styles/AbsoluteTitle'
+import Background from 'components/styles/Background'
+
+// local styles
 import AboutMain from './styles/AboutMain'
 import ProfilePic from './styles/ProfilePic'
 
-const About = ({ data }) => (
-  <>
-    <AboutMain>
+const AnimatedMain = animated(AboutMain)
+
+const About = ({ data }) => {
+  const fadeIn = useFadeIn({})
+
+  return (
+    <AnimatedMain style={fadeIn}>
+      <Background />
       <AbsoluteTitle className="title">About Me</AbsoluteTitle>
       <div className="text">
         <p>
@@ -29,9 +43,9 @@ const About = ({ data }) => (
         alt="Peter Szabo"
       />
       <StaticSocial className="social" />
-    </AboutMain>
-  </>
-)
+    </AnimatedMain>
+  )
+}
 
 About.propTypes = {
   data: PropTypes.object.isRequired,

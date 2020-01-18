@@ -1,12 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import Background from 'components/styles/Background'
 import Main from 'components/styles/Main'
 import { device } from 'components/styles/variables'
 
-const StyledMain = styled(Main)`
+const AboutMain = styled(Main)`
   grid-template-areas:
     'text'
     'pic'
@@ -53,16 +50,5 @@ const StyledMain = styled(Main)`
     grid-column-gap: 4rem;
   }
 `
-
-const AboutMain = ({ children }) => (
-  <StyledMain>
-    <Background />
-    {children}
-  </StyledMain>
-)
-
-AboutMain.propTypes = {
-  children: PropTypes.any.isRequired,
-}
 
 export default AboutMain
