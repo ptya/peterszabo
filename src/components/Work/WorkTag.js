@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { animated, useSpring } from 'react-spring'
+import { animated } from 'react-spring'
 
 // hooks
 import { useFadeIn } from 'components/hooks/useSpring'
