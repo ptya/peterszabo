@@ -1,20 +1,20 @@
 import React from 'react'
-import { useSpring, animated } from 'react-spring'
+import { animated } from 'react-spring'
 
+// hooks
+import { useFadeIn } from 'components/hooks/useSpring'
+
+// local elements
 import Success from './elements/Success'
 
+// local styles
 import StyledConfirm from './styles/StyledConfirm'
 
 const AnimatedConfirm = animated(StyledConfirm)
 
 const Confirm = () => {
-  const fadeIn = useSpring({
-    from: {
-      opacity: 0,
-    },
-    opacity: 1,
-    delay: 300,
-  })
+  const fadeIn = useFadeIn({ delay: 300 })
+
   return (
     <AnimatedConfirm style={fadeIn}>
       <Success />

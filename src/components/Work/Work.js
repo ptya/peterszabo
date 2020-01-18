@@ -36,7 +36,7 @@ const Work = ({ data, location }) => {
     setSelected({ top: e.clientY, left: e.clientX, item })
   }
 
-  const fadeIn = useFadeIn()
+  const fadeIn = useFadeIn({})
   const items = data.allMarkdownRemark.edges.map(({ node }) => node)
   const { state } = location
   const fromWork = state && Object.keys(state).includes('fromWork')

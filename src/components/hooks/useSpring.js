@@ -1,6 +1,6 @@
 import { useSpring } from 'react-spring'
 
-function useFadeIn(delay = 0, ref = null) {
+function useFadeIn({ delay = 0, ref = null }) {
   const fadeIn = useSpring({
     from: {
       opacity: 0,

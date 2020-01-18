@@ -2,9 +2,14 @@ import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
 import { animated, useSpring, useChain } from 'react-spring'
 
+// hooks
+import { useFadeIn } from 'components/hooks/useSpring'
+
+// shared styles
 import AccessibleText from 'components/styles/AccessibleText'
 import { colors } from 'components/styles/variables'
 
+// local styles
 import BtnWrapper from '../styles/BtnWrapper'
 import StyledButton from '../styles/StyledButton'
 import AnimBtnBg from '../styles/AnimBtnBg'
@@ -31,13 +36,7 @@ const CloseBtn = ({ children }) => {
     ref: bgRef,
   })
 
-  const animation = useSpring({
-    from: {
-      opacity: 0,
-    },
-    opacity: 1,
-    ref: svgRef,
-  })
+  const fadeIn = useFadeIn({ ref: svgRef })
 
   useChain([bgRef, svgRef], [0.4, 0.6])
   return (
@@ -46,7 +45,7 @@ const CloseBtn = ({ children }) => {
         <AnimBtnBg
           style={{ width: width.interpolate(w => `${w}%`), borderColor: color }}
         />
-        <AnimSvg style={animation} viewBox="0 0 60 60">
+        <AnimSvg style={fadeIn} viewBox="0 0 60 60">
           <line
             x1="3"
             y1="30"

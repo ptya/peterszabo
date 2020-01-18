@@ -1,20 +1,18 @@
 import React from 'react'
-import { useSpring, animated } from 'react-spring'
+import { animated } from 'react-spring'
 import PropTypes from 'prop-types'
 
+// hooks
+import { useFadeIn } from 'components/hooks/useSpring'
+
+// local components
 import Form from './Form'
 
 const ContactForm = ({ setSent, setError }) => {
-  const animation = useSpring({
-    from: {
-      opacity: 0,
-    },
-    opacity: 1,
-    delay: 200,
-  })
+  const fadeIn = useFadeIn({ delay: 200 })
 
   return (
-    <animated.div style={animation}>
+    <animated.div style={fadeIn}>
       <p>
         Have a question? Want to work together or just say hi?
         <br />

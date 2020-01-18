@@ -1,20 +1,20 @@
 import React from 'react'
-import { useSpring, animated } from 'react-spring'
+import { animated } from 'react-spring'
 
+// hooks
+import { useFadeIn } from 'components/hooks/useSpring'
+
+// local elements
 import Fail from './elements/Fail'
 
+// local styles
 import StyledOops from './styles/StyledOops'
 
 const AnimatedOops = animated(StyledOops)
 
 const Oops = () => {
-  const fadeIn = useSpring({
-    from: {
-      opacity: 0,
-    },
-    opacity: 1,
-    delay: 300,
-  })
+  const fadeIn = useFadeIn({ delay: 300 })
+
   return (
     <>
       <AnimatedOops className="oops" style={fadeIn}>
