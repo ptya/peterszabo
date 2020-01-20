@@ -43,7 +43,7 @@
     "react-responsive": "^8.0.1",
     "react-spring": "^8.0.27",
     "resize-observer-polyfill": "^1.5.1",
-    "styled-components": "^4.3.2",
+    "styled-components": "^5.0.0",
     "styled-normalize": "^8.0.6",
     "typeface-montserrat": "^0.0.75",
     "typeface-raleway": "^0.0.75"
