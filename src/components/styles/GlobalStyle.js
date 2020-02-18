@@ -5,7 +5,6 @@ import background from 'assets/images/background/Large-Triangles.svg'
 import { colors, device } from './variables'
 
 // TODO comment the styles properly
-// TODO calculate pixel sizes again, as lighthouse thinks most of the site is on 10px fontsize :(
 
 const GlobalStyle = createGlobalStyle`
   ${normalize}

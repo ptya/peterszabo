@@ -120,6 +120,4 @@ Map.defaultPropTypes = {
   delay: 0,
 }
 
-// TODO popup styling
-
 export default Map
