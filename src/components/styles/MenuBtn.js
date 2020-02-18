@@ -51,7 +51,7 @@ const MenuBtn = styled.button`
   }
 
   @media screen and (${device.tablet}) {
-    /* -> @media (min-width: 768px)" */
+    /* -> @media (min-width: 768px) */
     height: 4.9rem;
 
     & > div {
@@ -64,6 +64,11 @@ const MenuBtn = styled.button`
       transform: ${props =>
         props.open ? 'translateX(5.5rem)' : 'translateX(0)'};
     }
+  }
+
+  @media screen and (${device.laptop}) {
+    /* -> @media (min-width: 1024px) */
+    display: none;
   }
 `
 

@@ -1,7 +1,7 @@
 import { animated } from 'react-spring'
 import styled from 'styled-components'
 
-import { colors } from './variables'
+import { colors, device } from './variables'
 
 const Underline = styled(animated.div)`
   position: absolute;
@@ -13,6 +13,11 @@ const Underline = styled(animated.div)`
     height: 0.4rem;
     background: ${colors.blue};
     border-radius: 0.5rem;
+  }
+
+  @media screen and (${device.laptop}) {
+    /* -> @media (min-width: 1024px) */
+    display: none;
   }
 `
 

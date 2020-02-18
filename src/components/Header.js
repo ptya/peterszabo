@@ -27,10 +27,10 @@ const Header = ({ location }) => {
   useActive(setActive, setHovered)
   useTarget(active, setHovered)
 
-  const { isClient, isSmallScreen } = useContext(ScreenContext)
+  const { isClient } = useContext(ScreenContext)
 
   const isHome = location.pathname === '/'
-  const isTargetShown = !isSmallScreen && hovered.length > 0
+  const isTargetShown = hovered.length > 0
   const switchToMini = 25
 
   // minimize menu when scrolled above $switchToMini
@@ -60,9 +60,7 @@ const Header = ({ location }) => {
   return (
     <StyledHeader mini={miniHeader} isHome={isHome}>
       <div ref={menu}>
-        {isSmallScreen && (
-          <Burger open={open} setOpen={setOpen} mini={miniHeader} />
-        )}
+        <Burger open={open} setOpen={setOpen} mini={miniHeader} />
         <Menu id="menu" open={open} ref={menu}>
           <Link id="home" activeClassName="active" to="/">
             Home

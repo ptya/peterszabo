@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 10px;
     font-family: "Raleway", sans-serif;
     color: ${colors.white};
+    scroll-behavior: smooth;
   }
 
   body {
