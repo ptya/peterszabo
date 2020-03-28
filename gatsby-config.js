@@ -20,7 +20,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-
+    `gatsby-plugin-typescript`,
     {
       resolve: `gatsby-plugin-advanced-sitemap`,
       options: {
@@ -30,11 +30,18 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-root-import',
       options: {
+        '@src': path.join(__dirname, 'src'),
+        '@pages': path.join(__dirname, `src`, `pages`),
+        '@assets': path.join(__dirname, `src`, `assets`),
+        '@components': path.join(__dirname, `src`, `components`),
+        '@utils': path.join(__dirname, `src`, `utils`),
+        '@types': path.join(__dirname, `src`, `types`),
         src: path.join(__dirname, 'src'),
         pages: path.join(__dirname, `src`, `pages`),
         assets: path.join(__dirname, `src`, `assets`),
         components: path.join(__dirname, `src`, `components`),
         utils: path.join(__dirname, `src`, `utils`),
+        types: path.join(__dirname, `src`, `types`),
       },
     },
     {
