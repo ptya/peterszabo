@@ -8,7 +8,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { ScreenProvider } from './src/components/context/ScreenContext'
+import { ScreenProvider } from './src/components/context/ScreenContext.tsx'
 
 require('typeface-montserrat')
 require('typeface-raleway')

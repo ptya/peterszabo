@@ -7,7 +7,7 @@ require('dotenv').config({
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
-  const workTemplate = path.resolve(`src/works/WorkPage.js`)
+  const workTemplate = path.resolve(`src/works/WorkPage.tsx`)
   const result = await graphql(`
     {
       allMarkdownRemark(
