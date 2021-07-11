@@ -5,7 +5,7 @@ import Social from './Social'
 import StaticSection from '../styles/StaticSection'
 
 type Props = {
-  className?: string,
+  className?: string
 }
 
 const StaticSocial: React.FC<Props> = ({ className = '' }) => (

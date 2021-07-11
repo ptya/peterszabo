@@ -56,15 +56,13 @@ const Check = styled.svg`
   #successAnimationCircle {
     stroke-dasharray: 15.1rem 15.1rem;
     stroke: ${colors.green};
-    animation: 1s cubic-bezier(0.77, 0, 0.175, 1) 0s 1 both ${drawCircle},
-      0.3s linear 0.9s 1 both ${fadeOut};
+    animation: 1s cubic-bezier(0.77, 0, 0.175, 1) 0s 1 both ${drawCircle}, 0.3s linear 0.9s 1 both ${fadeOut};
   }
 
   #successAnimationCheck {
     stroke-dasharray: 3.6rem 3.6rem;
     stroke: ${colors.green};
-    animation: 1s cubic-bezier(0.77, 0, 0.175, 1) 0s 1 both ${drawCheck},
-      0.3s linear 0.9s 1 both ${fadeOut};
+    animation: 1s cubic-bezier(0.77, 0, 0.175, 1) 0s 1 both ${drawCheck}, 0.3s linear 0.9s 1 both ${fadeOut};
   }
 
   #successAnimationResult {

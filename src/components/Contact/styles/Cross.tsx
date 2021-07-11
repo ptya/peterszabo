@@ -56,8 +56,7 @@ const Cross = styled.svg`
   #failAnimationCircle {
     stroke-dasharray: 15.1rem 15.1rem;
     stroke: ${colors.darkRed};
-    animation: 1s cubic-bezier(0.77, 0, 0.175, 1) 0s 1 both ${drawCircle},
-      0.3s linear 1.2s 1 both ${fadeOut};
+    animation: 1s cubic-bezier(0.77, 0, 0.175, 1) 0s 1 both ${drawCircle}, 0.3s linear 1.2s 1 both ${fadeOut};
   }
 
   #failAnimationCross1,
@@ -67,12 +66,10 @@ const Cross = styled.svg`
   }
 
   #failAnimationCross1 {
-    animation: 1s cubic-bezier(0.77, 0, 0.175, 1) 0s 1 both ${drawCheck},
-      0.3s linear 1.2s 1 both ${fadeOut};
+    animation: 1s cubic-bezier(0.77, 0, 0.175, 1) 0s 1 both ${drawCheck}, 0.3s linear 1.2s 1 both ${fadeOut};
   }
   #failAnimationCross2 {
-    animation: 1s cubic-bezier(0.77, 0, 0.175, 1) 0.3s 1 both ${drawCheck},
-      0.3s linear 1.2s 1 both ${fadeOut};
+    animation: 1s cubic-bezier(0.77, 0, 0.175, 1) 0.3s 1 both ${drawCheck}, 0.3s linear 1.2s 1 both ${fadeOut};
   }
   #failAnimationResult {
     fill: ${colors.blue};

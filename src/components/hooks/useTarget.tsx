@@ -1,8 +1,8 @@
-import { useLayoutEffect, } from 'react'
+import { useLayoutEffect } from 'react'
 
 import { constants } from 'utils'
 
-function useTarget(base: number[], handler: (arg: number[]) => void) {
+function useTarget(base: number[], handler: (arg: number[]) => void): void {
   useLayoutEffect(() => {
     const menu = document.getElementById('menu')
 
@@ -17,10 +17,7 @@ function useTarget(base: number[], handler: (arg: number[]) => void) {
       const target = event.target as HTMLElement
       const left = target.offsetLeft
       const width = target.offsetWidth
-      handler([
-        left - constants.hoveredLeftOffset,
-        width + constants.hoveredWidthOffset,
-      ])
+      handler([left - constants.hoveredLeftOffset, width + constants.hoveredWidthOffset])
     }
 
     const resetListener = () => {
@@ -28,17 +25,17 @@ function useTarget(base: number[], handler: (arg: number[]) => void) {
     }
 
     menu.addEventListener('mouseleave', resetListener)
-    home!.addEventListener('mouseenter', hoverListener)
-    about!.addEventListener('mouseenter', hoverListener)
-    work!.addEventListener('mouseenter', hoverListener)
-    contact!.addEventListener('mouseenter', hoverListener)
+    home?.addEventListener('mouseenter', hoverListener)
+    about?.addEventListener('mouseenter', hoverListener)
+    work?.addEventListener('mouseenter', hoverListener)
+    contact?.addEventListener('mouseenter', hoverListener)
 
     return () => {
       menu.removeEventListener('mouseleave', resetListener)
-      home!.removeEventListener('mouseenter', hoverListener)
-      about!.removeEventListener('mouseenter', hoverListener)
-      work!.removeEventListener('mouseenter', hoverListener)
-      contact!.removeEventListener('mouseenter', hoverListener)
+      home?.removeEventListener('mouseenter', hoverListener)
+      about?.removeEventListener('mouseenter', hoverListener)
+      work?.removeEventListener('mouseenter', hoverListener)
+      contact?.removeEventListener('mouseenter', hoverListener)
     }
   }, [base, handler]) // Empty array ensures effect is only run on mount and unmount
 }

@@ -1,9 +1,8 @@
 import React, { useState, useContext } from 'react'
-import { navigate } from '@reach/router' // eslint-disable-line
+import { navigate } from 'gatsby'
 
 // types
 import { TAllMarkdownRemark, TLocation } from 'types'
-
 
 // context
 import ScreenContext from 'components/context/ScreenContext'
@@ -26,8 +25,8 @@ import { AnimatedWorkMain } from './styles/WorkMain'
 import WorksWrapper from './styles/WorksWrapper'
 
 type Props = {
-  data: TAllMarkdownRemark,
-  location: TLocation,
+  data: TAllMarkdownRemark
+  location: TLocation
 }
 
 type Item = {
@@ -37,8 +36,8 @@ type Item = {
 }
 
 type Selected = {
-  top: number,
-  left: number,
+  top: number
+  left: number
   item: Item
 }
 
@@ -65,18 +64,12 @@ const Work: React.FC<Props> = ({ data, location }) => {
           My Work
         </AbsoluteTitle>
         <p>
-          Check out some of my recent projects or browse my repositories on{' '}
-          <GitHub />
+          Check out some of my recent projects or browse my repositories on <GitHub />
         </p>
       </AnimatedWorkMain>
       <WorksWrapper>
         {items.map((item, i) => (
-          <WorkThumbnail
-            key={item.id}
-            work={item}
-            onSelect={e => onSelect(e, item)}
-            i={i}
-          />
+          <WorkThumbnail key={item.id} work={item} onSelect={e => onSelect(e, item)} i={i} />
         ))}
       </WorksWrapper>
       {isMobile && <StaticSocial />}

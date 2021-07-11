@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
+import { getImage } from 'gatsby-plugin-image'
 
 import { TImage } from 'types'
 
 import ScreensWrapper from './styles/ScreensWrapper'
-import Screen, { screenImgStyle } from './styles/Screen'
+import Screen from './styles/Screen'
 
 type Props = {
-  images: TImage[],
-  title: string,
+  images: TImage[]
+  title: string
   className?: string
 }
 
@@ -16,25 +17,23 @@ const Screens: React.FC<Props> = ({ images, title, className = '' }) => {
 
   return (
     <ScreensWrapper className={className}>
-      {images.map((image, i) => (
-        <a
-          href={image.childImageSharp.original.src}
-          rel="noopener noreferrer"
-          target="_blank"
-          onMouseOver={() => setActive(i)}
-          onMouseLeave={() => setActive(null)}
-          onFocus={() => setActive(i)}
-          onBlur={() => setActive(null)}
-          key={i}
-        >
-          <Screen
-            fluid={image.childImageSharp.fluid}
-            alt={`${title} ${i + 1}`}
-            imgStyle={screenImgStyle(active !== null && i === active)}
-            isInActive={active !== null && i !== active}
-          />
-        </a>
-      ))}
+      {images.map((image, i) => {
+        const gImage = getImage(image.childImageSharp.gatsbyImageData)
+        return (
+          <a
+            href={image.childImageSharp.original.src}
+            rel="noopener noreferrer"
+            target="_blank"
+            onMouseOver={() => setActive(i)}
+            onMouseLeave={() => setActive(null)}
+            onFocus={() => setActive(i)}
+            onBlur={() => setActive(null)}
+            key={i}
+          >
+            {gImage && <Screen image={gImage} alt={`${title} ${i + 1}`} isActive={active !== null && i === active} />}
+          </a>
+        )
+      })}
     </ScreensWrapper>
   )
 }

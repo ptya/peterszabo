@@ -4,7 +4,10 @@ import ScreenContext from 'components/context/ScreenContext'
 
 import { constants } from 'utils'
 
-function useActive(setActive: React.Dispatch<SetStateAction<number[]>>, setHovered: React.Dispatch<SetStateAction<number[]>>) {
+function useActive(
+  setActive: React.Dispatch<SetStateAction<number[]>>,
+  setHovered: React.Dispatch<SetStateAction<number[]>>
+): void {
   const [[left, width], setDimensions] = useState([0, 0])
   const { isClient, isSmallScreen } = useContext(ScreenContext)
 

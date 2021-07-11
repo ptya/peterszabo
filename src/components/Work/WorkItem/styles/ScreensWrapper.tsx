@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { colors, device } from 'components/styles/variables'
-import Screen from './Screen'
+import { ScreenWrapper } from './Screen'
 
 const MainWrapper = styled.figure`
   position: relative;
@@ -12,7 +12,7 @@ const MainWrapper = styled.figure`
 const FlexWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  ${Screen}:first-of-type {
+  ${ScreenWrapper}:first-of-type {
     border-right: 0.1rem solid ${colors.blue};
   }
 
@@ -44,7 +44,7 @@ const FlexWrapper = styled.div`
 `
 
 type Props = {
-  className: string,
+  className: string
 }
 
 const ScreensWrapper: React.FC<Props> = ({ children, className }) => (

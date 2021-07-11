@@ -4,20 +4,21 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require('path')
 
 module.exports = {
   siteMetadata: {
     title: 'Web Development',
     titleTemplate: '%s · Peter Szabo · Web Developer',
-    description:
-      "Hello! My name is Péter Szabó and I create websites. Check out my site and let's talk.",
+    description: "Hello! My name is Péter Szabó and I create websites. Check out my site and let's talk.",
     siteUrl: 'https://peterszabo.io',
     image: '/images/logo_dark.png',
   },
   plugins: [
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-typescript`,

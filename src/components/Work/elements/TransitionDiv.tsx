@@ -7,11 +7,11 @@ import TransitionWrapper from '../styles/TransitionWrapper'
 
 type Props = {
   data: {
-    top: number,
-    left: number,
-  },
-  fromWork?: boolean,
-  callback: () => void,
+    top: number
+    left: number
+  }
+  fromWork?: boolean
+  callback: () => void
 }
 
 const TransitionDiv: React.FC<Props> = ({ data, fromWork = false, callback }) => {

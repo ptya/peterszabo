@@ -1,12 +1,18 @@
+import React from 'react'
 import styled from 'styled-components'
-import Img from 'gatsby-image'
-import { animated } from 'react-spring'
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
+import { SpringValue, animated } from 'react-spring'
 
 import { colors, device } from 'components/styles/variables'
 
-const ThumbImg = styled(Img)`
+const ThumbImg = styled(GatsbyImage)`
   position: relative;
   width: 100%;
+  height: 100%;
+`
+
+const Wrapper = styled.div`
+  position: relative;
   height: 25rem;
   border-left: 0.05rem solid ${colors.shadow};
   border-right: 0.05rem solid ${colors.shadow};
@@ -17,13 +23,27 @@ const ThumbImg = styled(Img)`
   }
 `
 
-const thumbImgStyle = {
+const thumbImgStyle: React.CSSProperties = {
   objectFit: 'cover',
   objectPosition: 'center center',
 }
 
-const AnimatedThumbImg = animated(ThumbImg)
-
 export default ThumbImg
 
-export { thumbImgStyle, AnimatedThumbImg }
+type Props = {
+  style: Record<string, SpringValue>
+  image: IGatsbyImageData
+  alt: string
+}
+
+const AnimatedWrapper = animated(Wrapper)
+
+const AnimatedThumbImg = ({ style, image, alt }: Props): JSX.Element => {
+  return (
+    <AnimatedWrapper style={style}>
+      <ThumbImg image={image} alt={alt} imgStyle={thumbImgStyle} />
+    </AnimatedWrapper>
+  )
+}
+
+export { AnimatedThumbImg, thumbImgStyle }

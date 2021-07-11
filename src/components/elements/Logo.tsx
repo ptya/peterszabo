@@ -13,7 +13,7 @@ const StyledLink = styled(Link)`
 `
 
 type Props = {
-  mini: boolean,
+  mini: boolean
 }
 
 const StyledLogo = styled.img<Props>`

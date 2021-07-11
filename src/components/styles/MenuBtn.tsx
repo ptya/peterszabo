@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import { colors, z, device } from './variables'
 
 type Props = {
-  mini: boolean,
-  open: boolean,
+  mini: boolean
+  open: boolean
 }
 
 const MenuBtn = styled.button<Props>`
@@ -41,8 +41,7 @@ const MenuBtn = styled.button<Props>`
   div:nth-child(2) {
     width: ${props => (props.mini ? '2rem' : '2.6rem')};
     opacity: ${props => (props.open ? 0 : 1)};
-    transform: ${props =>
-    props.open ? 'translateX(4.5rem)' : 'translateX(0)'};
+    transform: ${props => (props.open ? 'translateX(4.5rem)' : 'translateX(0)')};
   }
   div:nth-child(3) {
     transform: ${props => (props.open ? 'rotate(-45deg)' : 'rotate(0)')};
@@ -66,8 +65,7 @@ const MenuBtn = styled.button<Props>`
 
     div:nth-child(2) {
       width: 4rem;
-      transform: ${props =>
-    props.open ? 'translateX(5.5rem)' : 'translateX(0)'};
+      transform: ${props => (props.open ? 'translateX(5.5rem)' : 'translateX(0)')};
     }
   }
 

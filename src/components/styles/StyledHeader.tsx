@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { colors, z, device } from 'components/styles/variables'
 
 type Props = {
-  mini: boolean,
+  mini: boolean
 }
 
 const StyledHeader = styled.header`

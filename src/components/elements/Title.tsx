@@ -1,5 +1,5 @@
-import React, { useRef } from 'react'
-import { useSpring, useChain, ReactSpringHook } from 'react-spring'
+import React from 'react'
+import { useSpring, useChain, useSpringRef } from 'react-spring'
 
 // local styles
 import StyledTitleWrapper from '../styles/StyledTitleWrapper'
@@ -7,15 +7,15 @@ import { AnimatedTitle } from '../styles/StyledTitle'
 import { AnimBgLeft, AnimBgRight } from '../styles/AnimBg'
 
 type Props = {
-  type?: 'h1' | 'h2' | 'h3' | 'h4',
-  className?: string,
-  animate?: boolean,
+  type?: 'h1' | 'h2' | 'h3' | 'h4'
+  className?: string
+  animate?: boolean
 }
 
 const Title: React.FC<Props> = ({ children, type = 'h1', className = '', animate = true }) => {
-  const textRef = useRef<ReactSpringHook>(null)
-  const bgLeftRef = useRef<ReactSpringHook>(null)
-  const bgRightRef = useRef<ReactSpringHook>(null)
+  const textRef = useSpringRef()
+  const bgLeftRef = useSpringRef()
+  const bgRightRef = useSpringRef()
 
   const { width: lWidth } = useSpring({
     from: {
@@ -64,7 +64,5 @@ const Title: React.FC<Props> = ({ children, type = 'h1', className = '', animate
     </StyledTitleWrapper>
   )
 }
-
-
 
 export default Title

@@ -1,35 +1,32 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { FluidObject } from 'gatsby-image'
 
 import Layout from 'components/Layout'
 import SEO from 'components/SEO'
 import About from 'components/About'
 
+import { ImageDataLike } from 'gatsby-plugin-image'
+
 type PageProps = {
   data: {
-    imageOne: {
-      childImageSharp: {
-        fluid: FluidObject
-      },
-    },
-  },
+    imageOne: ImageDataLike
+  }
 }
 
-const Page: React.FC<PageProps> = ({ data }) => (
-  <Layout>
-    <SEO title="About me" />
-    <About data={data} />
-  </Layout >
-)
+const Page = ({ data }: PageProps): JSX.Element => {
+  return (
+    <Layout>
+      <SEO title="About me" />
+      <About data={data} />
+    </Layout>
+  )
+}
 
 export const query = graphql`
   query {
     imageOne: file(relativePath: { eq: "profile.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 300) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(width: 300)
       }
     }
   }

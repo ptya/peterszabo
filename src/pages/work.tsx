@@ -10,7 +10,7 @@ import SEO from 'components/SEO'
 import Work from 'components/Work'
 
 type PageProps = {
-  data: TAllMarkdownRemark,
+  data: TAllMarkdownRemark
   location: TLocation
 }
 
@@ -36,9 +36,7 @@ export const query = graphql`
             path
             images {
               childImageSharp {
-                fluid(maxWidth: 650, quality: 100) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(width: 650, quality: 100)
               }
             }
           }

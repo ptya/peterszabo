@@ -1,11 +1,12 @@
+import React from 'react'
 import styled from 'styled-components'
-import Img from 'gatsby-image'
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 
-type Props = {
-  isInActive: boolean,
+type StyleProps = {
+  isInActive: boolean
 }
 
-const Screen = styled(Img) <Props>`
+export const ScreenWrapper = styled.div<StyleProps>`
   position: relative;
   max-height: 27rem;
   height: 100%;
@@ -13,12 +14,26 @@ const Screen = styled(Img) <Props>`
   transition: all 0.2s ease-in-out;
 `
 
-const screenImgStyle = (isActive: boolean) => ({
+const screenImgStyle = (isActive: boolean): React.CSSProperties => ({
   objectPosition: 'left center',
   width: isActive ? '102%' : '100%',
   height: isActive ? '102%' : '100%',
   transition: 'all 0.3s ease-in-out',
 })
+
+type Props = {
+  isActive: boolean
+  image: IGatsbyImageData
+  alt: string
+}
+
+const Screen = ({ isActive, image, alt }: Props): JSX.Element => {
+  return (
+    <ScreenWrapper isInActive={!isActive}>
+      <GatsbyImage image={image} imgStyle={screenImgStyle(isActive)} alt={alt} />
+    </ScreenWrapper>
+  )
+}
 
 export default Screen
 

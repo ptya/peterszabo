@@ -4,7 +4,9 @@ import { useRef, useState, useEffect, useContext } from 'react'
 
 import ScreenContext from 'components/context/ScreenContext'
 
-function useMeasure() {
+type Return = readonly [React.RefObject<HTMLDivElement>, { left: number; top: number; width: number; height: number }]
+
+function useMeasure(): Return {
   const [bounds, set] = useState({ left: 0, top: 0, width: 0, height: 0 })
   const { isClient } = useContext(ScreenContext)
   const ref = useRef<HTMLDivElement>(null)

@@ -1,8 +1,8 @@
 import React from 'react'
 
 type Props = {
-  repos: string[],
-  className?: string,
+  repos: string[]
+  className?: string
 }
 
 const Repositories: React.FC<Props> = ({ className = '', repos }) => (

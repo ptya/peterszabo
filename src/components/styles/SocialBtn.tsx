@@ -25,7 +25,7 @@ function getSocialUrl(social: TSocial) {
 }
 
 type Props = {
-  social: TSocial,
+  social: TSocial
 }
 
 const SocialBtn = styled.a<Props>`
@@ -58,16 +58,16 @@ const SocialBtn = styled.a<Props>`
     }
 
     ${props =>
-    props.type === 'row' &&
-    css`
+      props.type === 'row' &&
+      css`
         :hover {
           height: 7rem;
         }
       `}
 
     ${props =>
-    props.type === 'col' &&
-    css`
+      props.type === 'col' &&
+      css`
         :hover {
           width: 7.5rem;
         }

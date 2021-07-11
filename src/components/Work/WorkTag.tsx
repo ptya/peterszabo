@@ -5,8 +5,8 @@ import { animated } from 'react-spring'
 import { useFadeIn } from 'components/hooks/useSpring'
 
 type Props = {
-  tag: string,
-  delay: number,
+  tag: string
+  delay: number
 }
 
 const WorkTag: React.FC<Props> = ({ tag, delay }) => {

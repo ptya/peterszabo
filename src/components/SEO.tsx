@@ -5,23 +5,23 @@ import { graphql, useStaticQuery } from 'gatsby'
 import favicon from '@assets/images/logo.ico'
 
 type Props = {
-  title?: string,
-  description?: string,
-  image?: string,
-  pathname?: string,
-  lang?: string,
+  title?: string
+  description?: string
+  image?: string
+  pathname?: string
+  lang?: string
 }
 
-const SEO: React.FC<Props> = ({ title = undefined, description = undefined, image = undefined, pathname = undefined, lang = undefined }: Props) => {
+const SEO: React.FC<Props> = ({
+  title = undefined,
+  description = undefined,
+  image = undefined,
+  pathname = undefined,
+  lang = undefined,
+}: Props) => {
   const {
     site: {
-      siteMetadata: {
-        defaultTitle,
-        titleTemplate,
-        defaultDescription,
-        siteUrl,
-        defaultImage,
-      },
+      siteMetadata: { defaultTitle, titleTemplate, defaultDescription, siteUrl, defaultImage },
     },
   } = useStaticQuery(
     graphql`
@@ -75,7 +75,7 @@ const SEO: React.FC<Props> = ({ title = undefined, description = undefined, imag
         {
           property: `og:url`,
           content: metaUrl,
-        }
+        },
       ]}
       link={[
         { rel: `icon`, type: `image/x-icon`, href: favicon },
@@ -87,6 +87,5 @@ const SEO: React.FC<Props> = ({ title = undefined, description = undefined, imag
     />
   )
 }
-
 
 export default SEO

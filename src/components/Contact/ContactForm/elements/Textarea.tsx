@@ -12,19 +12,13 @@ import InputWrapper from '../styles/InputWrapper'
 import Error from '../styles/Error'
 
 type Props = {
-  field: FieldInputProps<TValue>,
-  form: FormikState<TValues>,
-  placeholder: string,
-  className?: string,
+  field: FieldInputProps<TValue>
+  form: FormikState<TValues>
+  placeholder: string
+  className?: string
 }
 
-const Textarea: React.FC<Props> = ({
-  field,
-  form: { touched, errors },
-  placeholder,
-  className = '',
-  ...props
-}) => {
+const Textarea: React.FC<Props> = ({ field, form: { touched, errors }, placeholder, className = '', ...props }) => {
   const [isActive, setIsActive] = useState(field.value.length > 0)
 
   useFloat(field.name, () => setIsActive(true))

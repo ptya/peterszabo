@@ -25,7 +25,7 @@ import { AnimatedWorkItemMain } from './styles/WorkItemMain'
 import Tag from './styles/Tag'
 
 type Props = {
-  data: TMarkdownRemark,
+  data: TMarkdownRemark
 }
 
 const WorkItem: React.FC<Props> = ({ data }) => {

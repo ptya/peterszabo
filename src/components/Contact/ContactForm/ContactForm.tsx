@@ -8,8 +8,8 @@ import { useFadeIn } from 'components/hooks/useSpring'
 import Form from './Form'
 
 type Props = {
-  setSent: Dispatch<SetStateAction<boolean>>,
-  setError: Dispatch<SetStateAction<boolean>>,
+  setSent: Dispatch<SetStateAction<boolean>>
+  setError: Dispatch<SetStateAction<boolean>>
 }
 
 const ContactForm: React.FC<Props> = ({ setSent, setError }) => {
@@ -21,11 +21,7 @@ const ContactForm: React.FC<Props> = ({ setSent, setError }) => {
         Have a question? Want to work together or just say hi?
         <br />
         Drop an email to{' '}
-        <a
-          href="mailto:contact@peterszabo.io"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="mailto:contact@peterszabo.io" target="_blank" rel="noopener noreferrer">
           contact@peterszabo.io
         </a>{' '}
         or use the form below.

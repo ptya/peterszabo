@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { useTransition, useSpring, animated } from 'react-spring'
+import { getImage } from 'gatsby-plugin-image'
 
 // types
 import { TWorkNode } from 'types'
@@ -16,13 +17,12 @@ import WorkTag from './WorkTag'
 // local styles
 import DetailsWrapper from './styles/DetailsWrapper'
 import StyledItem from './styles/StyledItem'
-import { AnimatedThumbImg, thumbImgStyle } from './styles/ThumbImg'
-
+import { AnimatedThumbImg } from './styles/ThumbImg'
 
 type Props = {
-  work: TWorkNode,
-  onSelect: (event: React.MouseEvent<HTMLAnchorElement>) => void,
-  i: number,
+  work: TWorkNode
+  onSelect: (event: React.MouseEvent<HTMLAnchorElement>) => void
+  i: number
 }
 
 const WorkThumbnail: React.FC<Props> = ({ work, onSelect, i }) => {
@@ -31,8 +31,9 @@ const WorkThumbnail: React.FC<Props> = ({ work, onSelect, i }) => {
   } = work
   const [hovered, setHovered] = useState(false)
   const { isClient, isMobile } = useContext(ScreenContext)
+  const image = getImage(images[0].childImageSharp.gatsbyImageData)
 
-  const transitions = useTransition(hovered, null, {
+  const transitions = useTransition(hovered, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
@@ -54,20 +55,16 @@ const WorkThumbnail: React.FC<Props> = ({ work, onSelect, i }) => {
       href={path}
       odd={odd}
     >
-      <AnimatedThumbImg
-        style={fade}
-        fluid={images[0].childImageSharp.fluid}
-        alt={title}
-        imgStyle={thumbImgStyle}
-      />
+      {/* {image && <ThumbImg image={image} alt={title} imgStyle={thumbImgStyle} />} */}
+      {image && <AnimatedThumbImg style={fade} image={image} alt={title} />}
       <DetailsWrapper>
         <Title type="h2" animate={isClient && !isMobile}>
           {title}
         </Title>
-        {transitions.map(
-          ({ item, props, key }) =>
+        {transitions(
+          (style, item) =>
             item && (
-              <animated.p key={key} style={props}>
+              <animated.p style={style}>
                 {tags.map((tag, ix) => (
                   <WorkTag key={tag + ix} tag={tag} delay={(ix + 1) * 75} />
                 ))}
@@ -78,6 +75,5 @@ const WorkThumbnail: React.FC<Props> = ({ work, onSelect, i }) => {
     </StyledItem>
   )
 }
-
 
 export default WorkThumbnail

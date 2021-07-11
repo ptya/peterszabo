@@ -3,9 +3,9 @@ import React, { SetStateAction } from 'react'
 import MenuBtn from '../styles/MenuBtn'
 
 type Props = {
-  open: boolean,
-  setOpen: React.Dispatch<SetStateAction<boolean>>,
-  mini: boolean,
+  open: boolean
+  setOpen: React.Dispatch<SetStateAction<boolean>>
+  mini: boolean
 }
 
 const Burger: React.FC<Props> = ({ open, setOpen, mini }) => (

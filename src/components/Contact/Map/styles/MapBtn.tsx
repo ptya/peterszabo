@@ -4,7 +4,7 @@ import { z } from 'components/styles/variables'
 import StyledArrow from './StyledArrow'
 
 type Props = {
-  isExtended: boolean,
+  isExtended: boolean
 }
 
 const MapBtn = styled.button<Props>`

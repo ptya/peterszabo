@@ -63,8 +63,6 @@ const Header: React.FC = () => {
     return () => unset()
   }, [open])
 
-  console.log("isTargetShown", isTargetShown)
-
   return (
     <StyledHeader mini={miniHeader}>
       <div ref={menu}>
@@ -79,12 +77,7 @@ const Header: React.FC = () => {
           <Link id="work" activeClassName="active" partiallyActive to="/work">
             Work
           </Link>
-          <Link
-            id="contact"
-            activeClassName="active"
-            partiallyActive
-            to="/contact"
-          >
+          <Link id="contact" activeClassName="active" partiallyActive to="/contact">
             Contact
           </Link>
           {isTargetShown && <Target pos={hovered} />}

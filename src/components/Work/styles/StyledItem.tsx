@@ -38,7 +38,7 @@ const enterMobileEven = keyframes`
 `
 
 type Props = {
-  odd: boolean,
+  odd: boolean
 }
 
 const StyledItem = styled.a<Props>`
@@ -47,7 +47,7 @@ const StyledItem = styled.a<Props>`
   height: 100%;
   margin: 0;
   cursor: pointer;
-  animation:${enterMobileEven} 0.4s ease-out 1;
+  animation: ${enterMobileEven} 0.4s ease-out 1;
   img {
     height: 100%;
     width: 100%;
@@ -61,11 +61,10 @@ const StyledItem = styled.a<Props>`
       animation: ${enterMobileOdd} 0.4s ease-out 1;
     `}
 
-
-@media screen and(${ device.laptop}) {
-  /* -> @media (min-width: 1024px)" */
-  animation: ${ enterDesktop} 0.4s ease - out 1;
-}
+  @media screen and(${device.laptop}) {
+    /* -> @media (min-width: 1024px)" */
+    animation: ${enterDesktop} 0.4s ease - out 1;
+  }
 `
 
 export default StyledItem

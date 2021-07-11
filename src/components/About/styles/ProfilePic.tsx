@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import Img, { FluidObject } from 'gatsby-image'
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 
 import { colors } from 'components/styles/variables'
 
-const StyledImg = styled(Img)`
+const StyledImg = styled(GatsbyImage)`
   width: 100%;
   height: 100%;
   position: relative;
@@ -20,15 +20,13 @@ const Wrapper = styled.figure`
 `
 
 type ImageProps = {
-  className?: string,
-  fluid: FluidObject,
-  alt?: string,
+  className?: string
+  image?: IGatsbyImageData
+  alt?: string
 }
 
-const ProfilePic: React.FC<ImageProps> = ({ className, fluid, alt }: ImageProps) => (
-  <Wrapper>
-    <StyledImg className={className} alt={alt} fluid={fluid} />
-  </Wrapper>
-)
+const ProfilePic: React.FC<ImageProps> = ({ className, image, alt }: ImageProps) => {
+  return <Wrapper>{image && <StyledImg className={className} alt={alt ?? ''} image={image} />}</Wrapper>
+}
 
 export default ProfilePic

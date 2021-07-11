@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { colors, device, z } from './variables'
 
 type Props = {
-  open: boolean,
+  open: boolean
 }
 
 const Menu = styled.nav<Props>`
@@ -54,8 +54,7 @@ const Menu = styled.nav<Props>`
   @media screen and (${device.mobileM}) {
     /* -> @media (min-width: 375px)" */
     width: 26rem;
-    transform: ${props =>
-    props.open ? 'translateX(0)' : 'translateX(-26rem)'};
+    transform: ${props => (props.open ? 'translateX(0)' : 'translateX(-26rem)')};
 
     a {
       margin: 1rem 1rem;
@@ -64,8 +63,7 @@ const Menu = styled.nav<Props>`
   @media screen and (${device.tablet}) {
     /* -> @media (min-width: 768px)" */
     width: 32rem;
-    transform: ${props =>
-    props.open ? 'translateX(0)' : 'translateX(-32rem)'};
+    transform: ${props => (props.open ? 'translateX(0)' : 'translateX(-32rem)')};
     padding: 20rem 5rem 0;
 
     a {

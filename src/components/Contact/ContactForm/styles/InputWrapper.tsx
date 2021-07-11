@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import { colors, device, z } from 'components/styles/variables'
 
 type Props = {
-  isActive: boolean,
-  isError: boolean,
+  isActive: boolean
+  isError: boolean
 }
 
 const InputWrapper = styled.div<Props>`

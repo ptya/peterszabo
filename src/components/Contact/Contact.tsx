@@ -39,7 +39,6 @@ const Contact: React.FC = () => {
     opacity: 1,
   })
 
-
   return (
     <ContactWrapper>
       <AnimatedContactMain style={animation}>

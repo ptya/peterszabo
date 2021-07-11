@@ -1,6 +1,6 @@
 import { useLayoutEffect } from 'react'
 
-function useFloat(id: string, handler: () => void) {
+function useFloat(id: string, handler: () => void): void {
   useLayoutEffect(() => {
     const floatField = document.getElementById(id)
 

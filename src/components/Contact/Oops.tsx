@@ -17,15 +17,11 @@ const Oops: React.FC = () => {
     <>
       <AnimatedOops className="oops" style={fadeIn}>
         <Fail />
-        Oops! These are not the droids you're looking for.
+        Oops! These are not the droids you&apos;re looking for.
       </AnimatedOops>
       <animated.p className="oops" style={fadeIn}>
         In the meantime send an email to{' '}
-        <a
-          href="mailto:contact@peterszabo.io"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="mailto:contact@peterszabo.io" target="_blank" rel="noopener noreferrer">
           contact@peterszabo.io
         </a>{' '}
         so I can find them for you.

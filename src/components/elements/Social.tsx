@@ -5,7 +5,7 @@ import SocialBtn from '../styles/SocialBtn'
 import { AnimatedSocialWrapper } from '../styles/SocialWrapper'
 
 type Props = {
-  type: "row" | "col"
+  type: 'row' | 'col'
   animate?: boolean
 }
 
@@ -21,14 +21,12 @@ const Social: React.FC<Props> = ({ type, animate = true }) => {
       type={type}
       style={{
         transform: x.interpolate(
-          n =>
-            (type === 'row' && `translateY(${n}px)`) ||
-            (type === 'col' && `translateX(-${n}px)`)
+          n => (type === 'row' && `translateY(${n}px)`) || (type === 'col' && `translateX(-${n}px)`)
         ),
       }}
     >
       <SocialBtn
-        social='gh'
+        social="gh"
         href="https://github.com/ptya"
         target="_blank"
         rel="noopener"
@@ -58,7 +56,7 @@ const Social: React.FC<Props> = ({ type, animate = true }) => {
         <span>Follow on Instagram</span>
       </SocialBtn>
       <SocialBtn
-        social='li'
+        social="li"
         href="https://www.linkedin.com/in/petersz/"
         target="_blank"
         rel="noopener"

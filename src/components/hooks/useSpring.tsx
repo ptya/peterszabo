@@ -1,11 +1,15 @@
-import { useSpring, ReactSpringHook, AnimatedValue } from 'react-spring'
+import { useSpring, SpringRef, SpringValue } from 'react-spring'
 
 type Arg = {
-  delay?: number,
-  ref?: React.RefObject<ReactSpringHook> | undefined
+  delay?: number
+  ref?: SpringRef
 }
 
-function useFadeIn({ delay = 0, ref = undefined }: Arg) {
+type Return = {
+  opacity: SpringValue<number>
+}
+
+function useFadeIn({ delay = 0, ref = undefined }: Arg): Return {
   const fadeIn = useSpring({
     from: {
       opacity: 0,

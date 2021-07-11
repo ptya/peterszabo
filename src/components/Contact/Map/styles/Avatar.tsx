@@ -1,18 +1,6 @@
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 import { colors } from 'components/styles/variables'
 import { animated } from 'react-spring'
-
-const fadeIn = keyframes`
-  0% {
-    opacity: 0;
-  }
-  66% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-`
 
 const Avatar = styled.img`
   width: 5rem;

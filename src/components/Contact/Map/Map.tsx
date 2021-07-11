@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import ReactMapGL, { Marker } from 'react-map-gl'
-import { useSpring, useChain, ReactSpringHook } from 'react-spring'
+import { useSpring, useChain, useSpringRef } from 'react-spring'
 
 // local elements
 import Arrow from './elements/Arrow'
@@ -15,8 +15,8 @@ import StyledPopup from './styles/StyledPopup'
 import Pic from 'assets/images/profile.jpg'
 
 type Props = {
-  delay?: number,
-  isMobile: boolean,
+  delay?: number
+  isMobile: boolean
 }
 
 const Map: React.FC<Props> = ({ delay = 0, isMobile }) => {
@@ -34,8 +34,8 @@ const Map: React.FC<Props> = ({ delay = 0, isMobile }) => {
     return () => clearTimeout(timeout)
   }, [delay])
 
-  const enterRef = useRef<ReactSpringHook>(null)
-  const resizeRef = useRef<ReactSpringHook>(null)
+  const enterRef = useSpringRef()
+  const resizeRef = useSpringRef()
 
   const { x } = useSpring({
     from: { x: isMobile ? 0 : 250 },
@@ -64,10 +64,7 @@ const Map: React.FC<Props> = ({ delay = 0, isMobile }) => {
           }}
         >
           {!isMobile && (
-            <MapBtn
-              onClick={() => setExtended(!isExtended)}
-              isExtended={isExtended}
-            >
+            <MapBtn onClick={() => setExtended(!isExtended)} isExtended={isExtended}>
               <Arrow>
                 {isExtended && 'Close map'}
                 {!isExtended && 'Open map'}
@@ -80,22 +77,13 @@ const Map: React.FC<Props> = ({ delay = 0, isMobile }) => {
             height="100%"
             mapboxApiAccessToken={process.env.GATSBY_MAPBOX_API_TOKEN}
             mapStyle="mapbox://styles/ptrszb/ck31d7k641qsn1co8k393vc5l"
-            onViewportChange={vp => {
+            onViewportChange={(vp: typeof viewport) => {
               setViewport({ ...vp })
             }}
             reuseMaps
           >
-            <Marker
-              latitude={47.51}
-              longitude={19.02}
-              offsetLeft={-25}
-              offsetTop={-25}
-            >
-              <AnimatedAvatar
-                src={Pic}
-                alt="my marker"
-                onClick={() => setOn(!on)}
-              />
+            <Marker latitude={47.51} longitude={19.02} offsetLeft={-25} offsetTop={-25}>
+              <AnimatedAvatar src={Pic} alt="my marker" onClick={() => setOn(!on)} />
             </Marker>
             {on && (
               <StyledPopup
@@ -107,7 +95,12 @@ const Map: React.FC<Props> = ({ delay = 0, isMobile }) => {
                 offsetLeft={15}
                 anchor="left"
               >
-                <p>Heyho! 👋</p>
+                <p>
+                  Heyho!{' '}
+                  <span role="img" aria-label="waving hand">
+                    👋
+                  </span>
+                </p>
               </StyledPopup>
             )}
           </ReactMapGL>
