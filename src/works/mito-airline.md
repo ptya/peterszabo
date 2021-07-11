@@ -1,8 +1,8 @@
 ---
 path: "/work/mito-airline"
-order: 1
+order: 3
 title: "Mito Airline"
-tags: ["WebApp", "HTML5","React","Jest","Animation", "Styled Components"]
+tags: ["React","Jest","Animation", "Styled Components"]
 images: [../assets/images/works/airline/01-home.png, ../assets/images/works/airline/02-selection.png]
 repos: ["https://github.com/ptya/mito-airline"]
 ---

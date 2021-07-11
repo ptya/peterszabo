@@ -10,10 +10,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const workTemplate = path.resolve(`src/works/WorkPage.tsx`)
   const result = await graphql(`
     {
-      allMarkdownRemark(
-        sort: { order: ASC, fields: [frontmatter___order] }
-        limit: 1000
-      ) {
+      allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___order] }, limit: 1000) {
         edges {
           node {
             frontmatter {
